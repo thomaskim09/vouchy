@@ -1,0 +1,17 @@
+<ng-container *ngIf='input'>
+  <ion-grid no-padding>
+    <ion-row class='bottom-tab' justify-content-center align-items-center>
+      <ion-col no-padding>
+        <button [ngClass]="{ 'active-btn': canDirectPurchase, 'disable-btn': !canDirectPurchase }"
+          (click)='confirmPay()' [disabled]='needSpinner' ion-button no-margin>
+          <ng-container *ngIf='!needSpinner'>
+            <span class='btn__text'>Confirm RM {{ totalPriceValue.toFixed(2) }}</span>
+          </ng-container>
+          <ng-container *ngIf='needSpinner'>
+            <ion-spinner></ion-spinner>
+          </ng-container>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-container>

@@ -1,0 +1,12 @@
+<ion-content overflow-scroll='true'>
+
+  <ion-tabs class='tabs' tabsPlacement='bottom'>
+    <ion-tab class='tab' [root]="pages[0].pageName" tabIcon="custom-home-outline-thin" [tabBadge]="homeTabBadge"
+      tabBadgeStyle="danger" (ionSelect)="removeHomeBadge()"></ion-tab>
+    <ion-tab class='tab' [root]="pages[1].pageName" tabIcon="custom-ticket-outline" [tabBadge]="ticketTabBadge"
+      tabBadgeStyle="danger" (ionSelect)="readTicket()"></ion-tab>
+    <ion-tab class='tab' [root]="pages[2].pageName" tabIcon="custom-user-outline" [tabBadge]="userTabBadge"
+      tabBadgeStyle="danger" (ionSelect)="removeUserBadge()"></ion-tab>
+  </ion-tabs>
+
+</ion-content>

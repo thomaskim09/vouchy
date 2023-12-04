@@ -1,0 +1,39 @@
+<ion-content overflow-scroll='true' class="master">
+  <voucher-detail-main [voucherMain]="voucherMain"></voucher-detail-main>
+
+  <voucher-detail-limited #voucherDetailLimited (buttonStatus)="voucherDetailButton.receivedData($event)"
+    [voucherLimitedContent]="voucherLimitedContent"></voucher-detail-limited>
+
+  <ng-container *ngIf="voucherType === 'SV'">
+    <voucher-detail-content [voucherContent]="voucherContent"></voucher-detail-content>
+  </ng-container>
+
+  <ng-container *ngIf="voucherType === 'QV'">
+    <voucher-detail-quantity [voucherQuantity]="voucherQuantity"></voucher-detail-quantity>
+  </ng-container>
+
+  <ng-container *ngIf="voucherType === 'CV'">
+    <voucher-detail-cash [voucherCash]="voucherCash"></voucher-detail-cash>
+  </ng-container>
+
+  <ng-container *ngIf="voucherType === 'MV'">
+    <voucher-detail-monthly [voucherMonthly]="voucherMonthly"></voucher-detail-monthly>
+  </ng-container>
+
+  <voucher-detail-rule (buttonStatus)="voucherDetailButton.receivedData($event)" [voucherRules]="voucherRules">
+  </voucher-detail-rule>
+
+  <voucher-detail-group [voucherGroup]="voucherGroup"></voucher-detail-group>
+
+  <voucher-detail-info [voucherInfo]="voucherInfo"></voucher-detail-info>
+
+  <voucher-detail-restaurant [restaurantDetails]="restaurantDetails"></voucher-detail-restaurant>
+
+  <voucher-detail-feedback [feedback]="feedback"></voucher-detail-feedback>
+
+</ion-content>
+
+<ion-footer>
+  <voucher-detail-button #voucherDetailButton (limitStatus)="voucherDetailLimited.receivedData($event)"
+    [voucherButton]="voucherButton"></voucher-detail-button>
+</ion-footer>

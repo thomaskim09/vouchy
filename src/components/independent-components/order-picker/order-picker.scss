@@ -1,0 +1,90 @@
+page-order-picker {
+
+  .picker-card {
+    position: absolute;
+    top: 34%;
+    left: 17%;
+    height: auto;
+    max-width: 63%;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 1em;
+    @include card-no-shadow();
+  }
+
+  button {
+    background-color: transparent;
+    text-align: left;
+  }
+
+  .item-line {
+    border-top: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .item-line-none {
+    border-top: none;
+  }
+
+  .button1 {
+    padding-bottom: 0.3em;
+  }
+
+  .button2 {
+    padding-top: 0.4em;
+  }
+
+  .first-icon {
+    font-size: 2em;
+    color: black;
+    position: relative;
+    right: 15%;
+  }
+
+  .first-title {
+    position: relative;
+    right: 8%;
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+    margin-left: 0.4em;
+  }
+
+  .second-icon {
+    position: relative;
+    right: 9%;
+    bottom: 0.1em;
+    color: black;
+    font-size: 2.1em;
+  }
+
+  .second-title {
+    position: relative;
+    bottom: 0.2em;
+    left: 1%;
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+  }
+
+  .hint {
+    padding: 0.25em 0 0 0;
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  .dark-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    @media (min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+
+}

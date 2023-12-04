@@ -1,0 +1,44 @@
+<ng-container *ngIf="input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="title">Information</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="content">
+        <ul class="list" no-padding no-margin>
+          <ion-row class="content-row" no-padding>
+            <ion-col no-padding>
+              <li class="list-item">{{ businessHour }}</li>
+              <li class="list-item">{{ getRestDay() }}</li>
+              <li class="list-item">{{ input.shortAreaName }}</li>
+              <li class="list-item">{{ getRestriction() }}</li>
+            </ion-col>
+          </ion-row>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="!input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="skeleton-title"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="content">
+        <ul class="list" no-padding no-margin>
+          <ion-row no-padding>
+            <ion-col class="skeleton-content-col" no-padding> </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col class="skeleton-content-col2" no-padding> </ion-col>
+          </ion-row>
+          <ion-row no-padding>
+            <ion-col class="skeleton-content-col" no-padding> </ion-col>
+          </ion-row>
+        </ul>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

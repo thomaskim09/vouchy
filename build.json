@@ -1,0 +1,18 @@
+{
+  "android": {
+    "debug": {
+      "keystore": "vouchy.keystore",
+      "storePassword": "Thomas0921@",
+      "alias": "vouchy",
+      "password": "Thomas0921@",
+      "keystoreType": ""
+    },
+    "release": {
+      "keystore": "vouchy.keystore",
+      "storePassword": "Thomas0921@",
+      "alias": "vouchy",
+      "password": "Thomas0921@",
+      "keystoreType": ""
+    }
+  }
+}

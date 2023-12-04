@@ -1,0 +1,15 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item tappable *ngFor='let item of citiesList' (click)='changeCity(item._id)'>
+          <span class='item-text'>{{item.city}} - {{item.shortName}}</span>
+        </ion-item>
+        <ion-item tappable (click)='close()'>
+          <span class='item-text grey'>Coming Soon... :)</span>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<div tappable class='popover-background' (click)='close()'></div>

@@ -1,0 +1,25 @@
+<ion-content overflow-scroll='true' class='master'>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ticket-detail-card [categoryDetails]='categoryDetails'></ticket-detail-card>
+
+  <ng-container *ngIf='pageNum === 1 && !categoryDetails'>
+    <img class='loading-gif' src="../../assets/gifs/loading.svg">
+  </ng-container>
+
+  <ng-container *ngIf='categoryDetails'>
+    <ng-container *ngIf='!categoryDetails.length'>
+      <span class='image-box'>
+        <img src="../../assets/imgs/no-ticket.png" class='center-image'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <ion-infinite-scroll [enabled]="needInfiniteScroll" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles"
+    loadingText="Loading...">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

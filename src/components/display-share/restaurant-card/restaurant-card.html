@@ -1,0 +1,38 @@
+<ng-container *ngIf='restaurantsList'>
+  <ion-card class='card' *ngFor='let restaurant of restaurantsList; let i=index'>
+    <ion-row tappable (click)='selectRestaurant(restaurant._id, restaurant.status)'>
+      <ion-col class='left-restaurant-content' col-3>
+        <img class='restaurant-image' [src]='restaurant.restaurantImage'>
+      </ion-col>
+      <ion-col class='right-restaurant-content'>
+        <ion-row>
+          <ion-col class='restaurant-name primary' [innerHTML]='restaurant.restaurantName' no-padding></ion-col>
+        </ion-row>
+        <ion-row>
+          <ng-container *ngIf="restaurant.status !== 'CL'">
+            <ng-container *ngIf='!restaurant.rating'>
+              <ion-col class='rating-col' col-7 no-padding>
+                <ion-icon class='rating-icon-grey' name='custom-star-outline-thin'></ion-icon>
+                <span class='rating-value-grey'>No rated yet</span>
+              </ion-col>
+            </ng-container>
+            <ng-container *ngIf='restaurant.rating'>
+              <ion-col no-padding>
+                <ion-icon class='rating-icon' name='custom-star'></ion-icon>
+                <span class='rating-value highlight'>{{ restaurant.rating }}</span>
+              </ion-col>
+            </ng-container>
+          </ng-container>
+          <ng-container *ngIf="restaurant.status === 'CL'">
+            <ion-col class='close-col' col-7 no-padding>
+              <span class='rating-value-grey'>Closed</span>
+            </ion-col>
+          </ng-container>
+          <ion-col class='restaurant-type tertiary' no-padding>
+            {{ restaurant.restaurantType }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

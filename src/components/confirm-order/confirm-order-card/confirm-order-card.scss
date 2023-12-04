@@ -1,0 +1,131 @@
+confirm-order-card {
+
+  .order-card {
+    border-radius: 0.5em;
+    margin: 0.3em auto;
+    height: 7.5em;
+    @include card-no-shadow();
+  }
+
+  .toggle-col {
+    max-width: 11.5%;
+  }
+
+  .checkBox {
+    position: relative;
+    left: 1.4em !important;
+    top: 2.9em;
+  }
+
+  .left-content {
+    padding: 0em;
+  }
+
+  .image-col {
+    height: 7.5em;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .right-content {
+    padding-top: 0em;
+    padding-left: 0.5em;
+  }
+
+  .bottom-row {
+    padding-top: 0.3em;
+  }
+
+  .bottom-right-col {
+    position: relative;
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+    width: 2em;
+    padding: 0.4em 0.5em 0.2em 0.2em;
+    @include text-truncate();
+  }
+
+  .tertiary {
+    color: $GREY_TEXT_WHITE;
+    font-size: 0.9em;
+    font-weight: 200;
+    padding-left: 0.3em;
+    padding-right: 0.8em;
+    width: 2em;
+    @include text-truncate();
+  }
+
+  .price-content {
+    position: absolute;
+    bottom: 0.4em;
+    padding-left: 0.4em;
+    padding-top: 0.5em;
+  }
+
+  .currency {
+    padding-top: 1.5em;
+    text-align: right;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .price {
+    font-size: 1.8em;
+    padding-top: 0.2em;
+    padding-right: 0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .control-box {
+    position: absolute;
+    right: 1em;
+    bottom: 0.65em;
+    width: 45%;
+    border: 1px solid $GREY_BORDER_LINE;
+    border-radius: 0.2em
+  }
+
+  .button {
+    height: 1em;
+    padding: 1em 0.5em;
+  }
+
+  .subtract-box {
+    border-right: 1px solid $GREY_BORDER_LINE;
+    font-size: 0.8em;
+  }
+
+  .subtract-text {
+    font-size: 1em;
+    color: $GREY_ICON_WHITE;
+  }
+
+  .delete-icon {
+    font-size: 1em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .quantity-box {
+    padding-top: 0.5em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+  }
+
+  .add-box {
+    border-left: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .add-text {
+    color: $GREY_ICON_WHITE;
+    font-size: 0.95em;
+  }
+
+}

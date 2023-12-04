@@ -1,0 +1,82 @@
+confirm-voucher-main {
+
+  .voucher-card {
+    margin: 0 auto;
+    height: 7.5em;
+    border-radius: 0.5em;
+    @include card-no-shadow();
+  }
+
+  .voucher-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .left-content {
+    padding: 0em;
+    height: 7.5em;
+  }
+
+  .right-content {
+    padding-top: 0em;
+    padding-left: 0.75em;
+  }
+
+  .bottom-right-col {
+    position: relative;
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+    width: 2em;
+    padding: 0.4em 0.5em 0.2em 0.2em;
+    @include text-truncate();
+  }
+
+  .tertiary {
+    color: $GREY_TEXT_WHITE;
+    font-size: 0.9em;
+    font-weight: 200;
+    width: 2em;
+    padding-left: 0.3em;
+    padding-right: 0.8em;
+    @include text-truncate();
+  }
+
+  .price-content {
+    position: absolute;
+    bottom: 0.4em;
+    padding-left: 0.4em;
+    padding-top: 0.5em;
+  }
+
+  .currency {
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+    padding-top: 1.5em;
+    text-align: right;
+  }
+
+  .new-price {
+    font-size: 2.4em;
+    padding-top: 0.2em;
+    padding-right: 0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .base-price {
+    margin-left: 0.2em;
+    color: $GREY_TEXT_WHITE;
+    text-decoration: line-through;
+    font-size: 0.9em;
+  }
+}

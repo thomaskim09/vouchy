@@ -1,0 +1,115 @@
+reservation-calendar {
+
+  ion-grid {
+    margin-top: 0.3em !important;
+  }
+
+  .scroll-content {
+    z-index: 1;
+  }
+
+  .calendar-card {
+    border-radius: 0.5em;
+    margin: 0 auto;
+    @include card-no-shadow();
+  }
+
+  .title {
+    margin-top: 1.3em;
+  }
+
+  .back-icon {
+    font-size: 1.5em;
+    position: absolute;
+    left: 4em;
+  }
+
+  .view-title {
+    font-size: 1.3em;
+  }
+
+  .next-icon {
+    font-size: 1.5em;
+    position: absolute;
+    right: 3.8em;
+  }
+
+  table {
+    border: none !important;
+    width: 90% !important;
+    margin: 0 auto;
+  }
+
+  th {
+    border: none !important;
+  }
+
+  small {
+    font-weight: 400 !important;
+  }
+
+  td {
+    width: 1.5em !important;
+    border: none !important;
+    border-radius: 5em !important;
+  }
+
+  td.text-muted {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  .monthview-selected {
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    @include my-img-shadow-blur();
+    border: none !important;
+  }
+
+  .monthview-current {
+    background-color: rgba($GRADIENT_TOP, 0.3) !important;
+  }
+
+  .event-detail-container {
+    border: none !important;
+    display: none !important;
+  }
+
+  .monthview-primary-with-event {
+    background-color: #f4f4f4 !important;
+    color: $GREY_TEXT_WHITE !important;
+  }
+
+  //Skeleton Screen//
+
+  .skeleton {
+    border-radius: 0.2em;
+    background-color: $GREY_SKELETON;
+    @include animated-background();
+  }
+
+  .skeleton-calendar-card {
+    @include card-no-shadow();
+    border-radius: 0.5em;
+    margin: 0 auto;
+    height: 22.5em;
+    padding: 1em 2em;
+  }
+
+  .skeleton-box {
+    height: 2.35em;
+    margin: 1em auto;
+    max-width: 10em;
+  }
+
+  .skeleton-row {
+    margin: 0.1em;
+  }
+
+  .skeleton-col {
+    height: 2.4em;
+    width: 1em;
+    border-radius: 3em;
+    margin: 0.2em;
+  }
+
+}

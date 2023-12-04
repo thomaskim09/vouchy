@@ -1,0 +1,84 @@
+page-home-detail {
+
+  ion-card,
+  .card-ios,
+  .card-md {
+    @include card-no-shadow();
+    border-radius: 0.5em !important;
+  }
+
+  .nav {
+    background-color: white;
+    max-height: 3.7em;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .nav-button {
+    margin: 0;
+    width: 4.5em;
+  }
+
+  .nav-button1 {
+    margin: 0;
+    width: 3em;
+    position: absolute;
+    top: -1.1em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .nav-icon-active {
+    font-size: 1.5em;
+    color: $GRADIENT_TOP;
+  }
+
+  .location-text {
+    font-size: 1.2em;
+    height: 100%;
+    color: $GREY_TEXT_WHITE_DARKER;
+    text-transform: capitalize;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    margin-right: 0.8em;
+  }
+
+  .caret-icon {
+    position: relative;
+    top: -0.1em;
+    left: -0.2em;
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .left-button {
+    right: 5.8em;
+    bottom: 0.1em;
+  }
+
+  .middle-button {
+    right: 2.9em;
+  }
+
+  .right-button {
+    right: 0.2em;
+  }
+
+  .notification-badge {
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 4em;
+    position: absolute;
+    right: 0.55em;
+    top: -0.8em;
+    @include my-gradient($RED_BADGE_TOP, $RED_BADGE_BOTTOM);
+    @include my-custom-shadow-blur($RED_BADGE_SHADOW);
+  }
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+}

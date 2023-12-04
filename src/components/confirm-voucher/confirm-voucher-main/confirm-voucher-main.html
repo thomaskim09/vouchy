@@ -1,0 +1,43 @@
+<ng-container *ngIf='input'>
+  <ion-grid>
+    <ion-card class='voucher-card'>
+      <ion-row>
+        <ion-col class='left-content' col-4>
+          <img class='voucher-image' [src]='input.voucherImage'>
+        </ion-col>
+        <ion-col class='right-content'>
+          <ion-row>
+            <ion-col class='primary' no-padding item-text-wrap>{{ input.voucherName }}</ion-col>
+          </ion-row>
+          <ng-container *ngIf='input.quantitySold !== 0'>
+            <ion-row>
+              <ion-col class='tertiary' no-padding>{{ input.quantitySold }} Sold</ion-col>
+            </ion-row>
+          </ng-container>
+          <ion-row>
+            <ion-col class='price-content' no-padding>
+
+              <span class='currency'>RM</span>
+
+              <ng-container *ngIf='!input.groupVoucherDetails'>
+                <span class='new-price'>{{ input.newPrice }}</span>
+              </ng-container>
+
+              <ng-container *ngIf='input.groupVoucherDetails'>
+                <ng-container *ngIf='quantity >= input.groupVoucherDetails[0].groupQuantity'>
+                  <span class='new-price'>{{ newPricePerUnit }}</span>
+                </ng-container>
+                <ng-container *ngIf='quantity < input.groupVoucherDetails[0].groupQuantity'>
+                  <span class='new-price'>{{ input.newPrice }}</span>
+                </ng-container>
+              </ng-container>
+
+              <span class='base-price'>RM {{ input.basePrice }}</span>
+
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>

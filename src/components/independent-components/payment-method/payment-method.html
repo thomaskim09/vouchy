@@ -1,0 +1,52 @@
+<ion-grid class='main-card' no-padding>
+  <ion-row>
+    <ion-col class='title'>
+      <span>Please select a payment method</span>
+    </ion-col>
+  </ion-row>
+  <ng-container *ngIf='isCashless()'>
+    <ion-row>
+      <ion-col>
+        <button class='btn boost-button' style="margin-top: 1.5em" (click)="choosePayment('BOOST')" ion-button
+          no-margin>
+          <ion-icon class='button-icon' name='custom-boost-pay-logo'></ion-icon>
+          <span class='button-text'>Boost</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button class='btn tng-button' (click)="choosePayment('TNG-EWALLET')" ion-button no-margin>
+          <ion-icon class='button-icon1' name='custom-tng-pay-logo'></ion-icon>
+          <span class='button-text'>Touch'n Go</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button class='btn fpx-button' (click)="choosePayment('fpx')" ion-button no-margin>
+          <ion-icon class='button-icon2' name='custom-fpx-logo'></ion-icon>
+          <span class='button-text'>Online Banking</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf='isCash()'>
+    <ion-row>
+      <ion-col>
+        <button class='btn cash-button' (click)="choosePayment('cash')" ion-button no-margin>
+          <ion-icon class='button-icon' name='custom-coins'></ion-icon>
+          <span class='button-text'>Pay by Cash</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+  <ion-row>
+    <ion-col class='hint'>
+      <span>{{getStatusText()}}</span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div tappable class='popover-background' (click)='close()'></div>

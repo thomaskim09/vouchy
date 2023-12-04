@@ -1,0 +1,50 @@
+location-pop-over {
+
+  .grid {
+    width: 12.5em !important;
+    padding: 0.2em 0.6em 0.1em 0.6em !important;
+  }
+
+  ion-grid {
+    position: absolute;
+    top: 2.8em;
+    left: 1em;
+    background-color: white;
+    border-radius: 0.5em;
+    width: 45%;
+    border: 1px solid $GREY_BORDER_LINE;
+  }
+
+  ion-list {
+    margin: 0 !important;
+  }
+
+  ion-item {
+    padding-left: 0 !important;
+  }
+
+  .item-text {
+    font-weight: 200;
+    position: relative;
+    left: 0.5em;
+  }
+
+  .grey {
+    color: $GREY_TEXT_WHITE;
+  }
+
+  ion-label {
+    margin: 0 !important;
+  }
+
+  .popover-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+
+    @media(min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+}

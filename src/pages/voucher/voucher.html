@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-7>
+        <ion-label class='header-title' [innerHTML]='restaurantName'></ion-label>
+      </ion-col>
+      <ion-col>
+        <button class='left-button' (click)='activeShare()' ion-button clear no-padding>
+          <ion-icon class='nav-icon' name='custom-share'></ion-icon>
+        </button>
+        <button class="middle-button" (click)="toggleFavourite(restaurantId)" ion-button clear no-padding>
+          <ion-icon *ngIf='isFavourited' class="nav-icon-highlight" name="custom-star"></ion-icon>
+          <ion-icon *ngIf="!isFavourited" class="nav-icon" name="custom-star-outline-thin"></ion-icon>
+        </button>
+        <button class='right-button' (click)='presentMenu()' ion-button clear no-padding>
+          <ion-icon class='nav-icon' name='custom-three-dot'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content overflow-scroll='true'>
+
+  <ng-container *ngIf='vouchersTitle && restaurant'>
+    <super-tabs #superTabs class='super-tab' toolbarBackground='white' indicatorColor='primary' scrollTabs=true
+      [selectedTabIndex]='selectedTabIndex'>
+      <ng-container *ngFor='let item of vouchersTitle; let i=index'>
+        <super-tab class='tab' [root]='page' [rootParams]='merge(item._id, restaurant)'
+          title='RM {{item.newPrice}} {{item.suitablePax}}'>
+        </super-tab>
+      </ng-container>
+    </super-tabs>
+  </ng-container>
+
+</ion-content>

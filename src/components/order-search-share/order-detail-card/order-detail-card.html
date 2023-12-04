@@ -1,0 +1,39 @@
+<ng-container *ngIf='menu'>
+  <ion-grid>
+    <ion-row>
+      <ion-col no-padding>
+        <ng-container *ngIf='menu.foodList'>
+          <div class='food-card-layout' *ngFor='let food of menu.foodList; let i=index'>
+            <ion-card class='food-card' no-margin (click)='presentRemark(food)'>
+              <ion-row>
+                <ion-col class='food-image-box' no-padding>
+                  <ng-container *ngIf='food.itemImage'>
+                    <img class='food-image' [src]='food.itemImage'>
+                  </ng-container>
+                  <ng-container *ngIf='!food.itemImage'>
+                    <img class='food-image' src='../../../assets/imgs/default-food-image-min.png'>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class='food-name'>{{needTranslate ? food.itemNameTranslated : food.itemName}}</ion-col>
+              </ion-row>
+              <ion-row class='price-content-row'>
+                <ion-col class='price-content'>
+                  <span class='currency'>RM</span>
+                  <span class='food-price'>{{food.itemPrice}}</span>
+                  <ng-container *ngIf='food.details && food.details.needRemark'>
+                    <ion-icon class='menu-more-icon' name='custom-menu-more'></ion-icon>
+                  </ng-container>
+                  <button class='add-button' (click)='presentRemark(food)' ion-button no-margin>
+                    <ion-icon class='plus-icon' name='custom-plus'></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-card>
+          </div>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-container>

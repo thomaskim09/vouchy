@@ -1,0 +1,36 @@
+  page-home {
+
+    * {
+      @include my-font();
+    }
+
+    .tabs-md .tabbar {
+      background-color: white;
+    }
+
+    .tabs-md .tab-button-icon {
+      font-size: 2.4em;
+      transform: none !important;
+    }
+
+    .badge {
+      @include my-gradient($RED_BADGE_TOP, $RED_BADGE_BOTTOM);
+      @include my-custom-shadow-blur($RED_BADGE_SHADOW);
+      border-radius: 50%;
+    }
+
+    .tab-badge {
+      top: 0.3em !important;
+      right: 2em !important;
+    }
+
+    ion-icon[class*="custom-home-outline-thin"] {
+      position: relative;
+      top: -0.05em;
+    }
+
+    ion-icon[class*="custom-ticket-outline"] {
+      font-size: 2.6em !important;
+    }
+
+  }

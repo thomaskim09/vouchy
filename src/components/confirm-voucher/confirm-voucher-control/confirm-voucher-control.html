@@ -1,0 +1,53 @@
+<ng-container *ngIf='input'>
+  <ion-grid>
+    <ion-card class='quantity-price-box'>
+      <ion-row>
+        <ion-col>
+          <ion-row>
+
+            <ion-col>
+              <ng-container *ngIf='!input.groupVoucherDetails'>
+                <span class='quantity-price'>RM {{ totalVoucherPrice }}</span>
+              </ng-container>
+
+              <ng-container *ngIf='input.groupVoucherDetails'>
+                <ion-row>
+                  <ion-col no-padding>
+                    <span [ngClass]="{'quantity-price': !input.groupVoucherDetails,
+                    'quantity-price--group': input.groupVoucherDetails}">
+                      RM {{ totalGroupPrice }}</span>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col no-padding>
+                    <span *ngIf='quantity < input.groupVoucherDetails[0].groupQuantity' class='price-diff'>
+                      {{ quantityLeftToFirstGroup }} more to save RM {{ initialSave }} </span>
+                    <span *ngIf='quantity >= input.groupVoucherDetails[0].groupQuantity' class='price-diff'>
+                      Saved RM {{ valueSave }} </span>
+                  </ion-col>
+                </ion-row>
+              </ng-container>
+            </ion-col>
+
+            <ion-col class='quantity-box' no-padding>
+              <ion-row>
+                <ion-col class='subtract-box' text-center no-padding>
+                  <button ion-button clear no-padding no-margin (click)='subtractQuantity()'>
+                    <ion-icon class='subtract-text' name='custom-minus-thin'></ion-icon>
+                  </button>
+                </ion-col>
+                <ion-col class='quantity-text' text-center no-padding>{{ quantity }}</ion-col>
+                <ion-col class='add-box' text-center no-padding>
+                  <button ion-button clear no-padding no-margin (click)='addQuantity()'>
+                    <ion-icon class='add-text' name='custom-plus-thin'></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>

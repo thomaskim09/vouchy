@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>Payment Page</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+
+<ion-content overflow-scroll='true' class='master'>
+  <div id='molpay' class='molpay'></div>
+</ion-content>

@@ -1,0 +1,112 @@
+page-restaurant {
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .left-button {
+    position: absolute;
+    right: 5.5em;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .middle-button {
+    position: absolute;
+    right: 2.9em;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .right-button {
+    position: absolute;
+    right: 0.5em;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .nav-icon-highlight {
+    font-size: 1.5em;
+    color: $GRADIENT_TOP;
+  }
+
+  .main-content {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  .scroll-content {
+    margin-bottom: 1em;
+  }
+
+  // Gallery
+  .gallery-slides {
+    height: 30%;
+  }
+
+  .swiper-pagination-bullets {
+    top: 10px;
+    bottom: 0;
+  }
+
+  .swiper-pagination-bullet {
+    opacity: 1;
+    background: white;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $GRADIENT_TOP;
+  }
+
+  .header-image-one {
+    height: 30%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .header-image {
+    height: 30%;
+    width: 100%;
+  }
+
+  // Main content
+  .shift-up {
+    position: relative;
+    top: -4em;
+    z-index: 1;
+  }
+
+  //Skeleton Screen//
+
+  .skeleton-restaurantImage {
+    @include my-custom-inner-shadow-bottom($GREY_SKELETON_SHADOW);
+    @include animated-background();
+  }
+}

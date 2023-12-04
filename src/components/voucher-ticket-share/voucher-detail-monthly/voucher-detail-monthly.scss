@@ -1,0 +1,85 @@
+voucher-detail-monthly {
+
+  .card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    width: 90%;
+    margin-top: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
+    @include card-no-shadow();
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.1em;
+    @include text-truncate-line(1);
+  }
+
+  .content {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-left: 1.5em;
+  }
+
+  .content-row {
+    padding-bottom: 0.4em;
+  }
+
+  .caret-icon-down {
+    position: relative;
+    bottom: -0.25em;
+    right: -0.2em;
+    font-size: 2em;
+    transform: rotate(0deg);
+    font-size: 1em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .show-more {
+    padding-right: 1.5em;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .highlight {
+    color: $GRADIENT_TOP;
+    font-weight: 500;
+  }
+
+  .content-item {
+    padding-bottom: 0.25em;
+  }
+
+  //Skeleton Screen
+  .skeleton-title {
+    height: 1.3em;
+    max-width: 8em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+  .skeleton-content {
+    padding-top: 0.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 0;
+  }
+
+  .skeleton-content-col {
+    height: 1.1em;
+    max-width: 12em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+  .skeleton-content-col2 {
+    position: absolute;
+    right: 0.5em;
+    height: 1.1em;
+    max-width: 4em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+}

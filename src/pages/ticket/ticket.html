@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col>
+        <ion-label class='header-title'>My Tickets</ion-label>
+      </ion-col>
+      <ng-container *ngIf='userId'>
+        <ion-col col-2>
+          <button class='nav-button1' (click)='presentMenu()' ion-button icon-only clear>
+            <ion-icon tappable class='history-icon' name='custom-history-thin' (click)='goToHistoryTicket()'></ion-icon>
+          </button>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true'>
+
+  <super-tabs class='super-tab' toolbarBackground='white' indicatorColor='primary' scrollTabs=true>
+    <super-tab class='tab' *ngFor='let pageInfo of pageInfo; let i=index' [root]='page' [id]='i' [rootParams]='pageInfo'
+      title='{{pageInfo.categoryName}}'></super-tab>
+  </super-tabs>
+
+</ion-content>

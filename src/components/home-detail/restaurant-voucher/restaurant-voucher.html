@@ -1,0 +1,132 @@
+<ng-container *ngIf='input'>
+  <ion-card class='card' *ngFor='let restaurant of input; let i=index'>
+    <ion-row tappable (click)='selectRestaurant(restaurant.id)'>
+      <ion-col class='left-restaurant-content' col-3>
+        <img class='restaurant-image' [src]='restaurant.restaurantImage'>
+      </ion-col>
+      <ion-col class='right-restaurant-content'>
+        <ion-row>
+          <ion-col oneTime class='restaurant-name primary' [innerHTML]='restaurant.restaurantName' no-padding></ion-col>
+        </ion-row>
+        <ion-row>
+          <ng-container *ngIf='!restaurant.rating'>
+            <ion-col class='rating-col' col-7 no-padding>
+              <ion-icon class='rating-icon-grey' name='custom-star-outline-thin'></ion-icon>
+              <span class='rating-value-grey'>No rated yet</span>
+            </ion-col>
+          </ng-container>
+          <ng-container *ngIf='restaurant.rating'>
+            <ion-col no-padding>
+              <span class='rating-value highlight'>{{ restaurant.rating }}</span>
+              <ion-icon class='rating-icon' name='custom-star'></ion-icon>
+            </ion-col>
+          </ng-container>
+          <ion-col class='restaurant-type tertiary' no-padding>
+            {{ restaurant.restaurantType }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ng-container *ngFor='let voucher of restaurant.vouchers; let j=index'>
+      <ion-row *ngIf='restaurant.toggleStatus ? j<5 : j<1' class='voucher-master'>
+        <ion-col no-padding>
+          <ion-row>
+            <ion-col class='divider-line' no-padding></ion-col>
+          </ion-row>
+          <ion-row tappable (click)='selectVoucher(restaurant.id, restaurant.restaurantName, j)'>
+
+            <ion-col class='voucher-content'>
+              <ion-row>
+                <ion-col class="voucher-name primary" [innerHTML]='voucher.voucherName' no-padding></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="price-content tertiary" no-padding col-9>
+                  <span class="currency highlight">RM</span>
+                  <span class="new-price">{{ voucher.newPrice }}</span>
+                  <span class="base-price">RM{{ voucher.basePrice }}</span>
+                </ion-col>
+                <ng-container *ngIf='voucher.quantitySold > 0'>
+                  <ion-col class="quantity-sold tertiary" no-padding>
+                    {{ voucher.quantitySold }} sold
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ion-col>
+
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container *ngIf='restaurant.vouchers.length >= 2'>
+      <ion-row class='voucher-master'>
+        <ion-col class='divider-line' no-padding></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col tappable (click)='toggleSection(i)' class='show-more-col' text-center>
+          <span *ngIf='!restaurant.toggleStatus' class='show-more highlight-thin'>
+            {{restaurant.vouchers.length - 1}} more vouchers
+            <ion-icon class='caret-icon-down' name='custom-caret-down'></ion-icon>
+          </span>
+          <span *ngIf='restaurant.toggleStatus' class='show-more highlight-thin'>
+            hide
+            <ion-icon class='caret-icon-down' name='custom-caret'></ion-icon>
+          </span>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<!-- Skeleton Screen below -->
+<ng-container *ngIf='!input.length'>
+  <ion-card class='skeleton-card' *ngFor='let restaurant of skeletonArray'>
+    <ion-row>
+      <ion-col class='left-restaurant-content'>
+        <div class='skeleton-restaurant-image skeleton'></div>
+      </ion-col>
+      <ion-col class='right-restaurant-content'>
+        <ion-row>
+          <ion-col class='skeleton-restaurant-name skeleton' no-padding></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='skeleton-rating skeleton' no-padding></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='skeleton-restaurant-type skeleton' no-padding></ion-col>
+          <ion-col class='skeleton-cost-per-pax skeleton' no-padding></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ng-container *ngFor='let voucher of skeletonChildrenArray; let j=index'>
+      <ion-row class='voucher-master'>
+        <ion-col no-padding>
+          <ion-row>
+            <ion-col class='divider-line' no-padding></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-row>
+                <ion-col class='skeleton-voucher-name skeleton'></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class='skeleton-price skeleton'></ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-container>
+      <ion-row class='voucher-master'>
+        <ion-col class='divider-line' no-padding></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='skeleton-show-more-col skeleton' text-center></ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-card>
+</ng-container>

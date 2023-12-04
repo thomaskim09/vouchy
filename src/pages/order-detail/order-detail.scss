@@ -1,0 +1,19 @@
+page-order-detail {
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  .card-content {
+    padding-top: 0.7em;
+  }
+
+  // Loading gif
+  .loading-gif {
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    left: 38%;
+    top: 35%;
+  }
+}

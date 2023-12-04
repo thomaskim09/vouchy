@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-grid class="nav">
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-7>
+        <ion-label class="header-title" [innerHTML]='restaurantDetails?.restaurantName'></ion-label>
+      </ion-col>
+      <ion-col>
+        <button (click)="activeShare()" class="left-button" ion-button clear no-padding>
+          <ion-icon class="nav-icon" name="custom-share"></ion-icon>
+        </button>
+        <button (click)="toggleFavourite(restaurantId)" class="middle-button" ion-button clear no-padding>
+          <ion-icon *ngIf='isFavourited' class="nav-icon-highlight" name="custom-star"></ion-icon>
+          <ion-icon *ngIf="!isFavourited" class="nav-icon" name="custom-star-outline-thin"></ion-icon>
+        </button>
+        <button (click)="presentMenu()" class="right-button" ion-button clear no-padding>
+          <ion-icon class="nav-icon" name="custom-three-dot"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class="main-content">
+  <ng-container *ngIf="restaurantDetails">
+    <ng-container *ngIf='!checkImageList()'>
+      <img class='header-image-one' [src]='restaurantDetails.restaurantImage'>
+    </ng-container>
+    <ng-container *ngIf='checkImageList()'>
+      <ion-slides class='gallery-slides' autoplay="4000" speed="2000" pager='true' loop="true">
+        <ion-slide>
+          <img class='header-image' [src]='restaurantDetails.restaurantImage'>
+        </ion-slide>
+        <ng-container *ngFor='let item of restaurantDetails.restaurantImageList'>
+          <ion-slide>
+            <img class='header-image' [src]='item'>
+          </ion-slide>
+        </ng-container>
+      </ion-slides>
+    </ng-container>
+  </ng-container>
+  <!-- skeleton screen -->
+  <ng-container *ngIf="!restaurantDetails">
+    <div class="header-image skeleton-restaurantImage"></div>
+  </ng-container>
+
+  <div class='shift-up'>
+    <restaurant-detail-main [restaurantDetailMain]="restaurantDetailMain"></restaurant-detail-main>
+    <restaurant-detail-info [restaurantDetailInfo]="restaurantDetailInfo"></restaurant-detail-info>
+    <restaurant-detail-voucher [restaurantDetailVouchers]="restaurantDetailVouchers" [restaurantInfo]='restaurantInfo'>
+    </restaurant-detail-voucher>
+    <voucher-detail-feedback [feedback]="feedback"></voucher-detail-feedback>
+  </div>
+</ion-content>

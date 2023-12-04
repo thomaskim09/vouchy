@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-11>
+        <ion-label class='header-title' [innerHTML]='restaurantName'></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='main-content'>
+  <reservation-calendar [reservationCalendar]='reservationCalendar'></reservation-calendar>
+  <reservation-input [reservationInput]='reservationInput'></reservation-input>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <reservation-button [reservationButton]='reservationButton'></reservation-button>
+  </ion-toolbar>
+</ion-footer>

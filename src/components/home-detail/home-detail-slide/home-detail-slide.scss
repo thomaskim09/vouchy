@@ -1,0 +1,19 @@
+home-detail-slide {
+
+  .slide {
+    min-height: 7em;
+  }
+
+  .slide-card {
+    min-height: 6em;
+    max-height: 6em;
+    border-radius: 0.5em;
+    border: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .slide-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+}

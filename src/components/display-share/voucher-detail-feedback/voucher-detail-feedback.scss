@@ -1,0 +1,170 @@
+voucher-detail-feedback {
+  .card {
+    border-radius: 0.5em;
+    width: 90%;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.8em;
+    @include card-no-shadow();
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.3em;
+  }
+
+  .ngIf-div {
+    display: inline !important;
+  }
+
+  .left-content {
+    max-width: 3em;
+  }
+
+  .image-box {
+    position: absolute;
+    height: 2.6em;
+    width: 2.6em;
+  }
+
+  .profileImage {
+    height: 2.6em;
+    width: 2.6em;
+    object-fit: cover;
+    border-radius: 10em;
+    @include my-img-shadow();
+  }
+
+  .username-col {
+    padding-top: 0.3em;
+    padding-bottom: 0.2em;
+  }
+
+  .username {
+    color: $GREY_TEXT_WHITE;
+    padding-left: 0;
+    position: relative;
+    top: -0.3em;
+  }
+
+  .rating {
+    padding-left: 0.4em;
+  }
+
+  .rating-icon {
+    font-size: 0.8em;
+    position: relative;
+    bottom: 0.3em;
+    left: 0.3em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .rating-value {
+    position: relative;
+    top: -0.27em;
+    left: 0.2em;
+    font-weight: 400;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .time-col {
+    text-align: right;
+  }
+
+  .feedback-time {
+    font-size: 0.9em;
+    color: $GREY_TEXT_WHITE;
+    position: relative;
+    top: -0.3em;
+  }
+
+  .middle-row {
+    padding-left: 0.4em;
+    padding-bottom: 0.2em;
+  }
+
+  .content {
+    font-weight: 400;
+  }
+
+  img {
+    display: inline !important;
+  }
+
+  .image-upload-box {
+    max-width: 4em;
+    max-height: 4em;
+  }
+
+  .image-uploaded {
+    min-height: 4em;
+    max-height: 4em;
+    width: 4em;
+    height: 4em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    margin-right: 0.1em;
+    @include my-img-shadow();
+  }
+
+  .voucher-icon {
+    font-size: 1.7em;
+    margin-left: 0.2em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .voucher-text {
+    padding-left: 0.2em;
+    position: relative;
+    bottom: 0.45em;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .restaurant-reply-title {
+    color: $GREY_TEXT_WHITE;
+    padding-left: 2.4em;
+    padding-bottom: 0;
+    padding-top: 0.5em;
+  }
+
+  .restaurant-reply-content {
+    padding-left: 2.4em;
+    font-weight: 400;
+  }
+
+  .line {
+    border-bottom: 1px solid $GREY_LINE_GREY;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em
+  }
+
+  .caret-icon-down {
+    position: relative;
+    bottom: -0.2em;
+    right: -0.2em;
+    transform: rotate(0deg);
+    font-size: 1em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .show-more {
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .imageBox {
+    width: 100%;
+    height: 100%;
+  }
+
+  .loginImage {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 5em;
+  }
+
+}

@@ -1,0 +1,100 @@
+voucher-detail-rule {
+
+  .card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    @include card-no-shadow();
+    width: 90%;
+    margin: 0.5em auto 0.7em auto;
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.1em;
+  }
+
+  .content {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-left: 1.5em;
+  }
+
+  .valid-date {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .valid-time {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .highlight {
+    color: $GRADIENT_TOP;
+    font-weight: 500;
+  }
+
+  .voucher-rule {
+    padding-left: 0;
+  }
+
+  .list {
+    padding-left: 1.5em;
+  }
+
+  .content-row {
+    padding-bottom: 0.4em;
+  }
+
+  .caret-icon-down {
+    position: relative;
+    bottom: -0.25em;
+    right: -0.2em;
+    font-size: 2em;
+    transform: rotate(0deg);
+    font-size: 1em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .show-more {
+    padding-right: 1.5em;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  //Skeleton Screen////////////////////////////////////////////////////
+
+  .skeleton-title {
+    height: 1.3em;
+    max-width: 8em;
+    margin-bottom: 0.4em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+  .skeleton-content-col {
+    height: 1.1em;
+    max-width: 50%;
+    margin-bottom: 0.2em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+  .skeleton-content-col2 {
+    height: 1.1em;
+    max-width: 20%;
+    margin-bottom: 0.2em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+  .skeleton-content-col3 {
+    margin-left: 3em;
+    height: 1.1em;
+    max-width: 90%;
+    margin-bottom: 0.2em;
+    border-radius: 0.2em;
+    @include animated-background();
+  }
+
+}

@@ -1,0 +1,8 @@
+{
+  "name": "vouchy",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "watchPatterns": "www"
+}

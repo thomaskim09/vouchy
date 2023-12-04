@@ -1,0 +1,94 @@
+page-search-item {
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    background-color: white;
+    @include card-no-shadow();
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+    position: relative;
+    bottom: 0.02em;
+  }
+
+  .search-bar {
+    background-color: $GREY_SEARCH_BAR;
+    border-radius: 2em;
+    max-height: 2em;
+    min-height: 2em;
+    padding-left: 2.3em;
+    padding-top: 0.45em;
+    font-size: 1.1em;
+    width: 95%;
+  }
+
+  .search-bar-icon {
+    position: absolute;
+    top: 0.8em;
+    left: 1em;
+    font-size: 1.1em;
+    color: $GREY_ICON_GREY;
+  }
+
+  .nav-icon1 {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  .item-md {
+    padding-right: 16px;
+  }
+
+  .item-name-box {
+    width: 77%;
+    @include text-truncate();
+  }
+
+  .item-name {
+    position: relative;
+    left: 0.3em;
+  }
+
+  .item-price {
+    position: absolute;
+    right: 1.5em;
+    bottom: 0.8em;
+  }
+
+  .no-record {
+    position: relative;
+    left: 1em;
+  }
+
+  .not-available-div {
+    margin-top: 3em;
+  }
+
+  .not-available {
+    color: $GREY_TEXT_GREY;
+    font-size: 1.2em;
+    width: 12em;
+    text-align: center;
+  }
+}

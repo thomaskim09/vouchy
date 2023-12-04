@@ -1,0 +1,25 @@
+<ion-card class='picker-card'>
+  <ion-row>
+    <ion-col>
+      <button clear ion-button full no-padding class="button1" (click)="goToTerm()">
+        <span class="first-title">Terms & Conditions</span>
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class='item-line'>
+      <button clear ion-button full no-padding class="button2" (click)="goToRefund()">
+        <span class="second-title">Refund Policy</span>
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class='item-line'>
+      <button clear ion-button full no-padding class="button2" (click)="goToPrivacy()">
+        <span class="second-title">Privacy Policy</span>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+<div tappable class="dark-background" (click)="close()"></div>

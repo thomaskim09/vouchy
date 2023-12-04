@@ -1,0 +1,136 @@
+ticket-detail-card {
+
+  .ticket-card {
+    width: 85%;
+    height: 7.5em;
+    float: right;
+    border-radius: 0.5em;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    margin-right: 1.5em;
+    z-index: 1;
+    @include card-no-shadow();
+  }
+
+  .image-box {
+    height: 5.7em;
+    width: 5.7em;
+  }
+
+  .voucher-image {
+    width: 5.7em;
+    height: 5.7em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    @include my-img-shadow();
+  }
+
+  .left-content {
+    padding-top: 0.8em;
+    position: absolute;
+    left: 4%;
+  }
+
+  .right-content {
+    padding-top: 0.6em;
+    padding-left: 5.6em;
+  }
+
+  .bottom-row {
+    padding-top: 0.3em;
+  }
+
+  .price-content {
+    padding-left: 0.3em;
+    padding-top: 0.4em;
+    padding-bottom: 0;
+    @include text-truncate();
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.2em;
+    padding-left: 0.2em;
+    padding-right: 0.4em;
+    @include text-truncate();
+  }
+
+  .secondary {
+    position: relative;
+    top: -0.2em;
+    padding-left: 0.35em;
+    font-size: 0.9em;
+    padding-right: 0.5em;
+    @include text-truncate();
+  }
+
+  .expired-text {
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .highlight-secondary-text {
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .secondary-text {
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .currency {
+    text-align: right;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .new-price {
+    font-size: 2.2em;
+    padding-right: 0.05em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .base-price {
+    color: $GREY_TEXT_WHITE;
+    text-decoration: line-through;
+    font-size: 0.9em;
+  }
+
+  .reserve-time {
+    font-size: 2.2em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .reserve-section {
+    font-size: 1.2em;
+    text-align: right;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+    position: relative;
+    right: 0.2em;
+  }
+
+  .get-button {
+    position: absolute;
+    right: 0.2em;
+    border-radius: 15em;
+    height: 2em;
+    bottom: -2.3em;
+    z-index: 5;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    @include my-img-shadow-blur();
+  }
+
+  .get-button-text {
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    text-transform: capitalize;
+    color: white;
+  }
+
+}

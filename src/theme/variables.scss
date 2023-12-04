@@ -1,0 +1,142 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+@media only screen and (min-width: 768px) and (min-height: 600px) {
+  .md .modal-wrapper {
+    pointer-events: none;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$colors: (primary: #ff9566,
+  secondary: #636363,
+  tertiary: #a0a0a0,
+  danger: #f53d3d,
+  white: #FFFFFF,
+  light: #F3F3F3,
+  dark: #222);
+
+$GRADIENT_TOP: #ff9566;
+$GRADIENT_BOTTOM: #ff7f65;
+$GREY_BODY_BACKGROUND: #F3F3F3;
+$GREY_ICON_WHITE: #c7c7c7;
+$GREY_ICON_WHITE_DARKER: #8e8e8e;
+$GREY_ICON_GREY: #787878;
+$GREY_TEXT_WHITE: #a0a0a0;
+$GREY_TEXT_WHITE_DARKER: #636363;
+$GREY_TEXT_GREY: #787878;
+$GREY_LINE_GREY: rgb(215, 215, 215);
+$GREY_BORDER_LINE: #dedede;
+$GREY_SEARCH_BAR: #F3F3F3;
+$GREY_SEARCH_BAR_ACTIVE: #e8e8e8;
+$GREY_GRAB_BUTTON: #c4c1c1;
+$RED_DOT: #ff3a3a;
+$ORANGE_ICON: #ff9266;
+$ORANGE_ICON_SHADOW: #ff9466;
+$YELLOW_ICON: #ffcc00;
+$YELLOW_ICON_SHADOW: #ffde26;
+$GREEN_ICON: #0be800;
+$GREEN_ICON_SHADOW: #17994b;
+$BLUE_ICON: #1000e1;
+$BLUE_ICON_SHADOW: #3022e5;
+$ONLINE_LIGHT_BLUE_TOP: #67e6dc;
+$ONLINE_LIGHT_BLUE_BOTTOM: #54cac0;
+$DINE_IN_ORANGE_TOP: #ffaf40;
+$DINE_IN_ORANGE_BOTTOM: #eb9e33;
+$BOOST_RED: #EC3024;
+$BOOST_RED_TOP: #EC3024;
+$BOOST_RED_BOTTOM: #e23c30;
+$BOOST_RED_SHADOW: #e02518;
+$TNG_BLUE_TOP: #2A2C69;
+$TNG_BLUE_BOTTOM: #22245e;
+$TNG_BLUE_SHADOW: #24265e;
+$FPX_BLUE: #1A8ACB;
+$FPX_BLUE_TOP: #2c99d8;
+$FPX_BLUE_BOTTOM: #1377b1;
+$FPX_BLUE_SHADOW: #0f7dbd;
+$CASH_YELLOW_TOP: #fdb900;
+$CASH_YELLOW_BOTTOM: #fd8f00;
+$CASH_YELLOW_SHADOW: #fda400;
+$MESSENGER_BLUE: #0084FF;
+$LINE_GREEN: #00c300;
+$RED_BADGE_TOP: #f86c60;
+$RED_BADGE_BOTTOM: #eb4434;
+$RED_BADGE_SHADOW: #f85032;
+$GREY_BUTTON_INACTIVE: #d8d8d8;
+$GREY_SKELETON: #f0f0f0;
+$GREY_SKELETON_SHADOW: #bdbdbd;
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";

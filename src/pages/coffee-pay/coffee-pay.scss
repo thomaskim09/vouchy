@@ -1,0 +1,189 @@
+page-coffee-pay {
+
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  // Form
+  .form-card {
+    border-radius: 0.5em;
+    margin: 0.7em auto;
+    padding: 1em 0.8em;
+    @include card-no-shadow();
+  }
+
+  .content-card {
+    height: 10em;
+  }
+
+  .input-title {
+    font-size: 1.3em;
+    position: relative;
+    top: 0.1em;
+  }
+
+  .amount {
+    .text-input {
+      position: relative;
+      top: 0.1em;
+    }
+  }
+
+  .user-input {
+    .text-input {
+      font-size: 1.4em;
+      margin: 0;
+    }
+  }
+
+  .user-textarea {
+    .text-input {
+      font-size: 1.4em;
+      margin: 0;
+      height: 5.5em;
+    }
+  }
+
+  // payment method
+  .box {
+    position: absolute;
+    top: 0.3em;
+    right: 2.3em;
+    border-radius: 15em;
+    padding: 0.25em;
+  }
+
+  .boost {
+    @include my-gradient($BOOST_RED_TOP, $BOOST_RED_BOTTOM);
+    @include my-custom-shadow-blur($BOOST_RED_SHADOW);
+  }
+
+  .tng {
+    @include my-gradient($TNG_BLUE_TOP, $TNG_BLUE_BOTTOM);
+    @include my-custom-shadow-blur($TNG_BLUE_SHADOW);
+  }
+
+  .fpx {
+    @include my-gradient($FPX_BLUE_TOP, $FPX_BLUE_BOTTOM);
+    @include my-custom-shadow-blur($FPX_BLUE_SHADOW);
+  }
+
+  .payment-box-text {
+    font-weight: 400;
+    color: white;
+    padding: 0 1em 0.8em 1em;
+    text-align: right;
+    font-size: 1em;
+  }
+
+  .tab-text {
+    font-size: 1.3em;
+  }
+
+  .more-icon {
+    position: absolute;
+    right: 0.4em;
+    top: 0.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+    font-size: 1.1em;
+  }
+
+  // isAnnonymous
+  .checkbox-title {
+    font-size: 1.3em;
+    margin-left: 0.2em;
+  }
+
+  .checkbox {
+    margin: 0 !important;
+  }
+
+  .checkbox-icon {
+    margin-top: 0.2em;
+    border-color: $GREY_ICON_WHITE !important;
+  }
+
+  .checkbox-checked {
+    border-color: $GRADIENT_TOP !important;
+  }
+
+  // Note
+  .content {
+    font-size: 1em;
+    color: $GREY_TEXT_GREY;
+    padding: 0 1em;
+  }
+
+  // Button
+  .bottom-tab {
+    background-color: white;
+    min-height: 4.4em;
+    max-height: 4.4em;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .footer-button {
+    border-radius: 15em;
+    margin-bottom: -0.4em;
+    margin-left: 2.5%;
+    height: 3.2em;
+    width: 94%;
+    @include my-img-shadow-blur();
+  }
+
+  .footer-button-inactive {
+    border-radius: 15em;
+    margin-bottom: -0.3em;
+    margin-left: 2.5%;
+    height: 3.2em;
+    width: 94%;
+    background-color: $GREY_GRAB_BUTTON;
+    @include my-custom-shadow($GREY_TEXT_WHITE);
+  }
+
+  .footer-button-text {
+    font-size: 1.8em;
+    font-weight: 400;
+    padding-top: 1em;
+    padding-bottom: 1.1em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    text-transform: capitalize;
+  }
+}

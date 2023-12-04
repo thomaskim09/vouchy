@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>{{title}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <ng-container *ngIf="type === 'months'">
+    <ng-container *ngIf='!monthList'>
+      <span class='image-box'>
+        <img src="../../assets/imgs/no-bill-history.png" class='center-image'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'months'">
+    <ng-container *ngFor='let item of monthList'>
+      <ion-grid class='card-grid'>
+        <ion-card tappable class='list-card' (click)='viewMonth(item)'>
+          <ion-row>
+            <ion-col class='content-col' col-10>
+              <span class='primary'>{{getMonthFormat(item.month)}} {{item.year}}</span>
+              <span class='secondary'>({{item.count}} bill<span *ngIf="item.count > 1">s</span>)</span>
+            </ion-col>
+            <ion-col>
+              <ion-icon class='more-icon' name='custom-more'></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-grid>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'days'">
+    <ng-container *ngFor='let item of dayList'>
+      <ion-grid class='card-grid'>
+        <ion-card tappable class='list-card' (click)='viewDay(item)'>
+          <ion-row>
+            <ion-col class='content-col' col-10>
+              <span class='primary'>{{item.day}} {{getMonthFormat(item.month)}}</span>
+              <span class='secondary'>({{item.count}} bill<span *ngIf="item.count > 1">s</span>)</span>
+            </ion-col>
+            <ion-col>
+              <ion-icon class='more-icon' name='custom-more'></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-grid>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'orders'">
+    <ng-container *ngIf='!orderList.length'>
+      <span class='image-box'>
+        <img src="../../assets/imgs/no-bill-history.png" class='center-image'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'tempOrders'">
+    <ng-container *ngIf='!orderList.length'>
+      <span class='image-box'>
+        <img src="../../assets/imgs/no-temp-bill-history.png" class='center-image'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'orders' || type === 'tempOrders'">
+    <ng-container *ngFor='let item of orderList'>
+      <ion-grid class='card-grid'>
+        <ion-card tappable class='list-card' (click)='viewOrder(item)'>
+          <ion-row>
+            <ion-col class='content-col' col-11>
+              <span class='primary'>RM{{item.totalPrice.toFixed(2)}}</span>
+              <span class='secondary'>({{item.createdTime}})</span>
+            </ion-col>
+            <ion-col>
+              <ion-icon class='more-icon' name='custom-more'></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-grid>
+    </ng-container>
+  </ng-container>
+
+  <ion-infinite-scroll [enabled]="type === 'orders' || type === 'tempOrders' && needInfiniteScroll"
+    (ionInfinite)="loadMore($event)" loadingSpinner="bubbles">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

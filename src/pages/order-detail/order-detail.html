@@ -1,0 +1,29 @@
+<ion-content overflow-scroll='true' class='master'>
+
+  <order-detail-slide [menu]='menu' [restaurantId]='restaurantId' [categoryIndex]='categoryIndex'></order-detail-slide>
+
+  <div class='card-content'>
+    <order-detail-card [menu]='menu' [orderCart]='orderCart'></order-detail-card>
+  </div>
+
+  <ng-container *ngIf='pageNum === 1 && !menu.foodList.length'>
+    <img class='loading-gif' src="../../assets/gifs/loading.svg">
+  </ng-container>
+
+  <div [ngStyle]="{'height': checkIfSpace()}"></div>
+
+  <ion-infinite-scroll [enabled]="needInfiniteScroll" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles"
+    loadingText="Loading...">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+<ion-footer>
+  <ng-container *ngIf='checkIfCall()'>
+    <order-call [menu]='menu' [itemInCart]='itemInCart'></order-call>
+  </ng-container>
+  <ng-container *ngIf='itemInCart'>
+    <order-button [menu]='menu' [orderCart]='orderCart'></order-button>
+  </ng-container>
+</ion-footer>

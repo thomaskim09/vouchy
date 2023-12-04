@@ -1,0 +1,35 @@
+<ng-container *ngIf='input'>
+  <ion-card class='card'>
+    <ion-row>
+      <ion-col class='title'>Purchase Details</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class='content'>
+        <ion-row class='content-row'>
+          <ion-col col-5 no-padding>Purchase Time:</ion-col>
+          <ion-col no-padding>{{input.purchaseTime}}</ion-col>
+        </ion-row>
+        <ion-row class='content-row' *ngIf='input.pricePerUnit !== 0'>
+          <ion-col col-5 no-padding>Payment Method:</ion-col>
+          <ion-col no-padding>{{input.paymentMethod}}</ion-col>
+        </ion-row>
+        <ion-row class='content-row' *ngIf='input.paymentOffer'>
+          <ion-col col-5 no-padding>Payment Offer:</ion-col>
+          <ion-col no-padding>RM {{input.paymentOffer}}</ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-5 no-padding>Price Per Unit:</ion-col>
+          <ion-col no-padding>RM {{input.pricePerUnit}}</ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-5 no-padding>Quantity:</ion-col>
+          <ion-col no-padding>{{input.quantity}} Unit</ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-5 no-padding>Total Price:</ion-col>
+          <ion-col no-padding>RM {{totalPrice}}</ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

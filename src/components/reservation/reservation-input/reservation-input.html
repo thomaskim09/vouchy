@@ -1,0 +1,83 @@
+<ng-container *ngIf='input'>
+  <form [formGroup]='form'>
+    <ion-grid>
+      <ion-card class='input-card'>
+        <ion-row>
+          <ion-col>
+            <ion-icon class='icon-group' name='custom-people'></ion-icon>
+            <ion-input class='input-text' type='number' placeholder='2 People' formControlName='myPax'
+              [attr.maxlength]="3">
+            </ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-icon class='icon-group' name='custom-time'></ion-icon>
+            <ion-datetime class='input-text' formControlName='myTime' displayFormat="h:mma" minuteValues="0,15,30,45"
+              placeholder='3:00 pm'>
+            </ion-datetime>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon class='icon-group' name='custom-user-outline'></ion-icon>
+            <ion-input class='input-text' placeholder='Lucy' formControlName='nameInput' [attr.maxlength]='15'>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-icon class='icon-group' name='custom-phone'></ion-icon>
+            <ion-input class='input-text' type='number' placeholder='018 452 3612' formControlName='contactInput'
+              [attr.maxlength]='10'>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ng-container *ngFor='let item of input.remarkManual; let i = index'>
+          <ion-row>
+            <ion-col>
+              <ion-icon class='icon-group' name='custom-guide'></ion-icon>
+              <ion-select class='select-text' [placeholder]='item.remarkTitle'
+                (ionChange)='selectChanged(item.remarkDetails, i, $event)' [multiple]="item.remarkType === 'CB'">
+                <span *ngFor='let child of item.remarkDetails; let j=index'>
+                  <ion-option [selected]='j==0' value={{j}}> {{child.remarkName}} </ion-option>
+                </span>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+        <ion-row>
+          <ion-col>
+            <ion-icon class='icon-group' name='custom-document'></ion-icon>
+            <ion-input class='input-text' placeholder="Remark (If any)" formControlName='remarkInput'
+              [attr.maxlength]='40'>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+  </form>
+</ng-container>
+
+<ng-container *ngIf='!input'>
+  <ion-grid>
+    <ion-card class='skeleton-input-card'>
+      <ion-row>
+        <ion-col class='skeleton-half skeleton'>
+        </ion-col>
+        <ion-col class='skeleton-half skeleton'>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='skeleton-half skeleton'>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='skeleton-half skeleton'>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='skeleton-half skeleton'>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>

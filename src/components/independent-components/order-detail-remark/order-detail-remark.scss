@@ -1,0 +1,140 @@
+order-detail-remark {
+
+  .card-holder {
+    position: absolute;
+    top: 20%;
+    margin-left: 15%;
+    width: 70%;
+  }
+
+  .main-card {
+    padding: 1.2em !important;
+    padding-bottom: 5.3em !important;
+    border-radius: 0.5em;
+    background-color: white;
+    position: relative;
+  }
+
+  .scrollable {
+    height: auto;
+    min-height: 11em;
+    max-height: 15em;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    @include my-inner-shadow-bottom();
+  }
+
+  ion-select {
+    max-width: 100%;
+    margin-bottom: 0.3em !important;
+  }
+
+  .select-md {
+    padding: 0.7em;
+  }
+
+  .combo-box-text {
+    font-weight: 200;
+  }
+
+  .combo-box {
+    width: 100%;
+    margin-top: 0.35em;
+    margin-bottom: 1em;
+    border: 1px solid $GREY_BORDER_LINE;
+    border-radius: 0.5em;
+  }
+
+  .list-md {
+    padding: 0.7em;
+  }
+
+  .text-input-md {
+    margin: 0.7em;
+  }
+
+  .input-box-text {
+    font-weight: 200;
+  }
+
+  .input-box {
+    margin-top: 0.35em;
+    margin-bottom: 0.5em;
+    border: 1px solid $GREY_BORDER_LINE;
+    border-radius: 0.5em;
+  }
+
+  .bottom-col {
+    position: absolute;
+    bottom: 1em;
+  }
+
+  .price-content {
+    position: absolute;
+    bottom: 0.35em;
+  }
+
+  .currency {
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+    text-align: right;
+    font-size: 1.5em;
+  }
+
+  .price {
+    font-size: 2.4em;
+    padding-top: 0.2em;
+    padding-right: 0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .add-button {
+    position: absolute;
+    border-radius: 15em;
+    bottom: 0.1em;
+    right: 2.4em;
+    width: 3.5em;
+    height: 3.5em;
+    @include my-img-shadow-blur();
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .plus-icon {
+    font-size: 2em;
+    position: absolute;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
+    color: white;
+  }
+
+  // Description
+  .second-card {
+    padding: 1.2em !important;
+    border-radius: 0.5em;
+    background-color: white;
+    min-height: 5em;
+    height: auto;
+    max-height: 8em;
+    position: relative;
+  }
+
+  .description-title {
+    padding-top: 0em;
+    padding-bottom: 0.2em;
+  }
+
+
+  .popover-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    @media(min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<ng-container *ngIf="input">
+  <ion-card tappable class="card" (click)="navigateToRestaurant()">
+    <ion-row>
+      <ion-col class="title">Restaurant's Information</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="left-content">
+        <img [src]="input.details.restaurantImage" />
+      </ion-col>
+      <ion-col class="middle-content">
+        <ion-row>
+          <ion-col class="restaurantName">
+            {{ input.details.restaurantName }}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ng-container *ngIf='!input.details.rating'>
+            <ion-col no-padding>
+              <ion-icon class='rating-icon-grey' name='custom-star-outline-thin'></ion-icon>
+              <span class='rating-value-grey'>No rated yet</span>
+            </ion-col>
+          </ng-container>
+          <ng-container *ngIf='input.details.rating'>
+            <ion-col class='rating-row'>
+              <span class='rating-value highlight'>{{ input.details.rating }}</span>
+              <ion-icon class='rating-icon' name='custom-star'></ion-icon>
+            </ion-col>
+          </ng-container>
+        </ion-row>
+        <ion-row>
+          <ion-col class="location">{{ input.details.shortAreaName }}</ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col class="right-content" col-2>
+        <ion-row>
+          <a [href]="contact" (click)='stopPropagation()'>
+            <ion-icon class="phone-icon" name="custom-phone"></ion-icon>
+          </a>
+        </ion-row>
+        <ion-row>
+          <ion-icon tappable class="location-icon" (click)='navigateToLocation()' name="custom-location"></ion-icon>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="!input">
+  <ion-card tappable class="card" (click)="navigateToRestaurant()">
+    <ion-row>
+      <ion-col class="skeleton-title"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="left-content">
+        <div class="skeleton-restaurantImage"></div>
+      </ion-col>
+      <ion-col class="middle-content">
+        <ion-row>
+          <ion-col class="skeleton-restaurantName"> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="skeleton-rating"> </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="skeleton-location"></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

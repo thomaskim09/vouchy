@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-11>
+        <ng-container *ngIf='input'>
+          <ion-label class='header-title'>{{ticketName}}</ion-label>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <ion-refresher [enabled]="needRefresher" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to update quantity"></ion-refresher-content>
+  </ion-refresher>
+
+  <ng-container *ngIf='input'>
+    <ticket-qr-main [ticketMain]='ticketMain'></ticket-qr-main>
+
+    <ng-container *ngIf="!voucherType">
+      <reservation-status-detail [reservationDetails]='reservationDetails'></reservation-status-detail>
+    </ng-container>
+
+    <ng-container *ngIf="voucherType === 'QV'">
+      <voucher-detail-quantity [voucherQuantity]='voucherQuantity'></voucher-detail-quantity>
+    </ng-container>
+
+    <ng-container *ngIf="voucherType === 'CV'">
+      <voucher-detail-cash [voucherCash]="voucherCash"></voucher-detail-cash>
+    </ng-container>
+
+    <ng-container *ngIf="voucherType === 'SV'">
+      <voucher-detail-content [voucherContent]='voucherContent'></voucher-detail-content>
+    </ng-container>
+
+    <ng-container *ngIf="voucherType === 'MV'">
+      <voucher-detail-monthly [voucherMonthly]="voucherMonthly"></voucher-detail-monthly>
+    </ng-container>
+
+
+    <ng-container *ngIf="voucherType">
+      <voucher-detail-rule [voucherRules]='voucherRules'></voucher-detail-rule>
+      <ticket-qr-purchase [ticketPurchase]='ticketPurchase'></ticket-qr-purchase>
+    </ng-container>
+
+    <voucher-detail-restaurant [restaurantDetails]='restaurantDetails'></voucher-detail-restaurant>
+
+    <ng-container *ngIf="!voucherType">
+      <div class='space'></div>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf='!input'>
+    <img class='loading-gif' src="../../assets/gifs/loading.svg">
+  </ng-container>
+
+</ion-content>
+
+<ng-container *ngIf='input'>
+  <ng-container *ngIf="status === 'RE' && !isExpired">
+    <ion-footer>
+      <ion-toolbar>
+        <reservation-status-button [reservationButton]='reservationButton'></reservation-status-button>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-container>
+</ng-container>

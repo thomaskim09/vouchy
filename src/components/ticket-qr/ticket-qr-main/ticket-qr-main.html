@@ -1,0 +1,52 @@
+<ng-container *ngIf='input'>
+  <ng-container *ngIf='!input.isExpired && input.needQr'>
+    <ion-card class='qr-card'>
+      <ion-row align-items-end>
+        <ion-col no-padding>
+          <qrcode [qrdata]="encodeText" [size]="200" [level]="'M'"></qrcode>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <span [ngClass]="{'qrcode-text': !moveUp,'qrcode-text-up': moveUp}">{{getTicketCode(input.ticketCode)}}</span>
+          <ng-container *ngIf="moveUp">
+            <ng-container *ngIf="input.voucherType !== 'MV'">
+              <span class='left-text'>Still can use {{quantityLeft}} time<span *ngIf='quantityLeft > 1'>s</span></span>
+            </ng-container>
+            <ng-container *ngIf="input.voucherType === 'MV' && input.claimed">
+              <span class='left-text1'>Claimed {{input.claimed}} time<span *ngIf='input.claimed > 1'>s</span></span>
+            </ng-container>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="instruction-card">
+      <ion-row>
+        <ion-col class="title">Manual</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="content1">
+          <ion-row class="content-row">
+            <ng-container *ngIf="input.type === 'voucher'">
+              <ion-col>Please show this QR code to the restaurant's staff to claim voucher. </ion-col>
+            </ng-container>
+            <ng-container *ngIf="input.type === 'reservation'">
+              <ion-col>Please show this QR code to the restaurant's staff to confirm arrival. </ion-col>
+            </ng-container>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf='input.isExpired'>
+    <ion-card class='expired-card'>
+      <ion-row>
+        <ion-col><span class='expired-text'>Ticket Expired</span></ion-col>
+        <ion-col><span class='expired-quantity'>Left {{quantityLeft}} time<span *ngIf='quantityLeft > 1'>s</span></span>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col class='nav-title'>
+        <ion-label class='header-title' [innerHTML]='restaurantName'></ion-label>
+      </ion-col>
+      <ng-container *ngIf='hasTranslation'>
+        <ion-col col-2>
+          <ion-toggle class='toggle-translate' (ionChange)="toggleTranslate($event)" [checked]="needTranslate">
+          </ion-toggle>
+        </ion-col>
+      </ng-container>
+      <ion-col col-3 no-padding>
+        <button class='nav-button1' (click)='presentSearch()' ion-button icon-only clear>
+          <ion-icon class='nav-icon' name='custom-search'></ion-icon>
+        </button>
+        <button class='nav-button2' (click)='goToHistoryTicket()' ion-button icon-only clear>
+          <ion-icon class='nav-icon' name='custom-history-thin'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true'>
+  <ng-container *ngIf='orderInfo && orderInfo.length'>
+    <super-tabs #superTabs2 class='super-tab' toolbarBackground='white' indicatorColor='primary' scrollTabs=true>
+      <super-tab class='tab' [root]='page' [rootParams]="setUpParams(orderInfo[0]._id, -1)"
+        title="{{needTranslate ? '全部':'All'}}"></super-tab>
+      <super-tab class='tab' *ngFor='let item of orderInfo; let i=index' [root]='page'
+        [rootParams]="setUpParams(item._id, i)" title='{{getCategoryName(item)}}'></super-tab>
+    </super-tabs>
+  </ng-container>
+</ion-content>

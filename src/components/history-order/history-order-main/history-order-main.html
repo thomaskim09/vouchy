@@ -1,0 +1,95 @@
+<ng-container *ngIf='itemCon'>
+  <ion-card class='order-card'>
+    <ion-row class='top-row'>
+      <ion-col col-4 no-padding>
+        <!-- Is dine in -->
+        <div class='box dine-in-box' *ngIf="isDineIn">
+          <ion-icon class='box-icon' name='custom-spoon-fork'></ion-icon>
+        </div>
+        <div class='box online-box' *ngIf="!isDineIn">
+          <ion-icon class='box-icon' name='custom-online'></ion-icon>
+        </div>
+        <!-- Is take away -->
+        <div class='box take-away-box' *ngIf="needTakeAway || !isDineIn">
+          <ion-icon class='box-icon' name='custom-take-away'></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col class='collect-text' *ngIf="!isDineIn" col-4>{{collectTime}}</ion-col>
+      <ion-col class='table-no' *ngIf="isDineIn" col-2>#{{tableNo}}</ion-col>
+      <ion-col class='time'>{{orderTime}}</ion-col>
+    </ion-row>
+    <ng-container *ngFor='let item of orderList'>
+      <ion-row>
+        <ion-col class='item-text' col-2>{{item.itemQuantity}}</ion-col>
+        <ion-col class='item-text' [innerHTML]='item.itemName' col-7></ion-col>
+        <ion-col class='item-price' col-3>{{getPrice(item.itemPrice)}}</ion-col>
+      </ion-row>
+      <ng-container *ngIf='!needTakeAway && item.needTakeAway'>
+        <ion-row>
+          <ion-col class='item-sub-text' col-9>Take Away</ion-col>
+          <ion-col class='item-sub-price'>{{item.takeAwayFee}}</ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngFor='let child of item.itemRemarks'>
+        <ion-row>
+          <ion-col class='item-sub-text' col-9>{{child.remarkName}}</ion-col>
+          <ion-col class='item-sub-price'>{{getPrice(child.remarkPrice)}}</ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf='item.extraRemark'>
+        <ion-row>
+          <ion-col class='item-sub-text' col-9>*{{item.extraRemark}}</ion-col>
+          <ion-col class='item-sub-price'>-</ion-col>
+        </ion-row>
+      </ng-container>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf='res'>
+  <ng-container *ngIf='itemCon && res.hasResponseDetails'>
+    <ion-card class='second-card'>
+      <ion-row>
+        <ion-col class='second-description'>{{res.description}}</ion-col>
+        <ion-col col-2 *ngIf="itemCon.status === 'PP' || itemCon.status === 'CP'" no-padding>
+          <ion-icon class='tick' name='custom-tick'></ion-icon>
+        </ion-col>
+        <ion-col col-2 *ngIf="itemCon.status === 'RJ'" no-padding>
+          <ion-icon class='cross' name='custom-cross'></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='second-text' col-8>Subtotal</ion-col>
+        <ion-col class='second-price'>{{res.newSubTotal}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='second-text bold' col-8>Price Changes</ion-col>
+        <ion-col class='second-price bold'>{{res.amountType}} {{res.descriptionPrice}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="newPackagingFee !== '0.00'">
+        <ion-col class='second-text' col-9>Packaging Fee</ion-col>
+        <ion-col class='second-price'>{{res.newPackagingFee}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='menu.td.hasServiceCharge'>
+        <ion-col class='second-text' col-9>Service Charge ({{menu.td.serviceChargePercentage}}%)</ion-col>
+        <ion-col class='second-price'>{{res.newServiceCharge}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='menu.td.hasTax'>
+        <ion-col class='second-text' col-9>Tax ({{menu.td.taxPercentage}}% SST)</ion-col>
+        <ion-col class='second-price'>{{res.newTaxCharge}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="newRoundingType === '+'">
+        <ion-col class='second-text' col-9>Rounding</ion-col>
+        <ion-col class='second-price'>+ {{res.newRoundingValue}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="newRoundingType === '-'">
+        <ion-col class='second-text' col-9>Rounding</ion-col>
+        <ion-col class='second-price'>- {{res.newRoundingValue}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='second-text bold' col-7>Total</ion-col>
+        <ion-col class='second-price bold'>RM {{res.newTotalPrice}}</ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ng-container>

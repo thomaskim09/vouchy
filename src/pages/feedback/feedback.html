@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-grid class="nav">
+    <ion-row justify-content-center align-items-center>
+      <ion-col col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class="header-title">Feedback</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class="master">
+  <form [formGroup]='form'>
+    <ion-card class="emoji-card">
+      <ion-list radio-group formControlName='rating' class="list-box ">
+        <ion-item>
+          <ion-label>
+            <ion-icon class="emoji" name="custom-emoji-bad"></ion-icon>
+          </ion-label>
+          <ion-radio class="item-button" value="1"></ion-radio>
+        </ion-item>
+        <ion-item class="item-emoji item-notgood">
+          <ion-label>
+            <ion-icon class="emoji" name="custom-emoji-notgood"></ion-icon>
+          </ion-label>
+          <ion-radio class="item-button" value="2"></ion-radio>
+        </ion-item>
+        <ion-item class="item-emoji item-soso">
+          <ion-label>
+            <ion-icon class="emoji" name="custom-emoji-soso"></ion-icon>
+          </ion-label>
+          <ion-radio class="item-button" value="3"></ion-radio>
+        </ion-item>
+        <ion-item class="item-emoji item-good">
+          <ion-label>
+            <ion-icon class="emoji" name="custom-emoji-good"></ion-icon>
+          </ion-label>
+          <ion-radio class="item-button" value="4"></ion-radio>
+        </ion-item>
+        <ion-item class="item-emoji item-excellent">
+          <ion-label>
+            <ion-icon class="emoji" name="custom-emoji-excellent"></ion-icon>
+          </ion-label>
+          <ion-radio class="item-button" value="5"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+    <ion-card class="content-card">
+      <ion-textarea formControlName='content' maxLength="150"
+        placeholder="What do you think about the restaurant, service or the environment?"></ion-textarea>
+      <ion-row>
+        <ion-col class='image-col'>
+          <ng-container *ngFor="let image of photos; let i = index">
+            <div class='image-box'>
+              <button class='remove-button' (click)='removePicture(i)' ion-button>
+                <ion-icon class='remove-icon' name='custom-cross'></ion-icon>
+              </button>
+              <img *ngIf='image' [src]="image" (click)='presentImage(i)' />
+            </div>
+          </ng-container>
+          <button class="image-button" (click)="presentImagePicker()" *ngIf='photos.length < 2'>
+            <ion-icon class="gallery-icon" name="custom-gallery"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='text-hint'>
+          <ng-container *ngIf='form.value.content'>
+            <span>{{form.value.content.length}}/150</span>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+  </form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row class="bottom-tab" justify-content-center align-items-center>
+      <ng-container *ngIf='!form.valid'>
+        <ion-col text-center col-2>
+          <ion-icon tappable class='cross-icon' (click)='cancelFeedback()' name='custom-cross-thin'></ion-icon>
+        </ion-col>
+      </ng-container>
+      <ion-col no-padding>
+        <button ion-button [ngClass]="{ feedbackButton: form.valid, 'feedbackButton-inactive': !form.valid }"
+          (click)="sendFeedback()" [disabled]='!canFeedback || !form.valid || needSpinner' ion-button no-margin>
+          <ng-container *ngIf='!needSpinner'>
+            <span class="feedbackButtonText">Send Feedback</span>
+          </ng-container>
+          <ng-container *ngIf='needSpinner'>
+            <ion-spinner></ion-spinner>
+          </ng-container>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

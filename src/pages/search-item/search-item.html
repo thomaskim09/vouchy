@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-input #input class='search-bar' [placeholder]="getPlaceholder()" (ngModelChange)='filterQuery($event)'
+          [(ngModel)]='searchModel' (keyup.enter)='searchBatch()' no-margin [attr.maxlength]='30'></ion-input>
+        <ion-icon class='search-bar-icon' name='custom-search'></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' [ngClass]="{'master': searchClicked}">
+
+  <ng-container *ngIf='!searchModel'>
+    <ion-list>
+      <button ion-item *ngFor="let item of defaultList" (click)="searchItem(item)">
+        <div class='item-name-box'>
+          <span class='item-name'>{{ needTranslate ? item.itemNameTranslated : item.itemName }}</span>
+        </div>
+        <span class='item-price'>RM {{ item.itemPrice }}</span>
+      </button>
+    </ion-list>
+  </ng-container>
+
+  <ng-container *ngIf='searchModel'>
+    <ng-container *ngIf='filteredList.length !== 0'>
+      <ion-list>
+        <button ion-item *ngFor="let item of filteredList" (click)="searchItem(item)">
+          <div class='item-name-box'>
+            <span class='item-name'>{{ needTranslate ? item.itemNameTranslated : item.itemName }}</span>
+          </div>
+          <span class='item-price'>RM {{ item.itemPrice }}</span>
+        </button>
+      </ion-list>
+    </ng-container>
+
+    <ng-container *ngIf='filteredList.length === 0'>
+      <ion-list>
+        <ion-item class='no-record'>{{needTranslate ? '搜索无结果' : 'No records matches'}}</ion-item>
+      </ion-list>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf='searchClicked'>
+    <ng-container *ngIf='menu.foodList?.length !== 0'>
+      <order-detail-card [menu]='menu' [orderCart]='orderCart'></order-detail-card>
+    </ng-container>
+    <ng-container *ngIf='menu.foodList?.length === 0'>
+      <div class='not-available-div'>
+        <ion-row *ngIf='notAvailableItem'>
+          <ion-col class='not-available'>
+            {{needTranslate ? notAvailableItem.itemNameTranslated : notAvailableItem.itemName}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='not-available'>{{needTranslate ? '暂时无法供应' : 'is not available for now'}}</ion-col>
+        </ion-row>
+      </div>
+    </ng-container>
+  </ng-container>
+
+</ion-content>

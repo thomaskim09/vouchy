@@ -1,0 +1,58 @@
+page-term-picker {
+
+  .picker-card {
+    position: absolute;
+    top: 33%;
+    left: 17%;
+    height: auto;
+    max-width: 63%;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 0.7em 1em;
+    @include card-no-shadow();
+  }
+
+  button {
+    background-color: transparent;
+    text-align: left;
+  }
+
+  .item-line {
+    border-top: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .button1 {
+    padding-bottom: 0.3em;
+  }
+
+  .button2 {
+    padding-top: 0.4em;
+    padding-bottom: 0.3em;
+  }
+
+  .first-title {
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+  }
+
+  .second-title {
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+  }
+
+  .dark-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    @media (min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+
+}

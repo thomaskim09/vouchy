@@ -1,0 +1,42 @@
+page-intro {
+
+  * {
+    @include my-font();
+  }
+
+  .nav-button {
+    padding-top: 0.8em !important;
+    padding-left: 0.3em !important;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .back-icon {
+    width: 1.5em;
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  // Slider tutorial
+  .swiper-pagination-bullets {
+    bottom: 2em !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $GRADIENT_TOP;
+  }
+
+  .left-button {
+    position: absolute;
+    bottom: 3.5em;
+    left: 41%;
+    border-radius: 15em;
+    height: 3.45em;
+    @include my-img-shadow-blur();
+  }
+
+  .button-text {
+    font-weight: 600;
+  }
+
+}

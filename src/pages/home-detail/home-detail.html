@@ -1,0 +1,52 @@
+<ion-header no-border no-shadow>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col col-6>
+        <button class='nav-button' (click)='presentLocation()' [disabled]='needSpinner' ion-button icon-end no-padding
+          clear>
+          <span class='location-text'>{{ closestCity.shortName }}</span>
+          <ion-icon class='caret-icon' name='custom-caret-down'></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button class='left-button nav-button1' (click)='presentSearch()' [disabled]='needSpinner' ion-button icon-only
+          clear>
+          <ion-icon *ngIf='!isSearchOn' class='nav-icon' name='custom-search'></ion-icon>
+          <ion-icon *ngIf='isSearchOn' class='nav-icon-active' name='custom-s-thick'></ion-icon>
+        </button>
+        <button class='middle-button nav-button1' (click)='presentFilter()' [disabled]='needSpinner' ion-button
+          icon-only clear>
+          <ion-icon *ngIf='!isFilterOn' class='nav-icon' name='custom-filter'></ion-icon>
+          <ion-icon *ngIf='isFilterOn' class='nav-icon-active' name='custom-filter-thick'></ion-icon>
+        </button>
+        <span *ngIf='hasNotifications' class='notification-badge'></span>
+        <button class='right-button nav-button1' (click)='presentMenu()' [disabled]='needSpinner' ion-button icon-only
+          clear>
+          <ion-icon class='nav-icon' name='custom-three-dots'></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to reset list :)"></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col>
+        <restaurant-voucher [restaurantVouchers]='restaurantVouchers'></restaurant-voucher>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll [enabled]="needInfiniteScroll" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

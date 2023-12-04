@@ -1,0 +1,127 @@
+page-confirm-order-pop-over {
+
+  .grid {
+    width: 70% !important;
+    padding: 1.5em !important;
+  }
+
+  .main-card {
+    border-radius: 0.5em;
+    background-color: white;
+    position: absolute;
+    height: auto;
+    margin-top: 39%;
+    margin-left: 15% !important;
+  }
+
+  .loading-gif {
+    height: 5em;
+    width: 5em;
+    margin-bottom: 1.5em;
+  }
+
+  .title {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 1em;
+    @include text-truncate-line(2);
+  }
+
+  .hint {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 0.5em;
+    @include text-truncate-line(2);
+  }
+
+  // Second card
+  .second-description {
+    font-weight: bold;
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    border-bottom: 1px solid $GREY_ICON_WHITE;
+    margin-bottom: 0.3em;
+  }
+
+  .second-text {
+    font-size: 1em;
+    color: $GREY_ICON_WHITE_DARKER;
+    padding: 0.3em;
+  }
+
+  .second-price {
+    font-size: 1em;
+    text-align: right;
+    color: $GREY_ICON_WHITE_DARKER;
+    padding: 0.3em;
+  }
+
+  .second-price-bold {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: right;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding: 0.3em;
+  }
+
+  .second-text-bold {
+    font-weight: bold;
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding: 0.3em;
+  }
+
+  .btn {
+    border-radius: 15em;
+    margin-top: 1.7em;
+    margin-bottom: 0.8em;
+    height: 3em;
+    width: 100%;
+    @include my-img-shadow-blur();
+  }
+
+  .btn-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-top: 1em;
+    padding-bottom: 1.1em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    text-transform: capitalize;
+  }
+
+  .second-btn {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+    margin-top: 0.5em;
+  }
+
+  // Confirm area
+  .confirm-tick {
+    color: $GRADIENT_TOP;
+    font-size: 3.5em;
+    margin-bottom: 0.4em;
+  }
+
+  .confirm-cross {
+    color: $GREY_ICON_WHITE;
+    font-size: 3.5em;
+    margin-bottom: 0.4em;
+  }
+
+  .popover-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    @media(min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+}

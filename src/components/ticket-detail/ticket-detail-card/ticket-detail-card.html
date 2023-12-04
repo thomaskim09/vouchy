@@ -1,0 +1,75 @@
+<ng-container *ngIf="categoryDetails">
+  <ng-container *ngFor="let item of categoryDetails">
+    <ion-card class="ticket-card" no-padding tappable (click)="navigateToTicket(item)">
+      <ion-row>
+        <ion-col class="left-content">
+
+          <ng-container *ngIf="item.isVoucher">
+            <span class="image-box">
+              <img class="voucher-image" [src]="item.voucherImage">
+            </span>
+          </ng-container>
+          <ng-container *ngIf="!item.isVoucher">
+            <span class="image-box">
+              <img class="voucher-image" [src]="item.restaurantImage">
+            </span>
+          </ng-container>
+
+        </ion-col>
+        <ion-col class="right-content">
+
+          <ng-container *ngIf="item.isVoucher">
+            <ion-row>
+              <ion-col class="primary" no-padding>{{ item.voucherName }}</ion-col>
+            </ion-row>
+          </ng-container>
+          <ng-container *ngIf="!item.isVoucher">
+            <ion-row>
+              <ion-col class="primary" no-padding>{{item.date }}</ion-col>
+            </ion-row>
+          </ng-container>
+
+          <ion-row>
+            <ion-col class="secondary" no-padding>
+              <ng-container *ngIf='item.isExpired'>
+                <span class="secondary-text">(Expired)</span>
+              </ng-container>
+              <ng-container *ngIf='item.expireWarn'>
+                <span class="highlight-secondary-text">{{ item.expireWarn }}</span>
+              </ng-container>
+              <ng-container *ngIf='!item.expireWarn'>
+                <span class="secondary-text">{{ item.restaurantName }}</span>
+              </ng-container>
+            </ion-col>
+          </ion-row>
+          <ion-row class="bottom-row">
+
+            <ng-container *ngIf="item.isVoucher">
+              <ion-col class="price-content" col-8 no-padding>
+                <span class="currency">RM</span>
+                <span class="new-price">{{ item.newPrice }}</span>
+                <span class="base-price">RM{{ item.basePrice }}</span>
+              </ion-col>
+            </ng-container>
+            <ng-container *ngIf="!item.isVoucher">
+              <ion-col class="price-content" col-8 no-padding>
+                <span class="reserve-time">{{ item.time }}</span>
+                <span class="reserve-section">{{ item.section }}</span>
+              </ion-col>
+            </ng-container>
+
+            <ion-col>
+              <ion-row>
+                <ion-col no-padding>
+                  <button class='get-button' (click)="navigateToTicket(item)" [disabled]='needSpinner'>
+                    <span class="get-button-text">{{ item.buttonText }}</span>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ng-container>

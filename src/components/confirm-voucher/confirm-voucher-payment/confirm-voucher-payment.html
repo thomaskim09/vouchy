@@ -1,0 +1,34 @@
+<ng-container *ngIf='input && input.newPrice !== 0'>
+  <ion-grid>
+    <ion-card class='payment-card'>
+      <ion-row>
+        <ion-col>
+          <ion-list radio-group [(ngModel)]='paymentMethod'>
+            <ion-row>
+              <ion-col class='payment-col line'>
+                <ion-icon class='boost-icon' name='custom-boost-pay-logo'></ion-icon>
+                <span class='payment-text'>Boost</span>
+                <ion-radio class='radio-button' value='BOOST' checked (ionSelect)='changePaymentMethod()'></ion-radio>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class='payment-col line'>
+                <img class='icon-image' src='../../../assets/imgs/tng-pay-logo.png'>
+                <span class='payment-text2'>Touch'n Go</span>
+                <ion-radio class='radio-button' value='TNG-EWALLET' checked (ionSelect)='changePaymentMethod()'>
+                </ion-radio>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class='payment-col'>
+                <img class='icon-image' src='../../../assets/imgs/fpx-logo.png'>
+                <span class='payment-text2'>Online Banking</span>
+                <ion-radio class='radio-button' value='fpx' (ionSelect)='changePaymentMethod()'></ion-radio>
+              </ion-col>
+            </ion-row>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>

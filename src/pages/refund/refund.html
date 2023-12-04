@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>Refund Policy</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content overflow-scroll='true'>
+
+  <ion-grid class='content-holder'>
+    <ion-row>
+      <ion-col>
+        <ng-container *ngFor='let item2 of refundList'>
+          <ion-row>
+            <ion-col>
+              <span class='subtitle' [innerHTML]='item2.subtitle'></span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ng-container *ngFor='let item3 of item2.content'>
+                <p class='content-value' [innerHTML]='item3'></p>
+              </ng-container>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

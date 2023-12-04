@@ -1,0 +1,66 @@
+order-call {
+
+  .call-up {
+    bottom: 5.2em !important;
+  }
+
+  .fab-main-button {
+    color: white;
+    background-color: $DINE_IN_ORANGE_TOP;
+    @include my-img-shadow-obvious();
+  }
+
+  .fab-main-icon {
+    position: relative;
+    bottom: 0.05em;
+    font-size: 2.2em;
+    color: white;
+  }
+
+  .fab-btn {
+    background-color: $DINE_IN_ORANGE_TOP;
+    @include my-custom-shadow($DINE_IN_ORANGE_BOTTOM);
+  }
+
+  .fab-icon {
+    font-size: 1.7em;
+    color: white;
+  }
+
+  .fab-icon2 {
+    position: relative;
+    bottom: 0.1em;
+    font-size: 1.7em;
+    color: white;
+  }
+
+  .count-down {
+    font-size: 1.1em;
+    font-weight: 400;
+    color: white;
+  }
+
+  .label-text {
+    border-radius: 0.2em;
+    background-color: black;
+    color: white;
+    opacity: 0.7;
+    padding: 0.5em 0.75em;
+    width: 6.8em;
+    position: absolute;
+    right: 4em;
+    font-weight: 400;
+  }
+
+  .text-bottom {
+    bottom: 1em;
+  }
+
+  .text-middle {
+    bottom: 4.9em;
+  }
+
+  .text-top {
+    bottom: 8.8em;
+  }
+}

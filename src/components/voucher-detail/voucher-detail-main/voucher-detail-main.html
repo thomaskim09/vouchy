@@ -1,0 +1,37 @@
+<ng-container *ngIf='voucherMain'>
+  <ion-card class='slide-card'>
+    <ion-row class='image-box-row' align-items-end>
+      <ion-col no-padding>
+        <span class='image-box'>
+          <img class='switch-image' [src]='voucherMain.voucherImage'>
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row class='bottom-content-row'>
+      <ion-col class='bottom-content' text-left>
+        <span class='voucherName'>{{voucherMain.voucherName}}</span>
+        <ng-container *ngIf='voucherMain.quantitySold > 0'>
+          <span class='quantitySold'>{{voucherMain.quantitySold}} Sold</span>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf='!voucherMain'>
+  <ion-card class='skeleton-slide-card'>
+    <ion-row class='image-box-row' align-items-end>
+      <ion-col no-padding>
+        <div class='skeleton-image-box'>
+          <div class='skeleton-switch-image'></div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class='bottom-content-row'>
+      <ion-col class='bottom-content' text-left>
+        <div class='skeleton-voucherName'></div>
+        <div class='skeleton-quantitySold'></div>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

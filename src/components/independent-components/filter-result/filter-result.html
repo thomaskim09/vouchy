@@ -1,0 +1,210 @@
+<ion-grid class='filter-box'>
+  <ion-row>
+    <ion-col class='segment-box'>
+      <ion-segment [(ngModel)]="filterTitleModel" color="primary">
+        <ion-segment-button value="Areas">
+          <span>Areas</span>
+        </ion-segment-button>
+        <ion-segment-button value="Categories">
+          <span>Categories</span>
+        </ion-segment-button>
+        <ion-segment-button value="Vouchers">
+          <span>Vouchers</span>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class='content-box'>
+
+      <ng-container [ngSwitch]='filterTitleModel'>
+
+        <!-- Area Tab -->
+        <ng-container *ngSwitchCase="'Areas'">
+          <ion-row>
+            <ion-col [ngClass]="{'col-active': areaOn, 'col-deactive': !areaOn}">
+              <div tappable class='white-box' *ngIf='!areaOn' (click)='turnOnArea()'></div>
+              <ion-list radio-group [(ngModel)]='areaModel' class='list-box'>
+                <ion-item>
+                  <ion-label>All Areas</ion-label>
+                  <ion-radio class='item-button' value='allAreas' (ionSelect)="chooseArea('allAreas')"></ion-radio>
+                </ion-item>
+
+                <ion-item-group *ngFor='let area of areaList'>
+                  <ion-item-divider class='item-divider'>{{ area.letter }}</ion-item-divider>
+                  <ion-item class='item' *ngFor='let content of area.contents'>
+                    <ion-label>{{ content.name }}</ion-label>
+                    <ion-radio class='item-button' value={{content._id}} (ionSelect)='chooseArea(content.name)'>
+                    </ion-radio>
+                  </ion-item>
+                </ion-item-group>
+              </ion-list>
+            </ion-col>
+            <ion-col [ngClass]="{'col-active': !areaOn, 'col-deactive': areaOn}">
+              <div class='white-box' *ngIf='areaOn'></div>
+              <ion-list radio-group [(ngModel)]='locationModel' class='list-box'>
+                <ion-item>
+                  <ion-label>All Places</ion-label>
+                  <ion-radio class='item-button' value='allLocations' (ionSelect)="chooseLocation('all')"></ion-radio>
+                </ion-item>
+
+                <ion-item-group *ngFor='let combine of combinePSList'>
+                  <ion-item-divider class='item-divider'>{{ combine.letter }}</ion-item-divider>
+                  <ion-item class='item' *ngFor='let content of combine.contents'>
+                    <ion-label>{{ content.name }}</ion-label>
+                    <ion-radio class='item-button' value={{content._id}} (ionSelect)='chooseLocation(content.type)'>
+                    </ion-radio>
+                  </ion-item>
+                </ion-item-group>
+              </ion-list>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+        <!-- Categories Tag -->
+        <ng-container *ngSwitchCase="'Categories'">
+          <ion-row>
+            <ion-col col-5>
+              <ion-list radio-group [(ngModel)]='categoryTitleModel' class='list-box'>
+                <ion-item>
+                  <ion-label>Restaurant</ion-label>
+                  <ion-radio class='item-button' value='resType'></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Food</ion-label>
+                  <ion-radio class='item-button' value='foodType'></ion-radio>
+                </ion-item>
+              </ion-list>
+            </ion-col>
+
+            <ion-col col-7>
+
+              <ng-container *ngIf="categoryTitleModel === 'resType'">
+                <ion-list radio-group [(ngModel)]='resTypeModel' class='list-box'>
+                  <ion-item>
+                    <ion-label>All Type</ion-label>
+                    <ion-radio class='item-button' value='allResTypes' (ionSelect)='chooseResType()'></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Top rating</ion-label>
+                    <ion-radio class='item-button' value='top' (ionSelect)='chooseResType()'></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Halal</ion-label>
+                    <ion-radio class='item-button' value='HL' (ionSelect)='chooseResType()'></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>No Pork No Lard</ion-label>
+                    <ion-radio class='item-button' value='PL' (ionSelect)='chooseResType()'></ion-radio>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Vegetarian</ion-label>
+                    <ion-radio class='item-button' value='vegetarian' (ionSelect)='chooseResType()'></ion-radio>
+                  </ion-item>
+
+                  <ion-item-group *ngFor='let resType of restaurantTypeList'>
+                    <ion-item-divider class='item-divider'>{{ resType.letter }}</ion-item-divider>
+                    <ion-item class='item' *ngFor='let content of resType.contents'>
+                      <ion-label>{{ content.name }}</ion-label>
+                      <ion-label class='counter'>{{ content.counter }}</ion-label>
+                      <ion-radio class='item-button' value={{content._id}} (ionSelect)='chooseResType()'></ion-radio>
+                    </ion-item>
+                  </ion-item-group>
+                </ion-list>
+              </ng-container>
+
+              <ng-container *ngIf="categoryTitleModel === 'foodType'">
+                <ion-list radio-group [(ngModel)]='foodTypeModel' class='list-box'>
+                  <ion-item>
+                    <ion-label>All Type</ion-label>
+                    <ion-radio class='item-button' value='allFoodTypes' (ionSelect)='chooseFoodType()'></ion-radio>
+                  </ion-item>
+
+                  <ion-item-group *ngFor='let foodType of foodTypeList'>
+                    <ion-item-divider class='item-divider'>{{ foodType.letter }}</ion-item-divider>
+                    <ion-item class='item' *ngFor='let content of foodType.contents'>
+                      <ion-label>{{ content.name }}</ion-label>
+                      <ion-label class='counter'>{{ content.counter }}</ion-label>
+                      <ion-radio class='item-button' value={{content._id}} (ionSelect)='chooseFoodType()'></ion-radio>
+                    </ion-item>
+                  </ion-item-group>
+                </ion-list>
+              </ng-container>
+
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+        <!-- Voucher Tab -->
+        <ng-container *ngSwitchCase="'Vouchers'">
+          <ion-row>
+            <ion-col class='voucher-col first-col'>
+              <span class='voucher-title'>Arrange</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-select [(ngModel)]="arrangeModel" placeholder='Pick One If Needed' interface='popover' no-padding>
+                <ion-option value="latest">Latest Voucher</ion-option>
+                <ion-option value="oldest">Oldest Voucher</ion-option>
+                <ion-option value="">None</ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='voucher-col'>
+              <span class='voucher-title'>Voucher Type</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-select [(ngModel)]="voucherModel" (ionChange)='voucherTypeChanged()' placeholder='Pick One If Needed'
+                interface='popover' no-padding>
+                <ion-option value="CV">Cash Voucher</ion-option>
+                <ion-option value="QV">Quantity Voucher</ion-option>
+                <ion-option value="SV">Set Voucher</ion-option>
+                <ion-option value="">None</ion-option>
+              </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='voucher-col'>
+              <span class='voucher-title'>Voucher Price Range</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='voucher-content' no-padding>
+              <ion-range min="0" max="200" [(ngModel)]="priceRange" color="primary" no-padding>
+                <ion-icon range-left name='custom-price' class='range-icon'></ion-icon>
+                <ion-label class='range-label' range-right>{{ priceRangeIndicator(priceRange) }}</ion-label>
+              </ion-range>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='voucher-col'>
+              <span class='voucher-title'>Voucher Pax Range {{ paxIndicator }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='voucher-content' no-padding>
+              <ion-range min="0" max="10" [(ngModel)]="paxRange" color="primary" [disabled]="voucherTypeDisabledStatus"
+                no-padding>
+                <ion-icon range-left name='custom-people' class='range-icon'></ion-icon>
+                <ion-label class='range-label' range-right>{{ paxRangeIndicator(paxRange) }}</ion-label>
+              </ion-range>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='filter-col' text-center no-padding>
+              <button class='filter-button' (click)='filterClicked()' ion-button clear no-margin>Filter</button>
+            </ion-col>
+          </ion-row>
+        </ng-container>
+
+      </ng-container>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div tappable class='black-background' (click)='close()'></div>

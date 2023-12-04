@@ -1,0 +1,19 @@
+<ng-container *ngIf='orderCart'>
+  <ion-grid class='bottom-tab' no-padding>
+    <ion-row class='tab-row' justify-content-center align-items-center>
+      <ion-col class='price-content' no-padding>
+        <span class='currency'>RM</span>
+        <span class='new-price'>{{orderCart.totalPrice}}</span>
+        <button class='btn' (click)='navigateToConfirmOrder()' [disabled]='needSpinner' ion-button no-margin>
+          <ng-container *ngIf='!needSpinner'>
+            <span class='btn-text'>{{getTotalLength(orderCart.foodItemList)}}</span>
+            <ion-icon class='cart-icon' name='custom-tick'></ion-icon>
+          </ng-container>
+          <ng-container *ngIf='needSpinner'>
+            <ion-spinner></ion-spinner>
+          </ng-container>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-container>

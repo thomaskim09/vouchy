@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ng-container *ngIf='type'>
+          <ion-label class='header-title'>{{title}}</ion-label>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+  <voucher-detail-feedback [feedback]="feedback"></voucher-detail-feedback>
+
+  <notification [notifications]="notifications" [hasNotifications]='hasNotifications'></notification>
+
+  <ng-container *ngIf="type === 'notification'">
+    <ng-container *ngIf='!notifications.length'>
+      <span class='imageBox'>
+        <img src="../../assets/imgs/no-notification.png" class='centerImage'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <restaurant-card [restaurantsList]='restaurantsList'></restaurant-card>
+
+  <ng-container *ngIf="type === 'favourite'">
+    <ng-container *ngIf='!restaurantsList.length'>
+      <span class='imageBox'>
+        <img src="../../assets/imgs/no-favourite.png" class='centerImage'>
+      </span>
+    </ng-container>
+  </ng-container>
+
+  <ion-infinite-scroll [enabled]="needInfiniteScroll" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

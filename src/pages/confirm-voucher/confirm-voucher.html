@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title' [innerHTML]='restaurantName'></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <confirm-voucher-main [confirmVoucherMain]='confirmVoucherMain'></confirm-voucher-main>
+
+  <confirm-voucher-info [confirmVoucherInfo]='confirmVoucherInfo'></confirm-voucher-info>
+
+  <confirm-voucher-group [confirmVoucherGroup]='confirmVoucherGroup'></confirm-voucher-group>
+
+  <ng-container *ngIf="voucherType !== 'MV'">
+    <confirm-voucher-control [confirmVoucherControl]='confirmVoucherControl'></confirm-voucher-control>
+  </ng-container>
+
+  <confirm-voucher-payment [confirmVoucherPayment]='confirmVoucherPayment'></confirm-voucher-payment>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <confirm-voucher-button [confirmVoucherButton]='confirmVoucherButton'></confirm-voucher-button>
+  </ion-toolbar>
+</ion-footer>

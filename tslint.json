@@ -1,0 +1,22 @@
+{
+  "extends": "tslint-ionic-rules/strict",
+  "rules": {
+    "no-duplicate-variable": true,
+    "no-unused-variable": [
+      true
+    ],
+    "ordered-imports": false,
+    "no-inferrable-types": false,
+    "trailing-comma": false,
+    "no-floating-promises": false,
+    "object-literal-shorthand": false,
+    "linebreak-style": false,
+    "strict-boolean-conditions": false,
+    "no-empty": false,
+    "no-import-side-effect": false,
+    "no-duplicate-imports": false
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
+}

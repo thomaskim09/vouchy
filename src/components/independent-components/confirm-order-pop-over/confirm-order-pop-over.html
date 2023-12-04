@@ -1,0 +1,150 @@
+<ion-grid class='main-card' (click)='close(status)' no-padding>
+  <ng-container *ngIf="status === 'PC'">
+    <ion-row>
+      <ion-col class='title'>
+        <span>{{needTranslate ? '等待餐厅确认中' : 'Waiting for restaurant confirmation'}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <img class='loading-gif' src="../../../assets/gifs/loading.svg" alt="">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center class='hint'>
+        <span *ngIf='slideCounter === 0'>
+          {{needTranslate ? '请在此页面等候订单被确认': "Please stay in this page while waiting"}}</span>
+        <span *ngIf='slideCounter === 1'>
+          {{needTranslate ? '您可以搜索您想要的食物' : 'You can search for your food when browsing'}}</span>
+        <span *ngIf='slideCounter === 2'>
+          {{needTranslate ? '购买本店的优惠卷能让您每餐都享有优惠哟' : 'Purchase voucher to save money each meal'}}</span>
+        <span *ngIf='slideCounter === 3'>
+          {{needTranslate ? '使用Vouchy也能让您提前预定餐厅位子哟' : 'Vouchy can help to reserve a table too'}}</span>
+        <span *ngIf='slideCounter === 4'>
+          {{needTranslate ? '菜单左下角的按钮能呼唤服务生哟！' : 'You can call waiter using the yellow button on the menu page.'}}
+        </span>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="status === 'PA'">
+    <ng-container *ngIf='needLoader'>
+      <ion-row>
+        <ion-col class='title'>
+          <span>{{needTranslate ? '获取回复中...' : 'Getting Response...'}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center>
+          <img class='loading-gif' src="../../../assets/gifs/loading-orange.svg" alt="">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class='hint'>
+          <span>{{needTranslate ? '请稍等 :)' : 'Please wait for a moment :)'}}</span>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-container *ngIf="input && !needLoader">
+      <ion-row>
+        <ion-col class='title'>{{needTranslate ? '接受更改吗?' : 'Approve changes?'}}</ion-col>
+      </ion-row>
+      <div>
+        <ion-row>
+          <ion-col class='second-description'>{{input.description}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='second-text' col-6>{{needTranslate ? '总值' : 'Subtotal'}}</ion-col>
+          <ion-col class='second-price'>{{input.subTotal}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='second-text-bold' col-7>{{needTranslate ? '价钱差别' : 'Price changes'}}</ion-col>
+          <ion-col class='second-price-bold'>{{input.amountType}} {{input.amountPrice}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="input.packagingFee !== '0.00'">
+          <ion-col class='second-text' col-8>{{needTranslate ? '打包费' : 'Packaging Fee'}}</ion-col>
+          <ion-col class='second-price'>{{input.packagingFee}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf='menu.menuSettings.td.hasServiceCharge'>
+          <ion-col class='second-text' col-8>{{getServiceChargeText()}}</ion-col>
+          <ion-col class='second-price'>{{input.serviceCharge}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf='menu.menuSettings.td.hasTax'>
+          <ion-col class='second-text' col-8>{{getSSTText()}}</ion-col>
+          <ion-col class='second-price'>{{input.taxCharge}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="input.roundingType">
+          <ion-col class='second-text' col-8>{{needTranslate ? '调整' : 'Rounding'}}</ion-col>
+          <ion-col class='second-price'>{{input.roundingType}} {{input.roundingAdjustment}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='second-text-bold' col-6>{{needTranslate ? '总共' : 'Total'}}</ion-col>
+          <ion-col class='second-price-bold'>RM{{input.totalPrice}}</ion-col>
+        </ion-row>
+      </div>
+      <ion-row>
+        <ion-col>
+          <button class='btn' (click)='approveResponse()' [disabled]='needSpinner' ion-button no-margin>
+            <ng-container *ngIf='!needSpinner'>
+              <span class='btn-text'>{{needTranslate ? '接受' : 'Approve'}}</span>
+            </ng-container>
+            <ng-container *ngIf='needSpinner'>
+              <ion-spinner></ion-spinner>
+            </ng-container>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col tappable class='second-btn' (click)='rejectResponse()'>
+          {{needTranslate ? '拒绝并返回菜单' : 'Reject & Go back to menu'}}</ion-col>
+      </ion-row>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="status === 'CF' || status === 'AC' || status === 'CD'">
+    <ion-row>
+      <ion-col class='title'>
+        <span>{{needTranslate ? '订单已确认！' : 'Order confirmed!'}}</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-icon class='confirm-tick' name='custom-confirm-tick'></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class='hint'>
+        <span>{{confirmText}}</span>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+  <ng-container *ngIf="status === 'CC' || status === 'CT' || status === 'OR'">
+    <ion-row>
+      <ion-col class='title'>
+        <ng-container *ngIf="status === 'CC'">
+          <span>{{needTranslate ? '订单已拒收' : 'Order denied'}}</span>
+        </ng-container>
+        <ng-container *ngIf="status === 'CT'">
+          <span>{{needTranslate ? '订单已取消' : 'Order cancelled'}}</span>
+        </ng-container>
+        <ng-container *ngIf="status === 'OR'">
+          <span>{{needTranslate ? '订单已被删除' : 'Order removed'}}</span>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-icon class='confirm-cross' name='custom-confirm-cross'></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class='hint'>
+        <span>{{deniedText}}</span>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+
+</ion-grid>
+
+<div tappable class='popover-background' (click)='close(status)'></div>

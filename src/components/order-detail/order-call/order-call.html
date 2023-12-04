@@ -1,0 +1,34 @@
+<ion-fab [ngClass]="{'call-up': itemInCart}" bottom right>
+  <button class='fab-main-button' ion-fab>
+    <ion-icon class='fab-main-icon' name='custom-waiter'></ion-icon>
+  </button>
+  <ion-fab-list side="top">
+    <div class='label-text text-bottom'>{{needTranslate ? '呼叫服务生' : 'Call Waiter'}}</div>
+    <button class='fab-btn' (click)='callWaiter()' [disabled]='callWaiterClicked || needSpinner' ion-fab>
+      <ng-container *ngIf='callWaiterClicked'>
+        <span class='count-down'>{{countDownCall}}</span>
+      </ng-container>
+      <ng-container *ngIf='!callWaiterClicked'>
+        <ion-icon class='fab-icon2' name='custom-bell'></ion-icon>
+      </ng-container>
+    </button>
+    <div class='label-text text-middle'>{{needTranslate ? '需要结账' : 'Call For Bill'}}</div>
+    <button class='fab-btn' (click)='needBill()' [disabled]='needBillClicked || needSpinner' ion-fab>
+      <ng-container *ngIf='needBillClicked'>
+        <span class='count-down'>{{countDownBill}}</span>
+      </ng-container>
+      <ng-container *ngIf='!needBillClicked'>
+        <ion-icon class='fab-icon' name='custom-bill'></ion-icon>
+      </ng-container>
+    </button>
+    <div class='label-text text-top'>{{needTranslate ? '点餐教程' : 'Order Guide'}}</div>
+    <button class='fab-btn' (click)='goToIntro()' [disabled]='introLoading' ion-fab>
+      <ng-container *ngIf='introLoading'>
+        <ion-spinner></ion-spinner>
+      </ng-container>
+      <ng-container *ngIf='!introLoading'>
+        <ion-icon class='fab-icon' name='custom-guide'></ion-icon>
+      </ng-container>
+    </button>
+  </ion-fab-list>
+</ion-fab>

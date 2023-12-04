@@ -1,0 +1,36 @@
+<ng-container *ngIf='input'>
+  <ion-grid>
+    <ion-card class='calendar-card'>
+      <ion-row>
+        <ion-col class='title' text-center>
+          <ion-icon tappable class='back-icon' name='custom-back' (click)='prev()'></ion-icon>
+          <span class='view-title'>{{ viewTitle }}</span>
+          <ion-icon tappable class='next-icon' name='custom-more' (click)='next()'></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+            (onTitleChanged)="onViewTitleChanged($event)" (onTimeSelected)="onTimeSelected($event)"
+            [markDisabled]="markDisabled" [lockSwipeToPrev]='lockSwipeToPrev' formatMonthTitle='MMM, yyyy'
+            formatDayHeader='EEEEE' [monthviewDisplayEventTemplate]="template" step="30" class="calendar">
+          </calendar>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>
+
+<ng-container *ngIf='!input'>
+  <ion-grid>
+    <ion-card class='skeleton-calendar-card'>
+      <ion-row>
+        <ion-col class='skeleton-box skeleton'></ion-col>
+      </ion-row>
+      <ion-row *ngFor='let row of skeletonRows' class='skeleton-row'>
+        <ion-col *ngFor='let col of skeletonCols' class='skeleton-col skeleton'>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+</ng-container>

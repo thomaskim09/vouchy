@@ -1,0 +1,79 @@
+<ng-container *ngIf='feedbackList.length'>
+  <ion-card class="card">
+    <ng-container *ngIf='!inDisplayPage'>
+      <ion-row>
+        <ion-col class="title">Customer's Feedback</ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-container *ngFor="let item of feedbackList; let i = index">
+      <ion-row>
+        <ion-col class="left-content">
+          <span class="image-box">
+            <img class="profileImage" [src]='item.profileImage || defaultImage' />
+          </span>
+        </ion-col>
+        <ion-col class="right-content">
+          <ion-row>
+            <ion-col col-7 class="username-col">
+              <span class="username">{{ item.username }}</span>
+              <span class="rating">
+                <span class="rating-value">{{ item.rating }}</span>
+                <ion-icon class="rating-icon" name="custom-star"></ion-icon>
+              </span>
+            </ion-col>
+            <ion-col class='time-col'>
+              <span class="feedback-time">{{ item.feedbackTime }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row class="middle-row">
+            <ion-col class='content' [innerHTML]='item.content' no-padding></ion-col>
+          </ion-row>
+          <ion-row *ngIf='item?.photos?.length !== 0'>
+            <ion-col>
+              <span class="image-upload-box" *ngFor="let photo of item.photos; let i=index">
+                <img tappable class="image-uploaded" [src]="photo" (click)='presentImage(item, i)' />
+              </span>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="inRestaurantPage || inDisplayPage">
+            <ion-col no-padding>
+              <ion-icon class="voucher-icon" name="custom-voucher"></ion-icon>
+              <span class="voucher-text">{{ item.voucherName }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row *ngIf="item.replyStatus">
+            <ion-col no-padding>
+              <ion-row>
+                <ion-col class="restaurant-reply-title">
+                  Restaurant's reply
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="restaurant-reply-content" [innerHTML]='item.replyContent'></ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf='checkIfLine(i, feedbackList?.length)'>
+        <ion-col class="line" no-padding></ion-col>
+      </ion-row>
+    </ng-container>
+    <ng-container *ngIf='feedbackList?.length >= 2 && !inDisplayPage'>
+      <ion-row>
+        <ion-col text-center no-padding>
+          <span tappable (click)="goToDisplay()" class="show-more">
+            show more
+            <ion-icon class="caret-icon-down" name="custom-more"></ion-icon>
+          </span>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf='!feedbackList.length && inDisplayPage && feedback'>
+  <span class='imageBox'>
+    <img src="../../assets/imgs/no-feedback.png" class='loginImage'>
+  </span>
+</ng-container>

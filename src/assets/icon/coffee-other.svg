@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#000000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<ellipse cx="23.3" cy="40.9" rx="2" ry="1.9"/>
+	<ellipse cx="39.2" cy="40.9" rx="2" ry="1.9"/>
+	<path class="st0" d="M27.2,45.6c0,0,3.7,3.9,7.9,0"/>
+</g>
+<rect x="4.5" y="28.2" class="st1" width="54.2" height="32.2"/>
+<rect x="2.6" y="18.1" class="st1" width="58" height="10.1"/>
+<path class="st1" d="M30.6,18.1c-0.5,0-1.4-16.6-9.3-13.2S17,13.7,30,18.1"/>
+<path class="st1" d="M32.7,16.8c0,0,1.1-13.6,9.3-12.3S45.6,15.5,32.7,16.8z"/>
+<rect x="26.8" y="18.1" class="st1" width="9.5" height="10.1"/>
+</svg>

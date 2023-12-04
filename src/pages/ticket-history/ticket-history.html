@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>My Tickets History</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content overflow-scroll='true'>
+
+  <super-tabs class='super-tab' toolbarBackground='white' indicatorColor='primary' scrollTabs=true>
+    <super-tab class='tab' *ngFor='let pageInfo of pageInfo; let i=index' [root]='page' [id]='i' [rootParams]='pageInfo'
+      title='{{pageInfo.categoryName}}'></super-tab>
+  </super-tabs>
+
+</ion-content>

@@ -1,0 +1,556 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+// Customize toggle color
+.toggle-icon {
+  background-color: #e7e7e7 !important;
+}
+
+// Customize spinner color
+.spinner-md-crescent circle {
+  stroke: white;
+}
+
+// Customize toast box
+.toast-md .toast-wrapper {
+  width: 95%;
+  border-radius: 0.5em;
+  top: 0.5em !important;
+
+  .toast-message {
+    padding: 1.5rem;
+  }
+}
+
+// Customize alert box
+.alert-md .alert-wrapper {
+  border-radius: 0.5em;
+
+  .alertList {
+    padding-left: 1.2em;
+    margin: 0;
+    font-size: 1em;
+    color: $GREY_TEXT_GREY;
+    line-height: 1.5em;
+  }
+
+  .alert-title {
+    padding-bottom: 0.25em;
+  }
+
+  .alert-sub-title {
+    line-height: 1.4em;
+  }
+}
+
+// Customize loader box
+.loading-md .loading-wrapper {
+  border-radius: 0.5em;
+}
+
+// Custom highlight color
+::selection {
+  background: $GRADIENT_TOP !important;
+  color: white !important;
+}
+
+// No scrollbar
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+// Able to highlight text on mobile
+body {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+// Set up mixin
+@mixin my-gradient($gradient1, $gradient2) {
+  background: $gradient2;
+  background: -webkit-linear-gradient(bottom right, $gradient1, $gradient2);
+  background: -moz-linear-gradient(bottom right, $gradient1, $gradient2);
+  background: -o-linear-gradient(bottom right, $gradient1, $gradient2);
+  background: linear-gradient(to bottom right, $gradient1, $gradient2);
+}
+
+@mixin my-font-color($color) {
+  font-weight: 500;
+  color: $color;
+}
+
+@mixin my-font() {
+  font-weight: 200;
+}
+
+@mixin my-icon($color, $shadowColor) {
+  color: $color;
+  -webkit-box-shadow: 0px 3px 6px 1px rgba($shadowColor, 0.6);
+  -moz-box-shadow: 0px 3px 6px 1px rgba($shadowColor, 0.6);
+  box-shadow: 0px 3px 6px 1px rgba($shadowColor, 0.6);
+}
+
+@mixin card-no-shadow() {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+@mixin my-img-shadow() {
+  -webkit-box-shadow: 0px 3px 14px 1px rgba($GRADIENT_TOP, 0.6);
+  -moz-box-shadow: 0px 3px 14px 1px rgba($GRADIENT_TOP, 0.6);
+  box-shadow: 0px 3px 14px 1px rgba($GRADIENT_TOP, 0.6);
+}
+
+@mixin my-img-shadow-blur() {
+  -webkit-box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.4);
+  -moz-box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.4);
+  box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.4);
+}
+
+@mixin my-img-shadow-obvious() {
+  -webkit-box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.7);
+  -moz-box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.7);
+  box-shadow: 0px 4px 20px 1px rgba($GRADIENT_TOP, 0.7);
+}
+
+@mixin my-inner-shadow-bottom() {
+  -moz-box-shadow: inset 0 -11px 20px -10px rgba($GRADIENT_TOP, 0.3);
+  -webkit-box-shadow: inset 0 -11px 20px -10px rgba($GRADIENT_TOP, 0.3);
+  box-shadow: inset 0 -11px 20px -10px rgba($GRADIENT_TOP, 0.3);
+}
+
+@mixin my-custom-inner-shadow-bottom($color) {
+  -moz-box-shadow: inset 0px -7px 20px 0px rgba($color, 0.3);
+  -webkit-box-shadow: inset 0px -7px 20px 0px rgba($color, 0.3);
+  box-shadow: inset 0px -7px 20px 0px rgba($color, 0.3);
+}
+
+@mixin my-custom-shadow($color) {
+  -moz-box-shadow: 0px 4px 20px 1px rgba($color, 0.3);
+  -webkit-box-shadow: 0px 4px 20px 1px rgba($color, 0.3);
+  box-shadow: 0px 4px 20px 1px rgba($color, 0.3);
+}
+
+@mixin my-custom-shadow-blur($color) {
+  -moz-box-shadow: 0px 2px 10px 1px rgba($color, 0.2);
+  -webkit-box-shadow: 0px 2px 10px 1px rgba($color, 0.2);
+  box-shadow: 0px 2px 10px 1px rgba($color, 0.2);
+}
+
+@mixin my-custom-shadow-obvious($color) {
+  -moz-box-shadow: 0px 3px 10px 1px rgba($color, 0.6);
+  -webkit-box-shadow: 0px 3px 10px 1px rgba($color, 0.6);
+  box-shadow: 0px 3px 10px 1px rgba($color, 0.6);
+}
+
+@mixin animated-background {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: #e6e6e6;
+  background: linear-gradient(to right, #e6e6e6 8%, #cfcfcf 18%, #e6e6e6 33%);
+  background-size: 800px 104px;
+}
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+@mixin text-truncate-line($num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+@mixin text-truncate() {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+ion-icon {
+  &[class*="custom-"] {
+    mask-size: contain;
+    mask-position: 50% 50%;
+    mask-repeat: no-repeat;
+    background: currentColor;
+    width: 1em;
+    height: 1em;
+  }
+
+  &[class*="custom-online"] {
+    mask-image: url(../assets/icon/online.svg);
+  }
+
+  &[class*="custom-dine-in"] {
+    mask-image: url(../assets/icon/dine-in.svg);
+  }
+
+  &[class*="custom-spoon-fork"] {
+    mask-image: url(../assets/icon/spoon-fork.svg);
+  }
+
+  &[class*="custom-t-a-line"] {
+    mask-image: url(../assets/icon/t-a-line.svg);
+  }
+
+  &[class*="custom-take-away"] {
+    mask-image: url(../assets/icon/take-away.svg);
+  }
+
+  &[class*="custom-login"] {
+    mask-image: url(../assets/icon/login.svg);
+  }
+
+  &[class*="custom-logout"] {
+    mask-image: url(../assets/icon/logout.svg);
+  }
+
+  &[class*="custom-cancel"] {
+    mask-image: url(../assets/icon/cancel.svg);
+  }
+
+  &[class*="custom-coffee"] {
+    mask-image: url(../assets/icon/coffee.svg);
+  }
+
+  &[class*="custom-coffee-10"] {
+    mask-image: url(../assets/icon/coffee-10.svg);
+  }
+
+  &[class*="custom-coffee-20"] {
+    mask-image: url(../assets/icon/coffee-20.svg);
+  }
+
+  &[class*="custom-coffee-50"] {
+    mask-image: url(../assets/icon/coffee-50.svg);
+  }
+
+  &[class*="custom-coffee-100"] {
+    mask-image: url(../assets/icon/coffee-100.svg);
+  }
+
+  &[class*="custom-coffee-other"] {
+    mask-image: url(../assets/icon/coffee-other.svg);
+  }
+
+  &[class*="custom-confirm-tick"] {
+    mask-image: url(../assets/icon/confirm-tick.svg);
+  }
+
+  &[class*="custom-confirm-cross"] {
+    mask-image: url(../assets/icon/confirm-cross.svg);
+  }
+
+  &[class*="custom-camera"] {
+    mask-image: url(../assets/icon/camera.svg);
+  }
+
+  &[class*="custom-delete"] {
+    mask-image: url(../assets/icon/delete.svg);
+  }
+
+  &[class*="custom-pending"] {
+    mask-image: url(../assets/icon/pending.svg);
+  }
+
+  &[class*="custom-price"] {
+    mask-image: url(../assets/icon/price.svg);
+  }
+
+  &[class*="custom-minus-thin"] {
+    mask-image: url(../assets/icon/minus-thin.svg);
+  }
+
+  &[class*="custom-plus-thin"] {
+    mask-image: url(../assets/icon/plus-thin.svg);
+  }
+
+  &[class*="custom-plus"] {
+    mask-image: url(../assets/icon/plus.svg);
+  }
+
+  &[class*="custom-back"] {
+    mask-image: url(../assets/icon/back.svg);
+  }
+
+  &[class*="custom-more"] {
+    mask-image: url(../assets/icon/more.svg);
+  }
+
+  &[class*="custom-bell"] {
+    mask-image: url(../assets/icon/bell.svg);
+  }
+
+  &[class*="custom-bill"] {
+    mask-image: url(../assets/icon/bill.svg);
+  }
+
+  &[class*="custom-bill-thick"] {
+    mask-image: url(../assets/icon/bill-thick.svg);
+  }
+
+  &[class*="custom-caret"] {
+    mask-image: url(../assets/icon/caret.svg);
+  }
+
+  &[class*="custom-caret-down"] {
+    mask-image: url(../assets/icon/caret-down.svg);
+  }
+
+  &[class*="custom-cart"] {
+    mask-image: url(../assets/icon/cart.svg);
+  }
+
+  &[class*="custom-coins"] {
+    mask-image: url(../assets/icon/coins.svg);
+  }
+
+  &[class*="custom-cross"] {
+    mask-image: url(../assets/icon/cross.svg);
+  }
+
+  &[class*="custom-document"] {
+    mask-image: url(../assets/icon/document.svg);
+  }
+
+  &[class*="custom-email"] {
+    mask-image: url(../assets/icon/email.svg);
+  }
+
+  &[class*="custom-emoji-bad"] {
+    mask-image: url(../assets/icon/emoji-bad.svg);
+  }
+
+  &[class*="custom-emoji-excellent"] {
+    mask-image: url(../assets/icon/emoji-excellent.svg);
+  }
+
+  &[class*="custom-emoji-good"] {
+    mask-image: url(../assets/icon/emoji-good.svg);
+  }
+
+  &[class*="custom-emoji-notgood"] {
+    mask-image: url(../assets/icon/emoji-notgood.svg);
+  }
+
+  &[class*="custom-emoji-soso"] {
+    mask-image: url(../assets/icon/emoji-soso.svg);
+  }
+
+  &[class*="custom-filter"] {
+    mask-image: url(../assets/icon/filter.svg);
+  }
+
+  &[class*="custom-filter-thick"] {
+    mask-image: url(../assets/icon/filter-thick.svg);
+  }
+
+  &[class*="custom-gallery"] {
+    mask-image: url(../assets/icon/gallery.svg);
+  }
+
+  &[class*="custom-gallery-outline"] {
+    mask-image: url(../assets/icon/gallery-outline.svg);
+  }
+
+  &[class*="custom-history"] {
+    mask-image: url(../assets/icon/history.svg);
+  }
+
+  &[class*="custom-history-thin"] {
+    mask-image: url(../assets/icon/history-thin.svg);
+  }
+
+  &[class*="custom-home-outline"] {
+    mask-image: url(../assets/icon/home-outline.svg);
+  }
+
+  &[class*="custom-home-outline-thin"] {
+    mask-image: url(../assets/icon/home-outline-thin.svg);
+  }
+
+  &[class*="custom-landmark"] {
+    mask-image: url(../assets/icon/landmark.svg);
+  }
+
+  &[class*="custom-location"] {
+    mask-image: url(../assets/icon/location.svg);
+  }
+
+  &[class*="custom-menu"] {
+    mask-image: url(../assets/icon/menu.svg);
+  }
+
+  &[class*="custom-menu-more"] {
+    mask-image: url(../assets/icon/menu-more.svg);
+  }
+
+  &[class*="custom-messenger"] {
+    mask-image: url(../assets/icon/messenger.svg);
+  }
+
+  &[class*="custom-notification"] {
+    mask-image: url(../assets/icon/notification.svg);
+  }
+
+  &[class*="custom-people"] {
+    mask-image: url(../assets/icon/people.svg);
+  }
+
+  &[class*="custom-phone"] {
+    mask-image: url(../assets/icon/phone.svg);
+  }
+
+  &[class*="custom-whatsapp"] {
+    mask-image: url(../assets/icon/whatsapp.svg);
+  }
+
+  &[class*="custom-question"] {
+    mask-image: url(../assets/icon/question.svg);
+  }
+
+  &[class*="custom-reservation"] {
+    mask-image: url(../assets/icon/reservation.svg);
+  }
+
+  &[class*="custom-reservation-thick"] {
+    mask-image: url(../assets/icon/reservation-thick.svg);
+  }
+
+  &[class*="custom-share"] {
+    mask-image: url(../assets/icon/share.svg);
+  }
+
+  &[class*="custom-scan"] {
+    mask-image: url(../assets/icon/scan.svg);
+  }
+
+  &[class*="custom-s-thick"] {
+    mask-image: url(../assets/icon/search-thick.svg);
+  }
+
+  &[class*="custom-search"] {
+    mask-image: url(../assets/icon/search.svg);
+  }
+
+  &[class*="custom-setting"] {
+    mask-image: url(../assets/icon/setting.svg);
+  }
+
+  &[class*="custom-shop"] {
+    mask-image: url(../assets/icon/shop.svg);
+  }
+
+  &[class*="custom-star"] {
+    mask-image: url(../assets/icon/star.svg);
+  }
+
+  &[class*="custom-star-outline-thin"] {
+    mask-image: url(../assets/icon/star-outline-thin.svg);
+  }
+
+  &[class*="custom-three-dot"] {
+    mask-image: url(../assets/icon/three-dot.svg);
+  }
+
+  &[class*="custom-tick"] {
+    mask-image: url(../assets/icon/tick.svg);
+  }
+
+  &[class*="custom-tick-thick2"] {
+    mask-image: url(../assets/icon/tick-thick.svg);
+  }
+
+  &[class*="custom-tick-thicker"] {
+    mask-image: url(../assets/icon/tick-thicker.svg);
+  }
+
+  &[class*="custom-tag"] {
+    mask-image: url(../assets/icon/tag.svg);
+  }
+
+  &[class*="custom-ticket"] {
+    mask-image: url(../assets/icon/ticket.svg);
+  }
+
+  &[class*="custom-ticket-outline"] {
+    mask-image: url(../assets/icon/ticket-outline.svg);
+  }
+
+  &[class*="custom-ticket-outline-thin"] {
+    mask-image: url(../assets/icon/ticket-outline-thin.svg);
+  }
+
+  &[class*="custom-ticket-cancel"] {
+    mask-image: url(../assets/icon/ticket-cancel.svg);
+  }
+
+  &[class*="custom-ticket-claim"] {
+    mask-image: url(../assets/icon/ticket-claim.svg);
+  }
+
+  &[class*="custom-time"] {
+    mask-image: url(../assets/icon/time.svg);
+  }
+
+  &[class*="custom-trash"] {
+    mask-image: url(../assets/icon/trash.svg);
+  }
+
+  &[class*="custom-update"] {
+    mask-image: url(../assets/icon/update.svg);
+  }
+
+  &[class*="custom-user-outline"] {
+    mask-image: url(../assets/icon/user-outline.svg);
+  }
+
+  &[class*="custom-voucher"] {
+    mask-image: url(../assets/icon/voucher.svg);
+  }
+
+  &[class*="custom-waiter"] {
+    mask-image: url(../assets/icon/waiter.svg);
+  }
+
+  &[class*="custom-boost-pay-logo"] {
+    mask-image: url(../assets/icon/boost-pay-logo.svg);
+  }
+
+  &[class*="custom-tng-pay-logo"] {
+    mask-image: url(../assets/icon/tng-pay-logo.svg);
+  }
+
+  &[class*="custom-fpx-logo"] {
+    mask-image: url(../assets/icon/fpx-logo.svg);
+  }
+
+  &[class*="custom-guide"] {
+    mask-image: url(../assets/icon/guide.svg);
+  }
+}

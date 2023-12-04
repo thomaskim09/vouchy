@@ -1,0 +1,78 @@
+<ion-grid class='card-holder'>
+  <ion-row>
+    <ion-col>
+      <ion-grid class='main-card' no-padding>
+        <div [ngClass]="{'scrollable': remarkList.length >= 3}">
+          <ng-container *ngFor='let item of remarkList; let i=index'>
+            <ion-row *ngIf="item.remarkType === 'RB'">
+              <ion-col>
+                <span class='combo-box-text'>{{needTranslate ? item.remarkTitleTranslated : item.remarkTitle}}</span>
+                <ion-select class='combo-box' (ionChange)='singleModelChanged(item.remarkDetails, i, $event)'>
+                  <span *ngFor='let child of item.remarkDetails; let j=index'>
+                    <ion-option [selected]='j==0' value={{j}}>
+                      {{needTranslate ? child.remarkNameTranslated: child.remarkName}}
+                      {{getRemarkPrice(child.remarkPrice)}}
+                    </ion-option>
+                  </span>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="item.remarkType === 'CB'">
+              <ion-col>
+                <span class='combo-box-text'>{{needTranslate ? item.remarkTitleTranslated : item.remarkTitle}}</span>
+                <ion-select class='combo-box' (ionChange)='multipleModelChanged(item.remarkDetails, i, $event)'
+                  [multiple]="true">
+                  <span *ngFor='let child of item.remarkDetails; let j=index'>
+                    <ion-option [selected]='j==0' value={{j}}>
+                      {{needTranslate ? child.remarkNameTranslated: child.remarkName}}
+                      {{getRemarkPrice(child.remarkPrice)}}
+                    </ion-option>
+                  </span>
+                </ion-select>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+          <ion-row>
+            <ion-col>
+              <span class='input-box-text'>{{needTranslate ? '注明' : 'Remark'}}</span>
+              <ion-input class='input-box' [(ngModel)]='extraRemarkModel' [attr.maxlength]='30'
+                [placeholder]="getPlaceholder()">
+              </ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='bottom-col'>
+              <span class='price-content'>
+                <span class='currency'>RM</span>
+                <span class='price'>{{roundUpPrice(foodNewPrice)}}</span>
+              </span>
+              <button class='add-button' (click)='addToCart()' ion-button no-margin>
+                <ion-icon class='plus-icon' name='custom-tick-thick2'></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ng-container *ngIf='mainList.description'>
+        <ion-grid class='second-card'>
+          <ion-row>
+            <ion-col class='description-title'>
+              <span class='input-box-text'>{{needTranslate ? '介绍' : 'Description'}}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span class='description'>{{needTranslate ? mainList.descriptionTranslated : mainList.description}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<div tappable class='popover-background' (click)='close()'></div>

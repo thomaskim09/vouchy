@@ -1,0 +1,91 @@
+page-ticket {
+
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .header-title {
+    padding-left: 0.8em;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .nav-button1 {
+    margin: 0;
+    width: 3em;
+    position: relative;
+    top: -0.1em;
+    left: 0.5em
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+    right: 0.5em;
+  }
+
+  .history-icon {
+    color: $GREY_ICON_WHITE_DARKER;
+    font-size: 1.5em;
+    position: relative;
+    top: 0.1em;
+  }
+
+  // Super tabs
+  .selected {
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .text,
+  .text-md {
+    font-weight: 400 !important;
+    font-size: 1.1em;
+  }
+
+  .tab-buttons-container .tab-buttons super-tab-button:not(.selected) {
+    opacity: 1 !important;
+  }
+
+  .super-tab {
+    background-color: white;
+    border-top: 1px solid $GREY_BORDER_LINE;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+    height: 100%;
+    width: 100%;
+    @include card-no-shadow();
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+  }
+
+  super-tabs-toolbar>ion-toolbar.toolbar.scroll-tabs .tab-buttons-container .tab-buttons super-tab-button {
+    min-width: auto;
+    overflow-y: auto;
+  }
+
+  super-tabs-toolbar>ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
+    text-transform: none;
+  }
+
+  .tab {
+    display: inline-block;
+    min-width: 9em;
+    width: auto;
+    color: black !important;
+  }
+
+}

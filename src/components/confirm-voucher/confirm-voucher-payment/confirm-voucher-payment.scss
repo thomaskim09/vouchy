@@ -1,0 +1,68 @@
+confirm-voucher-payment {
+
+  .payment-card {
+    border-radius: 0.5em;
+    margin: 0 auto 1em auto;
+    height: auto;
+    padding: 0 0.5em;
+    @include card-no-shadow();
+  }
+
+  .line {
+    border-bottom: 1px solid $GREY_LINE_GREY;
+  }
+
+  .payment-col {
+    padding: 1em;
+  }
+
+  .boost-icon {
+    font-size: 2em;
+    color: $BOOST_RED;
+  }
+
+  .payment-text {
+    font-size: 1.2em;
+    position: relative;
+    top: -0.5em;
+    left: 0.8em;
+  }
+
+  .payment-text2 {
+    font-size: 1.2em;
+    position: absolute;
+    top: 1.1em;
+    left: 3.6em;
+  }
+
+  .icon-image {
+    width: 2em;
+    height: 2em;
+  }
+
+  .radio-button {
+    position: absolute;
+    top: 1.25em;
+    right: 1.5em;
+  }
+
+  .radio-md .radio-icon {
+    width: 1.7em !important;
+    height: 1.7em !important;
+    border: 1px solid $GREY_LINE_GREY !important;
+  }
+
+  .radio-md .radio-checked {
+    border-color: $GRADIENT_TOP !important;
+    border-width: 2px !important;
+  }
+
+  .radio-md .radio-inner {
+    width: 1.14em !important;
+    height: 1.14em !important;
+  }
+
+  .highlight {
+    font-weight: 500;
+  }
+}

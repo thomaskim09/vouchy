@@ -1,0 +1,77 @@
+page-image-picker {
+
+  .picker-card {
+    position: absolute;
+    top: 40%;
+    left: 9%;
+    min-height: 8em;
+    max-width: 77%;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 1em;
+    @include card-no-shadow();
+  }
+
+  button {
+    background-color: transparent;
+    text-align: left;
+  }
+
+  .first-item {
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .button1 {
+    padding-bottom: 0.3em;
+  }
+
+  .button2 {
+    padding-top: 0.4em;
+  }
+
+  .camera-icon {
+    font-size: 2em;
+    color: black;
+    position: relative;
+    left: -1.55em;
+  }
+
+  .first-title {
+    position: relative;
+    left: -1.7em;
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+    margin-left: 0.4 em;
+  }
+
+  .gallery-icon {
+    position: relative;
+    left: -0.55em;
+    bottom: 0.1em;
+    color: black;
+    font-size: 2.1em;
+    margin-left: 0.3em;
+  }
+
+  .second-title {
+    position: relative;
+    bottom: 0.2em;
+    color: black;
+    text-transform: capitalize;
+    font-size: 1.2em;
+    font-weight: 200;
+  }
+
+  .dark-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    @media (min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+}

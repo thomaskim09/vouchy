@@ -1,0 +1,45 @@
+<ng-container *ngIf="voucherGroup">
+  <ng-container *ngIf="voucherGroup.groupVoucherDetails">
+    <ion-card class="info-card">
+      <ion-row>
+        <ion-col no-padding>
+          <ion-row>
+            <ion-col class="info-title">Group Voucher Detail</ion-col>
+          </ion-row>
+          <ul class="list" no-padding no-margin>
+            <ng-container *ngFor="let groupVoucherDetail of voucherGroup.groupVoucherDetails">
+              <ion-row class="content-row" no-padding>
+                <ion-col no-padding>
+                  <li>
+                    <span class="bold-text">{{groupVoucherDetail.groupQuantity}}</span>
+                    group vouchers, price per unit:
+                    <span class="highlighed-text">RM
+                      {{ groupVoucherDetail.groupPricePerUnit }}</span>
+                  </li>
+                </ion-col>
+              </ion-row>
+            </ng-container>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf="!voucherGroup.groupVoucherDetails">
+    <ion-card class="info-card">
+      <ion-row>
+        <ion-col no-padding>
+          <ion-row>
+            <ion-col class="skeleton-title"></ion-col>
+          </ion-row>
+          <ion-row class="content-row" no-padding>
+            <ion-col class="skeleton-content-col" no-padding> </ion-col>
+          </ion-row>
+          <ion-row class="content-row" no-padding>
+            <ion-col class="skeleton-content-col" no-padding> </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>{{needTranslate ? '确认订单' : 'Confirm Order'}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+  <ion-grid>
+    <ng-container *ngIf='menu.orderSettings.isDineIn'>
+      <ion-card class='table-card'>
+        <ion-row class='collect-row'>
+          <ng-container *ngIf='menu.menuSettings.td.hasTakeAway'>
+            <ion-col no-padding>
+              <div class='checkBox'>
+                <ion-checkbox [(ngModel)]="takeAwayModel" (click)='toggleTakeAway()' [disabled]='confirmClicked'>
+                </ion-checkbox>
+                <span class='toggle-text'>{{needTranslate ? '打包请打勾' : 'Tick if take away'}}</span>
+              </div>
+            </ion-col>
+          </ng-container>
+          <ion-col class='table-no' (click)='presentTableNo()'>
+            <ng-container *ngIf='!tableModel'>
+              <span class='highlight'>{{needTranslate ? '请输入桌子号码' : 'Insert table no here'}}</span>
+            </ng-container>
+            <ng-container *ngIf='tableModel'>
+              <span class='highlight'>Table: {{tableModel}}</span>
+            </ng-container>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ng-container>
+
+    <ng-container *ngIf='!menu.orderSettings.isDineIn'>
+      <ion-card class='table-card'>
+        <ion-row class='collect-row'>
+          <ion-col col-8>
+            <ng-container *ngIf='!collectTimeModel'>
+              <span>{{needTranslate ? '请选择一个拿餐时间点' : 'Pick a collect time'}}</span>
+            </ng-container>
+            <ng-container *ngIf='collectTimeModel'>
+              <span>{{needTranslate ? '拿餐时间点' : 'Collect Time'}}</span>
+            </ng-container>
+          </ion-col>
+          <ion-col>
+            <ion-datetime readonly class='collect-input' displayFormat="h:mma" [hourValues]='hourList'
+              minuteValues="0,15,30,45" [(ngModel)]="collectTimeModel" placeholder='e.g. 1:30pm'
+              (ngModelChange)="collectTimeChanged()">
+            </ion-datetime>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ng-container>
+
+    <confirm-order-card [menu]='menu' [orderContent]='orderContent' [confirmClicked]='confirmClicked'>
+    </confirm-order-card>
+  </ion-grid>
+  <div class='space'></div>
+</ion-content>
+
+<ion-footer>
+  <confirm-order-button [menu]='menu' [orderContent]='orderContent' (response)='emitResponse($event)'>
+  </confirm-order-button>
+</ion-footer>

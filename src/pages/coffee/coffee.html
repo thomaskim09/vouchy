@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>Treat us a coffee</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img src="../../assets/imgs/support-vouchy.png" class='loginImage'>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class='coffee-grid' *ngFor='let item of coffeeList'>
+    <ion-card tappable class='coffee-card' (click)='goToCoffeePay(item)'>
+      <ion-row>
+        <ion-col class='amount' col-8>
+          {{item.amount}}
+        </ion-col>
+        <ion-col col-2 text-center>
+          <ion-icon class='coffee-icon' [name]='item.icon'></ion-icon>
+        </ion-col>
+        <ion-col text-center>
+          <ion-icon class='more-icon' name='custom-more'></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-grid>
+
+</ion-content>

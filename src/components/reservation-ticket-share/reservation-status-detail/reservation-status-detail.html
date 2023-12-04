@@ -1,0 +1,33 @@
+<ng-container *ngIf='input'>
+  <ion-card class='card'>
+    <ion-row>
+      <ion-col class='title'>Reservation Details</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class='content'>
+        <ion-row class='content-row'>
+          <ion-col col-4 no-padding>Restaurant: </ion-col>
+          <ion-col [innerHTML]='input.restaurantName' no-padding></ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-4 no-padding>Contact: </ion-col>
+          <ion-col no-padding>{{input.name}} ({{input.contact}})</ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-4 no-padding>Time: </ion-col>
+          <ion-col no-padding>{{time}} ({{date}})</ion-col>
+        </ion-row>
+        <ion-row class='content-row'>
+          <ion-col col-4 no-padding>Pax: </ion-col>
+          <ion-col no-padding>{{input.pax}} People</ion-col>
+        </ion-row>
+        <ng-container *ngIf='input.remark'>
+          <ion-row class='content-row'>
+            <ion-col col-4 no-padding>Remark: </ion-col>
+            <ion-col no-padding>{{input.remark}}</ion-col>
+          </ion-row>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

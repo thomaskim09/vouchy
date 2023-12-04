@@ -1,0 +1,247 @@
+restaurant-voucher {
+
+  .card {
+    width: 85%;
+    margin: 2em 0 1em 9%;
+    padding: 0.7em 1em 0.1em 1em;
+    background-color: white;
+    border-radius: 0.5em;
+    position: relative;
+    overflow: visible;
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .tertiary {
+    font-size: 1em;
+    font-weight: 200;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .highlight {
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .highlight-thin {
+    font-weight: 400;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .left-restaurant-content {
+    position: absolute;
+  }
+
+  .restaurant-image {
+    position: absolute;
+    left: -2em;
+    top: -1.5em;
+    min-width: 6em;
+    min-height: 6em;
+    max-width: 6em;
+    max-height: 6em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    @include my-img-shadow();
+  }
+
+  .right-restaurant-content {
+    padding: 0em 0.6em 1em 5em;
+    height: 5.4em;
+  }
+
+  .restaurant-name {
+    padding-bottom: 0.1em;
+    padding-left: 0.1em;
+    height: 2.4em;
+    @include text-truncate-line(2);
+  }
+
+  .rating-icon {
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    font-size: 1em;
+    margin-top: 0.35em;
+    margin-bottom: 0.25em;
+    margin-left: 0.45em;
+  }
+
+  .rating-col {
+    @include text-truncate-line(1);
+  }
+
+  .rating-value {
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+  }
+
+  .rating-icon-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    font-size: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.1em;
+  }
+
+  .rating-value-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+    @include text-truncate();
+  }
+
+  .restaurant-type {
+    text-align: right;
+    padding-top: 0.28em;
+    @include text-truncate();
+  }
+
+  // Voucher content
+  .divider-line {
+    border-bottom: 1px solid $GREY_LINE_GREY;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+  }
+
+  .voucher-content {
+    padding: 0.6em;
+  }
+
+  .price-content {
+    margin-top: 0.5em;
+  }
+
+  .voucher-name {
+    @include text-truncate();
+  }
+
+  .currency {
+    padding-top: 1.5em;
+    text-align: right;
+  }
+
+  .new-price {
+    font-size: 2.2em;
+    padding-top: 0.2em;
+    padding-right: 0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .base-price {
+    padding-top: 1.5em;
+    text-decoration: line-through;
+  }
+
+  .quantity-sold {
+    padding-top: 1.7em;
+    text-align: right;
+  }
+
+  .show-more-col {
+    padding: 0.6em;
+  }
+
+  .show-more {
+    position: relative;
+    left: 0.5em;
+  }
+
+  .caret-icon-down {
+    position: relative;
+    bottom: -0.2em;
+    right: -0.6em;
+    font-size: 1em;
+    transform: rotate(0deg);
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  //Skeleton Screen//
+
+  .skeleton {
+    border-radius: 0.2em;
+    background-color: $GREY_SKELETON;
+    @include animated-background();
+  }
+
+  .skeleton-card {
+    width: 85%;
+    margin-top: 2em;
+    margin-left: 9%;
+    margin-bottom: 1em;
+    background-color: white;
+    position: relative;
+    border-radius: 0.5em;
+    overflow: visible;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0;
+  }
+
+  .skeleton-restaurant-image {
+    position: absolute;
+    left: -2em;
+    top: -1.5em;
+    min-width: 6em;
+    min-height: 6em;
+    max-width: 6em;
+    max-height: 6em;
+    @include my-custom-shadow($GREY_SKELETON_SHADOW);
+  }
+
+  .skeleton-restaurant-name {
+    height: 1.1em;
+    margin-bottom: 0.2em;
+    padding-left: 0.1em;
+  }
+
+  .skeleton-rating {
+    height: 1.1em;
+    max-width: 3em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+
+  .skeleton-restaurant-type {
+    height: 1.1em;
+    max-width: 4em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+
+  .skeleton-cost-per-pax {
+    height: 1.1em;
+    max-width: 5em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    position: absolute;
+    right: 0.4em;
+  }
+
+  .skeleton-voucher-name {
+    height: 1.1em;
+    max-width: 12em;
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+  }
+
+  .skeleton-price {
+    height: 1.1em;
+    max-width: 7em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .skeleton-show-more-col {
+    height: 1.1em;
+    max-width: 4em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 40%;
+  }
+}

@@ -1,0 +1,41 @@
+confirm-voucher-info {
+
+  .info-card {
+    border-radius: 0.5em;
+    height: auto;
+    margin: 0em auto;
+    padding: 0em 0.5em;
+    @include card-no-shadow();
+  }
+
+  .info-title {
+    font-weight: 400;
+    font-size: 1.3em;
+    padding-bottom: 0em;
+  }
+
+  .info-text {
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-left: 0.1em;
+  }
+
+  .list {
+    margin-top: 0.15em;
+    padding-bottom: 0.5em;
+  }
+
+  .content-row {
+    padding-left: 2.3em;
+    padding-bottom: 0.3em;
+  }
+
+  li {
+    margin-top: 0.3em;
+  }
+
+  .bold-text {
+    color: black;
+    font-weight: 400;
+  }
+
+}

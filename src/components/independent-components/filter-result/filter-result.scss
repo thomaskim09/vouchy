@@ -1,0 +1,176 @@
+filter-result {
+
+  .black-background {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .filter-box {
+    background-color: white;
+    z-index: 3;
+  }
+
+  .segment-box {
+    padding-top: 0;
+  }
+
+  .segment-activated {
+    font-weight: 400 !important;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .segment-button {
+    color: black !important;
+    text-transform: capitalize !important;
+    font-size: 1.1em !important;
+    font-weight: 400 !important;
+  }
+
+  .content-box {
+    padding: 0 1em;
+    height: 26em;
+    overflow: hidden;
+  }
+
+  // Content
+
+  .col-active {
+    max-width: 70%;
+  }
+
+  .col-deactive {
+    max-width: 30%;
+  }
+
+  .white-box {
+    width: 100%;
+    height: 25em;
+    position: absolute;
+    background-color: white;
+    opacity: 0.65;
+    z-index: 3;
+  }
+
+  .list-box {
+    max-height: 25em;
+    overflow: scroll;
+  }
+
+  .item-selected {
+    font-weight: 400 !important;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  ion-radio {
+    width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .radio-icon {
+    display: none !important;
+  }
+
+  .item-block {
+    min-height: 2em;
+  }
+
+  ion-item-divider {
+    padding-left: 0.2em !important;
+  }
+
+  .item-divider {
+    border: 0;
+    border-radius: 0.5em;
+    background-color: $GREY_SEARCH_BAR;
+    z-index: 0;
+  }
+
+  ion-label {
+    font-weight: 200;
+    margin: 0 0 0 0.5em !important;
+  }
+
+  ion-item {
+    padding-left: 0 !important;
+  }
+
+  .item-inner {
+    border-bottom: 0 !important;
+  }
+
+  // General tab
+
+  .first-col {
+    margin-top: 0.5em;
+  }
+
+  .voucher-col {
+    padding-bottom: 0 !important;
+  }
+
+  .voucher-title {
+    font-size: 1.1em;
+    font-weight: 200;
+  }
+
+  .voucher-content {
+    margin-bottom: 0.7em;
+  }
+
+  ion-select {
+    font-size: 1.2em;
+    max-width: 95%;
+    overflow: visible;
+    font-weight: 200;
+    margin-top: 0.3em;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .select-text {
+    color: $GRADIENT_TOP;
+  }
+
+  .counter {
+    position: absolute;
+    right: 0.5em;
+  }
+
+  .item-button {
+    padding-left: 0 !important;
+    background-color: white;
+    font-size: 1em !important;
+    font-weight: 200;
+  }
+
+  .range-icon {
+    color: $GREY_ICON_WHITE_DARKER;
+    margin-left: 0.5em !important;
+  }
+
+  .range-label {
+    font-size: 1.2em;
+    color: $GRADIENT_TOP;
+    font-weight: 200;
+    margin-left: 0.6em !important;
+    margin-right: 0.5em !important;
+  }
+
+  .filter-col {
+    padding: 0.3em;
+    border: 1px solid $GRADIENT_TOP;
+    border-radius: 0.5em;
+  }
+
+  .filter-button {
+    font-size: 1.3em;
+    color: $GRADIENT_TOP;
+    font-weight: 400;
+    text-transform: capitalize;
+    width: 100%;
+  }
+}

@@ -1,0 +1,50 @@
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col class='middle-tab'>
+      <ion-row>
+        <ion-col tappable (click)='toggleList()' text-center no-padding>
+          <ion-icon class='list-caret-up' name='custom-caret' *ngIf='!itemOpened'></ion-icon>
+          <ion-icon class='list-caret-down' name='custom-caret-down' *ngIf='itemOpened'></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ng-container *ngIf='orderCon'>
+        <div *ngIf='itemOpened' class='orderInfo'>
+          <ion-list>
+            <ion-item>
+              <span class='sub-item-text'>Subtotal</span>
+              <span class='sub-item-price'>RM {{subTotal}}</span>
+            </ion-item>
+            <ng-container *ngIf="packagingFee !== '0.00' || !bill.isDineIn">
+              <ion-item *ngIf='menu.td.hasTakeAway && menu.td.hasTakeAwayFee'>
+                <span class='sub-item-text' *ngIf="!menu.td.hasTakeAwayPerPackage">Packaging Fee</span>
+                <span class='sub-item-text' *ngIf="menu.td.hasTakeAwayPerPackage">Packaging Fee ({{takeAwayCounter}}
+                  Item)</span>
+                <span class='sub-item-price'>RM {{packagingFee}}</span>
+              </ion-item>
+            </ng-container>
+            <ion-item *ngIf='menu.td.hasServiceCharge'>
+              <span class='sub-item-text'>Service Charge ({{menu.serviceChargePercentage}}%)</span>
+              <span class='sub-item-price'>RM {{serviceCharge}}</span>
+            </ion-item>
+            <ion-item *ngIf='menu.td.hasTax'>
+              <span class='sub-item-text'>Tax ({{menu.taxPercentage}}% SST)</span>
+              <span class='sub-item-price'>RM {{taxCharge}}</span>
+            </ion-item>
+            <ion-item *ngIf="rounding.type === '+'">
+              <span class='sub-item-text'>Rounding Adjustment</span>
+              <span class='sub-item-price'>+ RM {{rounding.value}}</span>
+            </ion-item>
+            <ion-item *ngIf="rounding.type === '-'">
+              <span class='sub-item-text'>Rounding Adjustment</span>
+              <span class='sub-item-price'>- RM {{rounding.value}}</span>
+            </ion-item>
+          </ion-list>
+        </div>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+  <ion-row class='bottom-tab' justify-content-center align-items-center>
+    <ion-col class='main-item-text'>Total Price</ion-col>
+    <ion-col class='main-item-price'>{{finalTotalPrice}}</ion-col>
+  </ion-row>
+</ion-grid>

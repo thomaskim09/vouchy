@@ -1,0 +1,38 @@
+<ng-container *ngIf='voucherSlides.length'>
+  <ion-row>
+    <ion-col class='slide'>
+      <ion-slides slidesPerView="1.1" spaceBetween="0" centeredSlides autoplay="4000" [loop]="checkSlideNumber()"
+        speed="2000">
+        <ion-slide *ngFor='let voucher of voucherSlides'>
+          <ion-card tappable class='slide-card' (click)='selectRestaurant(voucher.restaurantId)'>
+            <ion-row>
+              <ion-col class='left-content' col-4>
+                <span class='image-box'>
+                  <img class='voucher-image' [src]='voucher.details.voucherImage'>
+                </span>
+              </ion-col>
+              <ion-col class='right-content'>
+                <ion-row>
+                  <ion-col class='primary' no-padding item-text-wrap>{{voucher.details.voucherName}}</ion-col>
+                </ion-row>
+                <ng-container *ngIf='voucher.details.quantitySold !== 0'>
+                  <ion-row>
+                    <ion-col class='quantity-sold' class='tertiary' no-padding>{{voucher.details.restaurantName}}
+                    </ion-col>
+                  </ion-row>
+                </ng-container>
+                <ion-row class='bottom-row'>
+                  <ion-col class='price-content' no-padding>
+                    <span class='currency'>RM</span>
+                    <span class='new-price'>{{voucher.details.newPrice}}</span>
+                    <span class='base-price'>RM{{voucher.details.basePrice}}</span>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+    </ion-col>
+  </ion-row>
+</ng-container>

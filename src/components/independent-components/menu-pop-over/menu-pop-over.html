@@ -1,0 +1,40 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item tappable (click)='goToNotification()'>
+          <span *ngIf='hasNotifications' class='notification-badge'></span>
+          <ion-icon name='custom-notification'></ion-icon>
+          <span class='item-text'>Notifications</span>
+        </ion-item>
+        <ion-item tappable (click)='scanQR()'>
+          <ion-icon class='item-icon' name='custom-scan'></ion-icon>
+          <span class='item-text'>Scan Qr</span>
+        </ion-item>
+        <ion-item tappable (click)='goToFavourite()'>
+          <ion-icon class='item-icon' name='custom-star-outline-thin'></ion-icon>
+          <span class='item-text'>My Favourites</span>
+        </ion-item>
+        <ion-item tappable (click)='goToReport()'>
+          <ion-icon class='item-icon' name='custom-question'></ion-icon>
+          <span class='item-text'>Report Error</span>
+        </ion-item>
+        <ng-container *ngIf='!isLoggedIn'>
+          <ion-item tappable (click)='login()'>
+            <ion-icon class='item-icon' name='custom-login'></ion-icon>
+            <span class='item-text'>Log In</span>
+          </ion-item>
+        </ng-container>
+        <ng-container *ngIf='needSignOut'>
+          <ng-container *ngIf='isLoggedIn'>
+            <ion-item tappable (click)='signOut()'>
+              <ion-icon class='item-icon' name='custom-logout'></ion-icon>
+              <span class='item-text'>Sign Out</span>
+            </ion-item>
+          </ng-container>
+        </ng-container>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<div tappable class='popover-background' (click)='close()'></div>

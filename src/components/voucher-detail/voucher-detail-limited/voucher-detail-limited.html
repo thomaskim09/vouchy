@@ -1,0 +1,43 @@
+<ng-container *ngIf='input'>
+  <ng-container *ngIf='!noCard'>
+    <ion-card class='card'>
+      <ng-container *ngIf='input.limitedEndTime || hasSoldOut'>
+        <ion-row>
+          <ion-col text-center>
+            <span class='timeLeft'
+              [ngClass]="{'title-inactive': hasSoldOut, 'title-inactive2': limitTimeOver}">{{timeLeftTitle}}</span>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf='input.limitedQuantity'>
+        <ion-row>
+          <ion-col>
+            <div class="progress-outer">
+              <div class='progress-bar-inner' [ngClass]="{
+                                  'progress-inner': progress < 100,
+                                  'progress-inner-inactive': progress === 100,
+                                  'progress-inner-inactive2': limitTimeOver
+                                  }" [style.width]="progress + '%'"> {{title}}
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf='!input'>
+    <ion-card class='card'>
+      <ng-container *ngIf='!input.limitedEndTime'>
+        <ion-row>
+          <ion-col class='skeleton-timeLeft' text-center></ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf='!input.limitedQuantity'>
+        <ion-row>
+          <ion-col class="skeleton-progress-outer"></ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-card>
+  </ng-container>
+</ng-container>

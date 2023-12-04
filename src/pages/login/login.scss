@@ -1,0 +1,205 @@
+page-login {
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  // Login Image
+  .login-image {
+    margin-top: 1.5em;
+    width: 8em;
+    height: 8em;
+  }
+
+  // Text slide show
+  .slider-text {
+    font-size: 1.3em;
+    color: $GREY_TEXT_WHITE;
+  }
+
+  .ms-slider {
+    display: inline-block;
+
+    height: 1.5em;
+    overflow: hidden;
+
+    vertical-align: middle;
+
+    mask-image: linear-gradient(transparent, white, white, white, transparent);
+    mask-type: luminance;
+    mask-mode: alpha;
+
+    &__words {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+
+      animation-name: wordSlider;
+      animation-timing-function: ease-out;
+      animation-iteration-count: infinite;
+      animation-duration: 10s;
+    }
+
+    &__word {
+      display: block;
+      line-height: 1.3em;
+      text-align: left;
+      text-align: center;
+    }
+  }
+
+  @keyframes wordSlider {
+    $steps: -0%, -25%, -50%, -75%;
+
+    @for $index from 0 to length($steps)-1 {
+      $next: $index+1;
+      $step: floor(100/(length($steps)-1));
+      $animation_step: floor($step*.2);
+
+      #{$step*$index}%,
+      #{($step*$next) - $animation_step}% {
+        transform: translateY(nth($steps, $index+1));
+      }
+    }
+
+    100% {
+      transform: translateY(nth($steps, length($steps)));
+    }
+  }
+
+
+  // Input content
+  .top-content {
+    position: absolute;
+    bottom: 7em;
+    left: 8%;
+    width: 85%;
+  }
+
+  .input-col {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 24%;
+    bottom: 0.7em;
+    color: $GREY_ICON_WHITE_DARKER;
+    font-size: 1.8em;
+  }
+
+  .user-input {
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+    width: 90%;
+    position: relative;
+    left: 5%;
+    font-size: 1.2em;
+
+    .text-input-md {
+      text-align: center;
+    }
+  }
+
+  .sendButton {
+    margin-top: 0.5em;
+    width: 100%;
+    height: 3em;
+    border: 1px solid $GREY_BORDER_LINE;
+    border-radius: 10em;
+    color: white;
+    font-weight: 400;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    @include my-img-shadow();
+  }
+
+  .sendButton-disabled {
+    margin-top: 0.5em;
+    width: 100%;
+    height: 3em;
+    border: 1px solid $GREY_BORDER_LINE;
+    border-radius: 10em;
+    background-color: $GREY_TEXT_WHITE;
+  }
+
+  .sendButton-text {
+    color: white;
+    font-weight: 400;
+    font-size: 1.2em;
+  }
+
+  ion-spinner {
+    * {
+      stroke: white !important;
+    }
+
+    &.spinner-circles circle,
+    &.spinner-bubbles circle,
+    &.spinner-dots circle {
+      fill: white !important;
+    }
+  }
+
+  .bottom-content {
+    position: absolute;
+    bottom: 1em;
+    width: 89%;
+  }
+
+  .clickable-first-row {
+    margin-bottom: 0.2em;
+  }
+
+  .clickable-text {
+    color: $GREY_TEXT_WHITE;
+  }
+
+  .clickable-link {
+    margin-top: 0.5em;
+    text-decoration: underline;
+    color: $GRADIENT_TOP;
+  }
+
+  // Username area
+  .hint {
+    margin-left: 1em;
+    color: $GREY_TEXT_WHITE;
+    font-weight: 400;
+  }
+
+  .alert {
+    margin-top: 0.4em;
+    margin-left: 1em;
+    color: $RED_BADGE_TOP;
+    font-weight: 400;
+  }
+}

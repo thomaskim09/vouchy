@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title' [innerHTML]='restaurantName'></ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+
+<ion-content overflow-scroll='true' class='master'>
+  <reservation-status-main [main]='main'></reservation-status-main>
+  <reservation-status-detail [reservationDetails]='reservationDetails'></reservation-status-detail>
+</ion-content>
+
+<ng-container *ngIf="main">
+  <ng-container *ngIf="main.status === 'PD'">
+    <ion-footer>
+      <ion-toolbar>
+        <reservation-status-button [reservationButton]='reservationButton'></reservation-status-button>
+      </ion-toolbar>
+    </ion-footer>
+  </ng-container>
+</ng-container>

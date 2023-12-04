@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>Confirm {{type}}</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+  <ion-grid>
+    <form [formGroup]='form'>
+      <ng-container *ngIf="type === 'Others'">
+        <ion-card class="form-card">
+          <ion-row>
+            <ion-col col-2>
+              <span class="input-title">RM</span>
+            </ion-col>
+            <ion-col>
+              <ion-input class='user-input amount' type='number' formControlName='amount' placeholder='Amount'
+                [attr.maxlength]='10'>
+              </ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ng-container>
+
+      <ion-card class="form-card">
+        <ion-row>
+          <ion-col>
+            <ion-input class='user-input' type='text' formControlName='email' placeholder='Your email'
+              [attr.maxlength]='30'>
+            </ion-input>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card class="form-card content-card">
+        <ion-row>
+          <ion-col>
+            <ion-textarea class='user-textarea' type='text' formControlName='content'
+              placeholder='Any kind of request or message? We will be happy to hear from you :)' max='100'>
+            </ion-textarea>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card class="form-card">
+        <ion-row>
+          <ion-col tappable (click)='presentPaymentMethod()'>
+            <span class='tab-text'>Payment Method</span>
+            <span class='boost box' *ngIf="paymentMethod === 'BOOST'">
+              <span class='payment-box-text'>Boost</span>
+            </span>
+            <span class='tng box' *ngIf="paymentMethod === 'TNG-EWALLET'">
+              <span class='payment-box-text'>TnG</span>
+            </span>
+            <span class='fpx box' *ngIf="paymentMethod === 'fpx'">
+              <span class='payment-box-text'>FPX</span>
+            </span>
+            <ion-icon class='more-icon' name='custom-more'></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-card class="form-card">
+        <ion-row>
+          <ion-col col-1>
+            <ion-checkbox formControlName='isAnonymous'> </ion-checkbox>
+          </ion-col>
+          <ion-col><span class="checkbox-title">Hide My Identity</span></ion-col>
+        </ion-row>
+      </ion-card>
+
+      <ion-row *ngIf='!form.value.isAnonymous'>
+        <ion-col class='content'>*We will send our appreciation to you by email :)</ion-col>
+      </ion-row>
+    </form>
+
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid no-padding>
+      <ion-row class="bottom-tab" justify-content-center align-items-center>
+        <ion-col no-padding>
+          <button [ngClass]="{ 'footer-button': form.valid, 'footer-button-inactive': !form.valid }"
+            (click)="payCoffee()" [disabled]='needSpinner' ion-button no-margin>
+            <ng-container *ngIf='!needSpinner'>
+              <span class="footer-button-text">Confirm {{type}}</span>
+            </ng-container>
+            <ng-container *ngIf='needSpinner'>
+              <ion-spinner></ion-spinner>
+            </ng-container>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

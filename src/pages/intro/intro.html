@@ -1,0 +1,63 @@
+<ion-content>
+  <button class='nav-button' (click)="back()" ion-button no-padding no-margin clear>
+    <ion-icon class="back-icon" name="custom-back"></ion-icon>
+  </button>
+  <ng-container *ngIf="type === 'order'">
+    <ion-slides pager="true">
+      <ion-slide>
+        <ng-container *ngIf='!needTranslate'>
+          <img src="../../assets/imgs/order_slides/First Slide Eng-min.png" />
+        </ng-container>
+        <ng-container *ngIf='needTranslate'>
+          <img src="../../assets/imgs/order_slides/First Slide Chi-min.png" />
+        </ng-container>
+        <button ion-button (click)='processTranslate(!needTranslate)' class='left-button'>
+          <span class='button-text'>{{needTranslate ? 'Eng': '中文'}}</span>
+        </button>
+      </ion-slide>
+
+      <ion-slide>
+        <ng-container *ngIf='!needTranslate'>
+          <img src="../../assets/imgs/order_slides/Second Slide Eng-min.png" />
+        </ng-container>
+        <ng-container *ngIf='needTranslate'>
+          <img src="../../assets/imgs/order_slides/Second Slide Chi-min.png" />
+        </ng-container>
+      </ion-slide>
+
+      <ion-slide (click)='exitIntro()'>
+        <ng-container *ngIf='!needTranslate'>
+          <img src="../../assets/imgs/order_slides/Third Slides Eng-min.png" />
+        </ng-container>
+        <ng-container *ngIf='needTranslate'>
+          <img src="../../assets/imgs/order_slides/Third Slides Chi-min.png" />
+        </ng-container>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'home'">
+    <ion-slides pager="true">
+      <ion-slide>
+        <ng-container *ngIf='!needTranslate'>
+          <img src="../../assets/imgs/home_slides/First Slide Eng-min.png" />
+        </ng-container>
+        <ng-container *ngIf='needTranslate'>
+          <img src="../../assets/imgs/home_slides/First Slide Chi-min.png" />
+        </ng-container>
+        <button ion-button (click)='processTranslate(!needTranslate)' class='left-button'>
+          <span class='button-text'>{{needTranslate ? 'Eng': '中文'}}</span>
+        </button>
+      </ion-slide>
+
+      <ion-slide (click)='exitHomeIntro()'>
+        <ng-container *ngIf='!needTranslate'>
+          <img src="../../assets/imgs/home_slides/Second Slide Eng-min.png" />
+        </ng-container>
+        <ng-container *ngIf='needTranslate'>
+          <img src="../../assets/imgs/home_slides/Second Slide Chi-min.png" />
+        </ng-container>
+      </ion-slide>
+    </ion-slides>
+  </ng-container>
+</ion-content>

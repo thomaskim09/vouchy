@@ -1,0 +1,97 @@
+<ng-container *ngIf="resvou">
+  <ng-container *ngIf='resvou.length !== 0'>
+    <ion-card class="card">
+      <ng-container *ngFor="let voucher of resvou; let i = index">
+        <ng-container *ngIf="itemOpened ? i < 6 : i < 3">
+          <ion-row tappable (click)="goToVoucher(i)">
+            <ion-col class="left-content">
+              <span class="image-box">
+                <img class="voucher-image" [src]="voucher.details.voucherImage" />
+              </span>
+            </ion-col>
+            <ion-col class="right-content">
+              <ion-row>
+                <ion-col class="primary" [innerHTML]='voucher.details.voucherName' no-padding></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="quantity-sold tertiary" no-padding>
+                  <ng-container *ngIf='voucher.details.quantitySold > 0'>
+                    {{ voucher.details.quantitySold }} Sold
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+              <ion-row class="bottom-row">
+                <ion-col class="price-content" no-padding col-8>
+                  <span class="currency">RM</span>
+                  <span class="new-price">{{ voucher.details.newPrice }}</span>
+                  <span class="base-price">RM{{ voucher.details.basePrice }}</span>
+                </ion-col>
+                <ion-col>
+                  <ng-container *ngIf="voucher.status === 'SO'">
+                    <span class="status-text">Sold Out</span>
+                  </ng-container>
+                  <ng-container *ngIf="voucher.status === 'OP' || voucher.status === 'WG'">
+                    <button [ngClass]="{'get-button': voucher.status === 'OP', 'count-button': voucher.status === 'WG'}"
+                      (click)="goToVoucher(i)" [disabled]='needSpinner' ion-button no-margin>
+                      <span class="get-button-text">{{ checkStatus(voucher.status) }}</span>
+                    </button>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+          <ng-container *ngIf="checkIfLine(i, resvou.length)">
+            <ion-row>
+              <ion-col class="line" no-padding></ion-col>
+            </ion-row>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf='resvou.length > 3'>
+        <ion-row>
+          <ion-col tappable class="show-more-box" (click)="toggleSection()" text-center no-padding>
+            <span *ngIf="!itemOpened" class="show-more">
+              {{resvou.length - 3}} more vouchers
+              <ion-icon class="caret-icon-down" name="custom-caret-down"></ion-icon>
+            </span>
+            <span *ngIf="itemOpened" class="show-more">
+              hide
+              <ion-icon class="caret-icon-down" name="custom-caret"></ion-icon>
+            </span>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-card>
+  </ng-container>
+</ng-container>
+
+<ng-container *ngIf="!resvou">
+  <ion-card class="skeleton-card">
+    <div class="card-content" *ngFor="let voucher of skeletonArray; let i=index">
+      <ion-row>
+        <ion-col class="left-content">
+          <span class="image-box">
+            <div class="skeleton-voucher-image"></div>
+          </span>
+        </ion-col>
+        <ion-col class="skeleton-right-content">
+          <ion-row>
+            <ion-col class="skeleton-primary skeleton" no-padding></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="skeleton-secondary tertiary skeleton" no-padding></ion-col>
+          </ion-row>
+          <ion-row class="bottom-row">
+            <ion-col class="skeleton-price-content skeleton" no-padding col-7> </ion-col>
+            <ion-col class="skeleton-button"> </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ng-container *ngIf="i !== skeletonArray.length-1">
+        <ion-row>
+          <ion-col class="skeleton-line" no-padding></ion-col>
+        </ion-row>
+      </ng-container>
+    </div>
+  </ion-card>
+</ng-container>

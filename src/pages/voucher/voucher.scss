@@ -1,0 +1,125 @@
+page-voucher {
+
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .left-button {
+    right: 5.5em;
+    position: absolute;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .middle-button {
+    right: 2.9em;
+    position: absolute;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .right-button {
+    right: 0.5em;
+    position: absolute;
+    top: -1.3em;
+    width: 2.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .nav-icon-highlight {
+    font-size: 1.5em;
+    color: $GRADIENT_TOP;
+  }
+
+  .titleSlidesBackground {
+    background-color: white;
+    min-height: 4em;
+    max-height: 4em;
+    width: 100%
+  }
+
+  .titleSlides {
+    padding-left: 2.2em;
+    padding-top: 0.5em;
+    min-height: 4em;
+    max-height: 4em;
+    width: 100%
+  }
+
+  .selected {
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .text,
+  .text-md {
+    font-weight: 400 !important;
+    font-size: 1.1em;
+  }
+
+  .super-tab {
+    background-color: white;
+    border-top: 1px solid $GREY_BORDER_LINE;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+    height: 100%;
+    width: 100%;
+    @include card-no-shadow();
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+  }
+
+  super-tabs-toolbar>ion-toolbar.toolbar.scroll-tabs .tab-buttons-container .tab-buttons super-tab-button {
+    min-width: auto;
+    overflow-y: auto;
+  }
+
+  super-tabs-toolbar>ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
+    text-transform: none;
+  }
+
+  .tab {
+    display: inline-block;
+    min-width: 9em;
+    width: auto;
+  }
+
+  .scroll-content {
+    height: auto;
+  }
+
+  .space {
+    height: 5em;
+  }
+
+}

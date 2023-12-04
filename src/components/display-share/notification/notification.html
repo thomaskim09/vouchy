@@ -1,0 +1,24 @@
+<ng-container *ngIf="notifications">
+  <ng-container *ngFor='let item of notifications'>
+    <ion-grid class='card-grid'>
+      <ion-card class='notification-card'>
+        <ion-row>
+          <ion-col class='left-content'>
+            <div class="image-box" [ngStyle]="{'background-color': item.bgColor}">
+              <span class="image-text">{{item.char}}</span>
+            </div>
+          </ion-col>
+          <ion-col class='right-content'>
+            <ion-row>
+              <ion-col class='title' [innerHTML]='item.title' col-10></ion-col>
+              <ion-col class='time'>{{item.time}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class='text-content' [innerHTML]='item.body'></ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+  </ng-container>
+</ng-container>

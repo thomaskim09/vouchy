@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-label class='header-title'>Check Reservation</ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content overflow-scroll='true' class='master'>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ng-container *ngIf="requests">
+    <ng-container *ngFor='let item of requests'>
+      <ion-grid class='card-grid'>
+        <ion-card tappable class='request-card' (click)='goToReservationStatus(item)'>
+          <ion-row>
+            <ion-col class='left-content'>
+              <div class="status-box" [ngStyle]="{'background-color': item.bgColor}">
+                <ng-container *ngIf="item.status === 'PD'">
+                  <ion-icon class="pending-text" name='custom-pending'></ion-icon>
+                </ng-container>
+                <ng-container *ngIf="item.status === 'AC'">
+                  <ion-icon class="tick-text" name='custom-tick-thicker'></ion-icon>
+                </ng-container>
+                <ng-container *ngIf="item.status === 'RJ'">
+                  <ion-icon class="cross-text" name='custom-cross'></ion-icon>
+                </ng-container>
+                <ng-container *ngIf="item.status === 'CC'">
+                  <ion-icon class="cancel-text" name='custom-cancel'></ion-icon>
+                </ng-container>
+                <ng-container *ngIf="item.status === 'CT'">
+                  <ion-icon class="ticket-cancel-text" name='custom-ticket-cancel'></ion-icon>
+                </ng-container>
+                <ng-container *ngIf="item.status === 'CL'">
+                  <ion-icon class="ticket-claim-text" name='custom-ticket-claim'></ion-icon>
+                </ng-container>
+              </div>
+            </ion-col>
+            <ion-col class='right-content' col-11>
+              <ion-row>
+                <ion-col class='title' [innerHTML]='item.restaurantName' col-10></ion-col>
+                <ion-col class='time'>{{item.time}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class='text-content'>
+                  {{item.body}}
+                  <ion-icon class='more-icon' name='custom-more'></ion-icon>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-grid>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf='!requests.length'>
+    <span class='image-box'>
+      <img src="../../assets/imgs/no-request.png" class='center-image'>
+    </span>
+  </ng-container>
+
+  <ion-infinite-scroll [enabled]="needInfiniteScroll" (ionInfinite)="loadMore($event)" loadingSpinner="bubbles">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

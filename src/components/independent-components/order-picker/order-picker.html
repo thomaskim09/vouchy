@@ -1,0 +1,30 @@
+<ion-card class='picker-card'>
+  <ng-container *ngIf="orderParams.orderMode !== 'onlyTakeAway'">
+    <ion-row>
+      <ion-col>
+        <button clear ion-button full no-padding class="button1" (click)="openScanner()">
+          <ion-icon class="first-icon" name="custom-dine-in"></ion-icon>
+          <span class="first-title">Dine In</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+  <ng-container *ngIf="orderParams.orderMode !== 'onlyDineIn'">
+    <ion-row>
+      <ion-col
+        [ngClass]="{ 'item-line': orderParams.orderMode === 'all', 'item-line-none': orderParams.orderMode !== 'all' }">
+        <button clear ion-button full no-padding class="button2" (click)="openTakeAway()">
+          <ion-icon class="second-icon" name="custom-t-a-line"></ion-icon>
+          <span class="second-title">Take Away</span>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+  <ion-row>
+    <ion-col class='hint'>
+      <span>Payment is made at restaurant</span>
+    </ion-col>
+  </ion-row>
+</ion-card>
+
+<div tappable class="dark-background" (click)="close()"></div>

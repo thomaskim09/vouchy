@@ -1,0 +1,100 @@
+restaurant-card {
+
+  .card {
+    width: 85%;
+    margin: 2em 0 1em 9%;
+    padding: 0.7em 1em 0.1em 1em;
+    background-color: white;
+    border-radius: 0.5em;
+    position: relative;
+    overflow: visible;
+    @include card-no-shadow();
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .tertiary {
+    font-size: 1em;
+    font-weight: 200;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .highlight {
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .left-restaurant-content {
+    position: absolute;
+  }
+
+  .restaurant-image {
+    position: absolute;
+    left: -2em;
+    top: -1.5em;
+    min-width: 6em;
+    min-height: 6em;
+    max-width: 6em;
+    max-height: 6em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    @include my-img-shadow();
+  }
+
+  .right-restaurant-content {
+    padding: 0em 0.6em 1em 5em;
+    height: 5.4em;
+  }
+
+  .restaurant-name {
+    padding-bottom: 0.1em;
+    padding-left: 0.1em;
+    height: 2.4em;
+    @include text-truncate-line(2);
+  }
+
+  .rating-icon {
+    font-size: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.1em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .rating-value {
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+  }
+
+  .rating-col {
+    @include text-truncate-line(1);
+  }
+
+  .rating-icon-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    font-size: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.1em;
+  }
+
+  .rating-value-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+  }
+
+  .close-col {
+    position: relative;
+    top: 0.7em;
+  }
+
+  .restaurant-type {
+    text-align: right;
+    padding-top: 0.3em;
+  }
+}

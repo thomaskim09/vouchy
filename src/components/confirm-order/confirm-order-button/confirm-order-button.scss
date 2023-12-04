@@ -1,0 +1,109 @@
+confirm-order-button {
+
+  .container {
+    z-index: 5;
+    position: fixed;
+    bottom: 3.3em;
+  }
+
+  .tab {
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .icon-caret {
+    font-size: 1.6em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .icon-caret--up {
+    margin: 0.3em 0 0.8em 0;
+  }
+
+  .icon-caret--down {
+    margin: 0.3em 0;
+  }
+
+  // Overriding
+  .item-block {
+    min-height: 0 !important;
+  }
+
+  .list-md .item-block .item-inner {
+    border-bottom: none !important;
+  }
+
+  ion-label {
+    margin: 0.09em !important;
+  }
+
+  .order-info {
+    padding-bottom: 1em;
+  }
+
+  .sub-item {
+    color: $GREY_TEXT_WHITE_DARKER;
+    font-size: 1.05em;
+    font-weight: 200;
+  }
+
+  .sub-item__price {
+    position: absolute;
+    right: 1.2em;
+    text-align: right;
+  }
+
+  .main-item {
+    font-weight: 400;
+    font-size: 1.05em;
+    font-weight: 400;
+  }
+
+  .bottom-tab {
+    background-color: white;
+    min-height: 4.4em;
+    max-height: 4.4em;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .cross-icon {
+    color: $GREY_ICON_WHITE;
+    position: relative;
+    left: 17%;
+    top: 30%;
+  }
+
+  .btn {
+    border-radius: 15em;
+    margin-bottom: 0.2em;
+    margin-left: 2.5%;
+    height: 3.3em;
+    width: 94%;
+  }
+
+  .btn--normal {
+    @include my-img-shadow-blur();
+  }
+
+  .btn--disabled {
+    background-color: $GREY_GRAB_BUTTON;
+    @include my-custom-shadow($GREY_TEXT_WHITE);
+  }
+
+  .btn--secondary {
+    background-color: $DINE_IN_ORANGE_TOP;
+    @include my-custom-shadow($DINE_IN_ORANGE_BOTTOM);
+  }
+
+  .btn__text {
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 1em 0.7em 1.1em 0.7em;
+    text-transform: capitalize;
+  }
+
+}

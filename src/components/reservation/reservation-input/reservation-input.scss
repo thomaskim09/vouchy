@@ -1,0 +1,76 @@
+reservation-input {
+
+  .input-card {
+    @include card-no-shadow();
+    border-radius: 0.5em;
+    margin: 0 auto;
+    padding: 1em;
+  }
+
+  .input-text {
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+    font-size: 1.3em;
+    padding-top: 0;
+    padding-left: 2.5em;
+    height: 2.2em;
+    margin-right: 0.3em;
+  }
+
+  .datetime-placeholder {
+    position: relative;
+    top: 0.5em;
+  }
+
+  .datetime-text {
+    position: relative;
+    top: 0.5em;
+  }
+
+  .select-text {
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+    font-size: 1.15em;
+    padding-top: 0.2em;
+    padding-left: 1.5em;
+    height: 2.5em;
+    margin-right: 0.3em;
+    min-width: 100%;
+  }
+
+  .select-icon {
+    right: 1.8em;
+    top: 0.45em;
+  }
+
+  .text-input {
+    margin-top: 0.5em;
+  }
+
+  .icon-group {
+    font-size: 1.6em;
+    position: absolute;
+    bottom: 0.7em;
+    color: $GREY_ICON_WHITE_DARKER;
+    margin-left: 0.4em;
+  }
+
+  // Skeleton Screen
+  .skeleton {
+    border-radius: 0.2em;
+    background-color: $GREY_SKELETON;
+    @include animated-background();
+  }
+
+  .skeleton-input-card {
+    @include card-no-shadow();
+    border-radius: 0.5em;
+    margin: 0 auto;
+    padding: 1em;
+    height: 14em;
+  }
+
+  .skeleton-half {
+    height: 2.4em;
+    margin: 0.4em;
+  }
+
+}

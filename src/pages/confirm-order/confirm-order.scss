@@ -1,0 +1,115 @@
+page-confirm-order {
+
+  * {
+    @include my-font();
+  }
+
+  .header-md::after {
+    background-image: none !important;
+  }
+
+  .nav {
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .back-col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .back-icon {
+    width: 1.5em;
+  }
+
+  .nav-icon {
+    font-size: 1.5em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .header-title {
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  // table card
+  .table-card {
+    border-radius: 0.5em;
+    margin: 0.3em auto;
+    height: 2.8em;
+    @include card-no-shadow();
+  }
+
+  .checkBox {
+    position: relative;
+    left: 0.7em;
+  }
+
+  .toggle-text {
+    position: relative;
+    top: -0.2em;
+    right: 0.45em;
+  }
+
+  .collect-row {
+    padding: 0.45em 0.7em;
+  }
+
+  .collect-icon {
+    position: absolute;
+    right: 0.5em;
+    color: $GRADIENT_TOP;
+  }
+
+  .collect-input {
+    padding: 0;
+    text-align: right;
+  }
+
+  .checkbox-md .checkbox-icon {
+    border-color: $GREY_ICON_WHITE;
+    border-radius: 1em;
+    width: 1.5em;
+    height: 1.5em;
+    position: relative;
+    top: 0.2em;
+    right: 0.8em;
+  }
+
+  .checkbox-md .checkbox-checked {
+    border-color: $GRADIENT_TOP;
+  }
+
+  .checkbox-md .checkbox-checked .checkbox-inner {
+    left: 6px;
+    top: 2px;
+  }
+
+  .table-no {
+    text-align: right;
+  }
+
+  .highlight {
+    color: $GRADIENT_TOP;
+    font-weight: 400;
+  }
+
+  .datetime-placeholder {
+    color: $GRADIENT_TOP !important;
+    font-weight: 400;
+  }
+
+  .space {
+    height: 13em;
+  }
+
+  confirm-order-button {
+    z-index: 5;
+  }
+
+}

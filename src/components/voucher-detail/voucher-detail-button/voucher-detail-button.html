@@ -1,0 +1,18 @@
+<ng-container *ngIf='input'>
+  <ion-grid class="bottom-tab" no-padding>
+    <ion-row class="tab-row" justify-content-center align-items-center>
+      <ion-col class="price-content" no-padding>
+        <span class="currency">RM</span>
+        <span class="new-price">{{ input.newPrice }}</span>
+        <span class="base-price">RM{{ input.basePrice }}</span>
+        <ng-container *ngIf='needButton'>
+          <button [ngClass]="{'get-button': !grabMode, 'grab-button': grabMode }" (click)="goToConfirmVoucher()"
+            [disabled]='needSpinner' ion-button no-margin>
+            <span *ngIf="!grabMode" class="get-button-text">Get</span>
+            <span *ngIf="grabMode" class="grab-time-text">{{ grabTimeTitle }}</span>
+          </button>
+        </ng-container>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ng-container>

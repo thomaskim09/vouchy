@@ -1,0 +1,237 @@
+restaurant-detail-voucher {
+
+  .card {
+    width: 85%;
+    float: right;
+    margin-right: 1.5em;
+    border-radius: 0.5em;
+    padding-top: 0.9em;
+    margin-top: 0.2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    z-index: 1;
+    overflow: visible;
+    @include card-no-shadow();
+  }
+
+  .image-box {
+    position: absolute;
+    left: -2em;
+    height: 5.7em;
+    width: 5.7em;
+  }
+
+  .voucher-image {
+    width: 5.7em;
+    height: 5.7em;
+    object-fit: cover;
+    border-radius: 0.5em;
+    @include my-img-shadow();
+  }
+
+  .left-content {
+    padding-top: 0em;
+    max-width: 4em;
+  }
+
+  .right-content {
+    padding-top: 0em;
+    padding-bottom: 0em;
+  }
+
+  .bottom-row {
+    padding-top: 0.3em;
+  }
+
+  .price-content {
+    padding-left: 0.3em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+  .primary {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.2em;
+    padding-left: 0.2em;
+    @include text-truncate-line(1);
+  }
+
+  .tertiary {
+    color: $GREY_TEXT_WHITE;
+    font-size: 0.9em;
+    height: 1em;
+  }
+
+  .quantity-sold {
+    padding-left: 0.3em;
+  }
+
+  .currency {
+    padding-top: 1.5em;
+    text-align: right;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .new-price {
+    font-size: 2.2em;
+    padding-top: 0.2em;
+    padding-right: 0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .base-price {
+    padding-top: 1.5em;
+    color: $GREY_TEXT_WHITE;
+    text-decoration: line-through;
+    font-size: 0.9em;
+  }
+
+  .status-text {
+    text-align: right;
+    position: absolute;
+    bottom: 0.75em;
+    right: 0.75em;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .get-button {
+    position: absolute;
+    right: 0em;
+    border-radius: 15em;
+    height: 2.3em;
+    bottom: 0.7em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    @include my-img-shadow-blur();
+  }
+
+  .count-button {
+    position: absolute;
+    right: 0em;
+    border-radius: 15em;
+    height: 2.3em;
+    bottom: 0.7em;
+    background-color: $GREY_GRAB_BUTTON;
+    @include my-custom-shadow($GREY_TEXT_WHITE);
+  }
+
+  .get-button-text {
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    text-transform: capitalize;
+  }
+
+  .line {
+    border-bottom: 1px solid $GREY_LINE_GREY;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    margin-bottom: 0.9em;
+  }
+
+  .show-more-box {
+    position: relative;
+    bottom: 0.6em;
+  }
+
+  .caret-icon-down {
+    position: relative;
+    bottom: -0.2em;
+    right: -0.2em;
+    font-size: 1em;
+    transform: rotate(0deg);
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .show-more {
+    padding-right: 1.5em;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  // Skeleton Screen
+  .skeleton {
+    border-radius: 0.2em;
+    background-color: $GREY_SKELETON;
+    @include animated-background();
+  }
+
+  .skeleton-card {
+    width: 85%;
+    float: right;
+    height: 22.5em;
+    border-radius: 0.5em;
+    margin-right: 1.5em;
+    margin-top: 0.2em;
+    padding-top: 0.75em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    z-index: 1;
+    @include card-no-shadow();
+  }
+
+  .skeleton-voucher-image {
+    width: 5.7em;
+    height: 5.7em;
+    border-radius: 0.5em;
+    @include my-custom-shadow($GREY_SKELETON_SHADOW);
+    @include animated-background();
+  }
+
+  .skeleton-right-content {
+    height: 6.5em;
+    padding-top: 0em;
+    padding-left: 0.5em;
+  }
+
+  .skeleton-primary {
+    position: relative;
+    top: 0.25em;
+    padding-right: 0.4em;
+    margin-bottom: 0.2em;
+    height: 1.1em;
+    max-width: 12em;
+  }
+
+  .skeleton-secondary {
+    position: relative;
+    top: 0.35em;
+    padding-right: 0.4em;
+    margin-bottom: 0.2em;
+    height: 1.1em;
+    max-width: 7em;
+  }
+
+  .skeleton-price-content {
+    height: 2em;
+    max-width: 6em;
+    margin-top: 0.1em;
+    margin-bottom: 0.2em;
+    position: relative;
+    top: 0.9em;
+  }
+
+  .skeleton-button {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.8em;
+    height: 2em;
+    max-width: 4em;
+    border-radius: 5em;
+    @include my-custom-shadow($GREY_SKELETON_SHADOW);
+    @include animated-background();
+  }
+
+  .skeleton-line {
+    position: relative;
+    top: 0.2em;
+    border-bottom: 1px solid $GREY_LINE_GREY;
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+    margin-bottom: 1em;
+  }
+}

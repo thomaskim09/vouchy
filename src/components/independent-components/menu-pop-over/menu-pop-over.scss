@@ -1,0 +1,64 @@
+menu-pop-over {
+
+  .grid {
+    width: 13em !important;
+    padding: 0.2em 0.6em 0.1em 0.6em !important;
+  }
+
+  ion-grid {
+    position: absolute;
+    top: 2.8em;
+    right: 1em;
+    background-color: white;
+    border-radius: 0.5em;
+    border: 1px solid $GREY_BORDER_LINE;
+  }
+
+  ion-list {
+    margin: 0 !important;
+  }
+
+  ion-item {
+    padding-left: 0 !important;
+  }
+
+  ion-icon {
+    font-size: 1.5em;
+    position: relative;
+    top: 0.1em;
+    left: 0.2em;
+  }
+
+  .item-text {
+    font-weight: 200;
+    position: relative;
+    left: 0.8em;
+    bottom: 0.2em;
+  }
+
+  .notification-badge {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 4em;
+    position: absolute;
+    right: 7.4em;
+    top: 0.4em;
+    @include my-gradient($RED_BADGE_TOP, $RED_BADGE_BOTTOM);
+    @include my-custom-shadow-blur($RED_BADGE_SHADOW);
+  }
+
+  ion-label {
+    margin: 0 !important;
+  }
+
+  .popover-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    @media(min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+}

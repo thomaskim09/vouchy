@@ -1,0 +1,81 @@
+voucher-detail-button {
+
+  .bottom-tab {
+    background-color: white;
+    min-height: 4em;
+    position: relative;
+    padding-top: 0.25em !important;
+    box-shadow: none;
+    z-index: 5;
+  }
+
+  .tab-row {
+    height: 100%;
+  }
+
+  .price-content {
+    margin-left: 1.9em;
+  }
+
+  .currency {
+    position: relative;
+    left: -0.1em;
+    bottom: -0.1em;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .new-price {
+    position: relative;
+    bottom: -0.05em;
+    font-size: 2.8em;
+    text-align: left;
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .base-price {
+    position: relative;
+    bottom: -0.1em;
+    margin-left: 0.2em;
+    color: $GREY_TEXT_WHITE;
+    text-decoration: line-through;
+    font-size: 1.2em;
+  }
+
+  .get-button {
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+    height: 3em;
+    border-radius: 15em;
+    margin-right: 1em;
+    @include my-img-shadow-blur();
+  }
+
+  .get-button-text {
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 1em 0.7em 1em 0.7em;
+    text-transform: capitalize;
+  }
+
+  .grab-button {
+    position: absolute;
+    bottom: 0em;
+    right: 1em;
+    height: 3.15em;
+    border-radius: 15em;
+    min-width: 9em;
+    background-color: $GREY_GRAB_BUTTON;
+    @include my-custom-shadow($GREY_TEXT_WHITE);
+  }
+
+  .grab-time-text {
+    font-size: 1.8em;
+    font-weight: 400;
+    padding: 1em 0.4em 1em 0.4em;
+    text-transform: capitalize;
+  }
+
+}

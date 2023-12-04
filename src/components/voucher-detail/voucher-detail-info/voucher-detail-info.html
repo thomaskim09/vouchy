@@ -1,0 +1,51 @@
+<ng-container *ngIf='input'>
+  <ng-container *ngIf='input.limitedQuantityPerUser'>
+    <ion-grid class='grid-padding'>
+      <ion-card class='infoCard'>
+        <ion-row>
+          <ion-col>
+            <ion-row>
+              <ion-col class='info-title'>Information</ion-col>
+            </ion-row>
+            <ul class='list' no-padding no-margin>
+              <ion-row class='content-row' no-padding>
+                <ion-col no-padding>
+                  <ng-container *ngIf='input.limitedQuantity'>
+                    <li class='info-text'>
+                      <span>Left </span>
+                      <span class='bold-text'>{{ quantityLeft }}</span>
+                      <span class='bold-text'> voucher</span><span class='bold-text' *ngIf='quantityLeft > 1'>s</span>
+                    </li>
+                  </ng-container>
+
+                  <ng-container *ngIf='input.limitedQuantityPerUser'>
+                    <li class='info-text'>
+                      <span>Each user can only purchase </span>
+                      <span class='bold-text'>{{ input.limitedQuantityPerUser }}</span>
+                      <span class='bold-text'> voucher</span><span class='bold-text'
+                        *ngIf='input.limitedQuantityPerUser > 1'>s</span>
+                    </li>
+                    <ng-container *ngIf='input.userPurchaseHistory'>
+                      <li class='info-text'>
+                        <span>You have purchased </span>
+                        <span class='bold-text'>{{ input.userPurchaseHistory[0].quantityPurchased }}</span>
+                        <span class='bold-text'> voucher</span><span class='bold-text'
+                          *ngIf='input.userPurchaseHistory[0].quantityPurchased > 1'>s</span>
+                      </li>
+                      <li>
+                        <span class='info-text'>Still can purchase</span>
+                        <span class='bold-text'>{{ stillCanPurchase }}</span>
+                        <span class='bold-text'> more voucher</span><span class='bold-text'
+                          *ngIf='stillCanPurchase > 1'>s</span>
+                      </li>
+                    </ng-container>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ul>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-grid>
+  </ng-container>
+</ng-container>

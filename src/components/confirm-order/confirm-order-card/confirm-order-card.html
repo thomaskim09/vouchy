@@ -1,0 +1,59 @@
+<ion-row *ngFor='let order of orderContent.foodItemList; let i=index'>
+  <ion-col no-padding>
+    <ion-card class='order-card'>
+      <ion-row>
+        <ng-container *ngIf='menuSet.td.hasTakeAway && orderSet.isDineIn'>
+          <ion-col class='toggle-col' col-2 no-padding>
+            <div class='checkBox'>
+              <ion-checkbox [(ngModel)]="order.needTakeAway" (click)='toggleTakeAway(i, order.needTakeAway)'>
+              </ion-checkbox>
+            </div>
+          </ion-col>
+        </ng-container>
+        <ion-col class='left-content' tappable (click)='presentRemark(order)' col-4>
+          <ion-row>
+            <ion-col class='image-col' no-padding>
+              <img class='image' [src]='order.itemImage'>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class='right-content' tappable (click)='presentRemark(order)'>
+          <ion-row>
+            <ion-col class='primary' no-padding item-text-wrap>
+              {{needTranslate ? order.itemNameTranslated : order.itemName}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class='tertiary' no-padding>{{needTranslate ? order.foodRemarkTranslated : order.foodRemark}}
+            </ion-col>
+          </ion-row>
+          <ion-row class='bottom-row'>
+            <ion-col class='price-content' no-padding col-6>
+              <span class='currency'>RM</span>
+              <span class='price'>{{order.unitPrice}}</span>
+            </ion-col>
+            <ion-col class='control-box' no-padding>
+              <ion-row>
+                <ion-col class='subtract-box' text-center no-padding>
+                  <button ion-button clear no-padding no-margin (click)='subtractQuantity(i)'>
+                    <ng-container *ngIf='order.quantity > 1'>
+                      <ion-icon class='subtract-text' name='custom-minus-thin'></ion-icon>
+                    </ng-container>
+                    <ng-container *ngIf='order.quantity === 1'>
+                      <ion-icon class='delete-icon' name='custom-delete'></ion-icon>
+                    </ng-container>
+                  </button>
+                </ion-col>
+                <ion-col class='quantity-box' text-center no-padding>{{order.quantity}}</ion-col>
+                <ion-col class='add-box' text-center no-padding>
+                  <button (click)='addQuantity(i)' ion-button clear no-padding no-margin>
+                    <ion-icon class='add-text' name='custom-plus-thin'></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ion-col>
+</ion-row>

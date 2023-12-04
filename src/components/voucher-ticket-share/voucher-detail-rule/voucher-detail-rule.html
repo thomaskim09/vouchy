@@ -1,0 +1,79 @@
+<ng-container *ngIf="input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="title">Kindly Noted</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="content">
+        <ion-row>
+          <ion-col class="valid-date" col-4>Valid Date:</ion-col>
+          <ion-col class="valid-date">{{ input.validFrom }} to <span class='highlight'>{{input.validUntil}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="valid-time" col-4>Valid Time:</ion-col>
+          <ion-col class="valid-time">{{ input.startTime }} to {{ input.endTime }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="voucher-rule">Voucher Rule:</ion-col>
+        </ion-row>
+        <ul class="list" no-padding no-margin>
+          <ng-container *ngIf='ruleList.length > 0'>
+            <div *ngFor="let ruleDetail of ruleList; let i = index">
+              <ion-row class="content-row" *ngIf="itemOpened ? i < 10 : i < 1" no-padding>
+                <ion-col no-padding>
+                  <li [innerHTML]='ruleDetail'></li>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ng-container>
+          <ng-container *ngIf='ruleList.length === 0'>
+            <ion-row>
+              <ion-col>
+                <li>No rule specified</li>
+              </ion-col>
+            </ion-row>
+          </ng-container>
+        </ul>
+      </ion-col>
+    </ion-row>
+    <ng-container *ngIf='ruleList.length > 1'>
+      <ion-row>
+        <ion-col tappable (click)="toggleSection(i)" text-center no-padding>
+          <span *ngIf="!itemOpened" class="show-more">
+            show more
+            <ion-icon class="caret-icon-down" name="custom-caret-down"></ion-icon>
+          </span>
+          <span *ngIf="itemOpened" class="show-more">
+            hide
+            <ion-icon class="caret-icon-down" name="custom-caret"></ion-icon>
+          </span>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="!input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="skeleton-title"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="content">
+        <ion-row>
+          <ion-col class="skeleton-content-col"></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="skeleton-content-col"></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="skeleton-content-col2"></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="skeleton-content-col3" no-padding> </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

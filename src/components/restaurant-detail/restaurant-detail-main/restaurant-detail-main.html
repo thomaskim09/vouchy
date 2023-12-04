@@ -1,0 +1,75 @@
+<ng-container *ngIf="input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="title" [innerHTML]='input.restaurantName'></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col no-padding>
+        <ion-row class='bottom-row'>
+          <ng-container *ngIf='!input.rating'>
+            <ion-col no-padding col-5>
+              <ion-icon class='rating-icon-grey' name='custom-star-outline-thin'></ion-icon>
+              <span class='rating-value-grey'>No rated yet</span>
+            </ion-col>
+          </ng-container>
+          <ng-container *ngIf='input.rating'>
+            <ion-col no-padding col-3>
+              <span class='rating-value highlight'>{{ input.rating }}</span>
+              <ion-icon class='rating-icon' name='custom-star'></ion-icon>
+            </ion-col>
+          </ng-container>
+          <ion-col no-padding>
+            <span class="restaurant-type">
+              {{ input.restaurantType }}
+            </span>
+          </ion-col>
+        </ion-row>
+        <ion-row class="res-icon-row">
+          <ion-col tappable *ngIf="input.hasMenu && input.feature === '3'" class="restaurant-icon1"
+            (click)="presentOrderPicker()" text-center>
+            <ion-icon class="res-icon1" name="custom-menu"></ion-icon>
+          </ion-col>
+          <ion-col tappable *ngIf="input.hasReservation && input.feature === '3'" class="restaurant-icon2"
+            (click)="goToReservation()" text-center>
+            <ion-icon class="res-icon2" name="custom-reservation"></ion-icon>
+          </ion-col>
+          <ion-col class="restaurant-icon3" (click)="presentCallPicker()" text-center>
+            <ion-icon class="res-icon3" name="custom-phone"></ion-icon>
+          </ion-col>
+          <ion-col tappable class="restaurant-icon4" (click)="goToLocation()" text-center>
+            <ion-icon class="res-icon4" name="custom-location"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>
+
+<ng-container *ngIf="!input">
+  <ion-card class="card">
+    <ion-row>
+      <ion-col class="skeleton-title"></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col no-padding>
+        <ion-row>
+          <ion-col class="skeleton-rating" no-padding> </ion-col>
+        </ion-row>
+        <ion-row class="res-icon-row">
+          <ion-col *ngIf="input?.hasMenu" text-center>
+            <div class="skeleton-icon"></div>
+          </ion-col>
+          <ion-col *ngIf="input?.hasReservation" text-center>
+            <div class="skeleton-icon"></div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="skeleton-icon"></div>
+          </ion-col>
+          <ion-col text-center>
+            <div class="skeleton-icon"></div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ng-container>

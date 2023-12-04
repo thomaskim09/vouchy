@@ -1,0 +1,98 @@
+ticket-qr-main {
+
+  .qr-card {
+    margin: 2em auto 3.1em auto;
+    padding: 2.1em 2em 2.8em 2em;
+    border-radius: 0.5em;
+    width: 18em;
+    @include my-img-shadow-blur();
+  }
+
+  .qrcode-text {
+    position: relative;
+    top: 1.2em;
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .qrcode-text-up {
+    position: relative;
+    top: 0.5em;
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .left-text {
+    position: absolute;
+    top: 2.5em;
+    left: 2em;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: $GRADIENT_TOP;
+  }
+
+  .left-text1 {
+    position: absolute;
+    top: 2.5em;
+    left: 3em;
+    font-size: 1.1em;
+    font-weight: 400;
+    color: $GRADIENT_TOP;
+  }
+
+  // Expired card
+  .expired-card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    width: 90%;
+    margin-top: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
+    @include card-no-shadow();
+  }
+
+  .expired-text {
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .expired-quantity {
+    padding-top: 0.3em;
+    float: right;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-right: 0.5em;
+  }
+
+  // QR instruction card
+  .instruction-card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    width: 90%;
+    margin-top: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
+    @include card-no-shadow();
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.1em;
+  }
+
+  .content1 {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    line-height: 1.3em;
+  }
+
+  .content {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+
+}

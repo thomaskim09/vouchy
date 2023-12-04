@@ -1,0 +1,55 @@
+page-ticket-detail {
+
+  .master {
+    background-color: $GREY_BODY_BACKGROUND;
+  }
+
+  .scroll-content {
+    padding-top: 0.5em;
+    padding-bottom: 2em;
+  }
+
+  // Loading gif
+  .loading-gif {
+    width: 4em;
+    height: 4em;
+    position: absolute;
+    left: 42%;
+    top: 35%;
+  }
+
+  // Status image
+  .image-box {
+    width: 100%;
+    height: 100%;
+  }
+
+  .center-image {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .login-button {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: -1em;
+    height: 3em;
+    width: 10em;
+    border-radius: 3em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+    @include my-img-shadow-blur();
+  }
+
+  .button-text {
+    font-size: 1.4em;
+    font-weight: 400;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    color: white;
+    text-transform: capitalize;
+  }
+
+}

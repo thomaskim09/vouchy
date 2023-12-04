@@ -1,0 +1,84 @@
+<ion-grid class='container' no-padding>
+  <ion-row>
+    <ion-col class='tab'>
+      <ion-row>
+        <ion-col tappable (click)='toggleList()' text-center no-padding>
+          <ion-icon class='icon-caret icon-caret--up' name='custom-caret' *ngIf='!itemOpened'></ion-icon>
+          <ion-icon class='icon-caret icon-caret--down' name='custom-caret-down' *ngIf='itemOpened'></ion-icon>
+        </ion-col>
+      </ion-row>
+      <div *ngIf='itemOpened' class='order-info'>
+        <ion-list>
+          <ion-item>
+            <span class='sub-item'>{{needTranslate ? '总值' : 'Subtotal'}}</span>
+            <span class='sub-item sub-item__price'>RM {{subTotal}}</span>
+          </ion-item>
+          <ng-container *ngIf="packagingFee !== '0.00' || !menu.orderSettings.isDineIn">
+            <ion-item *ngIf='menuSet.td.hasTakeAway && menuSet.td.hasTakeAwayFee'>
+              <span class='sub-item'
+                *ngIf="!menuSet.td.hasTakeAwayPerPackage">{{needTranslate ? '打包费' : 'Packaging Fee'}}</span>
+              <span class='sub-item' *ngIf="menuSet.td.hasTakeAwayPerPackage">{{getPackagingFeeText()}}</span>
+              <span class='sub-item sub-item__price'>RM {{packagingFee}}</span>
+            </ion-item>
+          </ng-container>
+          <ion-item *ngIf='menuSet.td.hasServiceCharge'>
+            <span class='sub-item'>{{getServiceChargeText()}}</span>
+            <span class='sub-item sub-item__price'>RM {{serviceCharge}}</span>
+          </ion-item>
+          <ion-item *ngIf='menuSet.td.hasTax'>
+            <span class='sub-item'>{{getSSTText()}}</span>
+            <span class='sub-item sub-item__price'>RM {{taxCharge}}</span>
+          </ion-item>
+          <ion-item *ngIf="rounding.type">
+            <span class='sub-item'>{{needTranslate ? '调整' : 'Rounding Adjustment'}}</span>
+            <span class='sub-item sub-item__price'>{{rounding.type}} RM {{rounding.value}}</span>
+          </ion-item>
+          <ion-item>
+            <span class='main-item'>{{needTranslate ? '总共' : 'Total'}}</span>
+            <span class='main-item sub-item__price'>RM {{totalPrice}}</span>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class='bottom-tab' justify-content-center align-items-center>
+    <ion-col no-padding>
+      <ng-container *ngIf='!confirmClicked'>
+        <button class='btn' [ngClass]="{ 'btn--normal': canConfirm, 'btn--disabled': !canConfirm }"
+          (click)='confirmOrder()' [disabled]='needSpinner' ion-button no-margin>
+          <ng-container *ngIf='!needSpinner'>
+            <span class='btn__text'>{{needTranslate ? '确认' : 'Confirm'}}
+              <ng-container *ngIf='menuSet.cd.hasHideTotal'>
+                {{needTranslate ? '订单' : 'Order'}}
+              </ng-container>
+              <ng-container *ngIf='!menuSet.cd.hasHideTotal'>
+                RM {{totalPrice}}
+              </ng-container>
+            </span>
+          </ng-container>
+          <ng-container *ngIf='needSpinner'>
+            <ion-spinner></ion-spinner>
+          </ng-container>
+        </button>
+      </ng-container>
+      <ng-container *ngIf='confirmClicked'>
+        <ion-row>
+          <ion-col text-center col-2>
+            <ion-icon tappable class='cross-icon' (click)='cancelOrder()' name='custom-cross-thin'></ion-icon>
+          </ion-col>
+          <ion-col>
+            <button class='btn btn--secondary' (click)='recheckStatus(orderId, false, true)' [disabled]='needSpinner'
+              ion-button no-margin>
+              <ng-container *ngIf='!needSpinner'>
+                <span class='btn__text'>{{needTranslate ? '查看状态' : 'Check Response'}}</span>
+              </ng-container>
+              <ng-container *ngIf='needSpinner'>
+                <ion-spinner></ion-spinner>
+              </ng-container>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-grid class='nav'>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class='back-col' col-1>
+        <button (click)="back()" ion-button no-padding no-margin clear>
+          <ion-icon class="nav-icon back-icon" name="custom-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col>
+        <ion-input #input class='search-bar' placeholder="Search" (ngModelChange)='filterQuery($event)'
+          [(ngModel)]='searchModel' (keyup.enter)='searchBatch()' no-margin [attr.maxlength]='30'></ion-input>
+        <ion-icon class='search-bar-icon' name='custom-search'></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content overflow-scroll='true'>
+  <ng-container *ngIf='!searchModel'>
+    <ion-grid class='master'>
+      <ng-container *ngIf='historySearches.length === 0'>
+        <ng-container *ngIf='trendingSearches.length === 0'>
+          <span class='image-box'>
+            <img src="../../assets/imgs/search-anything.png" class='login-image'>
+          </span>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf='trendingSearches && trendingSearches.length'>
+        <ion-row>
+          <ion-col class='tertiary'>Recommended</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ng-container *ngFor='let item of trendingSearches'>
+              <button class='search-box' (click)='searchOne(item)' text-center no-padding no-margin clear ion-button>
+                {{item.name}}
+              </button>
+            </ng-container>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+      <ng-container *ngIf='historySearches && historySearches.length'>
+        <ion-row>
+          <ion-col class='tertiary' col-10>History</ion-col>
+          <ion-col class='trash-icon'>
+            <ion-icon tappable name='custom-trash' (click)='clearHistory()'></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ng-container *ngFor='let item of historySearches'>
+              <button class='search-box' (click)='searchOne(item)' ion-button text-center no-padding no-margin clear>
+                {{item.name}}
+              </button>
+            </ng-container>
+          </ion-col>
+        </ion-row>
+      </ng-container>
+    </ion-grid>
+  </ng-container>
+
+  <ng-container *ngIf='searchModel'>
+    <ng-container *ngIf='filteredList.length !== 0'>
+      <ion-list>
+        <ng-container *ngFor="let item of filteredList">
+          <button (click)="searchOne(item)" ion-item>
+            <ion-icon [name]='item.icon'></ion-icon>
+            <span class='item-name'>{{ item.name }}</span>
+          </button>
+        </ng-container>
+      </ion-list>
+    </ng-container>
+
+    <ng-container *ngIf='filteredList.length === 0'>
+      <ion-list>
+        <ion-item class='no-record' (click)='goToDemoRestaurant()'>No records matches</ion-item>
+      </ion-list>
+    </ng-container>
+  </ng-container>
+
+</ion-content>

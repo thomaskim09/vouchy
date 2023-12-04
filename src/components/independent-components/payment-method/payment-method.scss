@@ -1,0 +1,107 @@
+page-payment-method {
+
+  .grid {
+    width: 75% !important;
+    padding: 1.4em 1.2em !important;
+  }
+
+  .main-card {
+    border-radius: 0.5em;
+    background-color: white;
+    position: absolute;
+    height: auto;
+    margin-top: 39%;
+    margin-left: 12% !important;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  .button-icon {
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    bottom: 0.05em;
+  }
+
+  .button-icon1 {
+    color: white;
+    font-size: 2em;
+    position: relative;
+    bottom: 0.05em;
+  }
+
+  .button-icon2 {
+    color: white;
+    font-size: 1.7em;
+    position: relative;
+    bottom: 0.05em;
+    left: 0.3em;
+  }
+
+  .button-icon3 {
+    color: white;
+    font-size: 2em;
+    position: relative;
+    bottom: 0.05em;
+    left: 0.3em;
+  }
+
+  .button-text {
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-top: 1em;
+    padding-bottom: 1.1em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    text-transform: capitalize;
+  }
+
+  .btn {
+    border-radius: 15em;
+    margin-bottom: 0.5em;
+    height: 3.3em;
+    width: 100%;
+  }
+
+  .boost-button {
+    @include my-gradient($BOOST_RED_TOP, $BOOST_RED_BOTTOM);
+    @include my-custom-shadow-blur($BOOST_RED_SHADOW);
+  }
+
+  .tng-button {
+    @include my-gradient($TNG_BLUE_TOP, $TNG_BLUE_BOTTOM);
+    @include my-custom-shadow-blur($TNG_BLUE_SHADOW);
+  }
+
+  .fpx-button {
+    @include my-gradient($FPX_BLUE_TOP, $FPX_BLUE_BOTTOM);
+    @include my-custom-shadow-blur($FPX_BLUE_SHADOW);
+  }
+
+  .cash-button {
+    @include my-gradient($CASH_YELLOW_TOP, $CASH_YELLOW_BOTTOM);
+    @include my-custom-shadow-blur($CASH_YELLOW_SHADOW);
+  }
+
+  .hint {
+    font-size: 1em;
+    color: $GREY_TEXT_WHITE;
+    text-align: center;
+    font-style: italic;
+  }
+
+  .popover-background {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    @media(min-width: 766px) {
+      display: none;
+      background: none;
+    }
+  }
+
+}

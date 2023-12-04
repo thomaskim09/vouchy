@@ -1,0 +1,40 @@
+confirm-voucher-group {
+
+  .info-card {
+    border-radius: 0.5em;
+    margin: 0 auto;
+    height: auto;
+    @include card-no-shadow();
+  }
+
+  .info-box {
+    padding: 0em 0.6em;
+  }
+
+  .info-title {
+    margin-top: 0.3em;
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .list {
+    margin-top: 0.15em;
+    padding-bottom: 1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .content-row {
+    padding-left: 2.3em;
+    padding-bottom: 0.3em;
+  }
+
+  .text-bold {
+    font-weight: 400;
+  }
+
+  .text--highlighted {
+    font-weight: bold;
+    color: $GRADIENT_TOP;
+  }
+
+}

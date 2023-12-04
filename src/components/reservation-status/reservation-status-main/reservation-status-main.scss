@@ -1,0 +1,21 @@
+reservation-status-main {
+  .card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    @include card-no-shadow();
+    width: 90%;
+    margin: 0.5em auto 0.6em auto;
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  .content {
+    font-size: 1.1em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    padding-top: 0.2em;
+    line-height: 1.2em;
+  }
+}

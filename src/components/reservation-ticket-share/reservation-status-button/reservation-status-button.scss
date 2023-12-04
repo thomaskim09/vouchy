@@ -1,0 +1,45 @@
+reservation-status-button {
+
+  ion-grid {
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+  }
+
+  .bottom-tab {
+    background-color: white;
+    min-height: 4.4em;
+    max-height: 4.4em;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    border-top: 1px solid $GREY_BORDER_LINE;
+  }
+
+  .cancel-button {
+    border-radius: 15em;
+    margin-bottom: -0.4em;
+    margin-left: 2.5%;
+    height: 3.2em;
+    width: 94%;
+    border: 1px solid $GREY_BORDER_LINE;
+    background-color: white;
+  }
+
+  .cancel-buttonText {
+    color: $GREY_TEXT_WHITE;
+    font-size: 1.8em;
+    font-weight: 200;
+    padding-top: 1em;
+    padding-bottom: 1.1em;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    text-transform: capitalize;
+  }
+
+  .button-md {
+    box-shadow: none !important;
+  }
+
+}

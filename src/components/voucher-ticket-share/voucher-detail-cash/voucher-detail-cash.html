@@ -1,0 +1,39 @@
+<ng-container *ngIf="input">
+  <ng-container *ngIf="input.minimumSpend">
+    <ion-card class="card">
+      <ion-row>
+        <ion-col class="title">Claim Note</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="content">
+          <ion-row>
+            <ion-col class='content-item' no-padding>
+              <span class='highlight'>RM{{input.basePrice}} cash voucher</span> with minimum spend of <span
+                class='highlight'>RM{{input.minimumSpend}}</span>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+
+  <ng-container *ngIf="!input.minimumSpend">
+    <ion-card class="card">
+      <ion-row>
+        <ion-col class="skeleton-title"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="skeleton-content">
+          <ion-row class="content-row">
+            <ion-col class="skeleton-content-col" no-padding></ion-col>
+            <ion-col class="skeleton-content-col2" no-padding></ion-col>
+          </ion-row>
+          <ion-row class="content-row">
+            <ion-col class="skeleton-content-col" no-padding></ion-col>
+            <ion-col class="skeleton-content-col2" no-padding></ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,148 @@
+history-order-main {
+
+  .order-card {
+    margin: 2em auto 1em auto;
+    padding: 1em;
+    max-height: auto;
+    min-width: 83%;
+    max-width: 83%;
+    height: auto;
+    border-radius: 0.5em;
+    @include my-img-shadow-blur();
+  }
+
+  .top-row {
+    padding-bottom: 0.7em;
+  }
+
+  .box {
+    margin-right: 0.5em;
+    border-radius: 15em;
+    padding: 0.4em;
+    height: 2.1em;
+    width: 2.1em;
+    float: left;
+  }
+
+  .dine-in-box {
+    @include my-gradient($DINE_IN_ORANGE_TOP, $DINE_IN_ORANGE_BOTTOM);
+  }
+
+  .online-box {
+    @include my-gradient($ONLINE_LIGHT_BLUE_TOP, $ONLINE_LIGHT_BLUE_BOTTOM);
+  }
+
+  .take-away-box {
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .box-icon {
+    color: white;
+    font-size: 1.2em;
+  }
+
+  .collect-text {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: $GRADIENT_TOP;
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: lowercase;
+    text-align: center;
+  }
+
+  .table-no {
+    font-size: 1.1em;
+    color: $GREY_ICON_WHITE_DARKER;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+
+  .time {
+    font-size: 1.1em;
+    color: $GREY_ICON_WHITE_DARKER;
+    text-align: right;
+  }
+
+  .item-text {
+    font-size: 1.5em;
+    @include text-truncate();
+  }
+
+  .item-price {
+    font-size: 1.5em;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .item-sub-text {
+    font-size: 1.25em;
+    padding: 0.2em;
+    position: relative;
+    left: 17%;
+    color: $GREY_TEXT_WHITE;
+    @include text-truncate-line(2);
+  }
+
+  .item-sub-price {
+    font-size: 1.25em;
+    text-align: right;
+    padding: 0.2em;
+    padding-right: 0.05em;
+    color: $GREY_TEXT_WHITE;
+  }
+
+  // Response area
+  .second-card {
+    margin: 0em auto 9em auto;
+    padding: 1em;
+    max-height: auto;
+    height: auto;
+    min-width: 83%;
+    max-width: 83%;
+    border-radius: 0.5em;
+    @include my-img-shadow-blur();
+  }
+
+  .second-description {
+    font-weight: bold;
+    font-size: 1.15em;
+    color: $GREY_TEXT_WHITE_DARKER;
+    border-bottom: 1px solid $GREY_ICON_WHITE;
+    margin-bottom: 0.3em;
+  }
+
+  .second-text {
+    font-size: 1.15em;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .second-price {
+    font-size: 1.15em;
+    text-align: right;
+    color: $GREY_ICON_WHITE_DARKER;
+  }
+
+  .bold {
+    font-weight: bold;
+    color: $GREY_TEXT_WHITE_DARKER;
+  }
+
+  .cross {
+    color: $RED_BADGE_BOTTOM;
+    position: relative;
+    top: 0.3em;
+    left: 1em;
+  }
+
+  .tick {
+    color: $GREEN_ICON_SHADOW;
+    font-size: 1.4em;
+    position: relative;
+    top: 0.3em;
+    left: 1em;
+  }
+
+}

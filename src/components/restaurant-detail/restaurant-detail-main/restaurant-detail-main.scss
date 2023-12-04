@@ -1,0 +1,159 @@
+restaurant-detail-main {
+
+  .card {
+    border-radius: 0.5em;
+    padding: 0.8em;
+    padding-top: 0.5em;
+    padding-bottom: 0.6em;
+    width: 90%;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    @include card-no-shadow();
+  }
+
+  .title {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding-bottom: 0.1em;
+  }
+
+  .bottom-row {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 0.1em;
+  }
+
+  .highlight {
+    font-weight: 500;
+    color: $GRADIENT_BOTTOM;
+  }
+
+  .rating-icon {
+    font-size: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.4em;
+    @include my-gradient($GRADIENT_TOP, $GRADIENT_BOTTOM);
+  }
+
+  .rating-value {
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+  }
+
+  .rating-icon-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    font-size: 1em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: 0.3em;
+  }
+
+  .rating-value-grey {
+    color: $GREY_TEXT_WHITE_DARKER;
+    position: relative;
+    top: -0.35em;
+    left: 0.3em;
+  }
+
+  .restaurant-type {
+    color: $GREY_TEXT_WHITE_DARKER;
+    font-size: 1em;
+    text-align: right;
+    position: relative;
+    top: 0.24em;
+  }
+
+  res-icon-row {
+    border-top: 1px solid $GREY_BORDER_LINE;
+    margin-top: 0.5em;
+  }
+
+  .restaurant-icon1 {
+    border-top: 1px solid $GREY_BORDER_LINE;
+    border-right: 1px solid $GREY_BORDER_LINE;
+    padding-top: 0.55em;
+    padding-bottom: 0em;
+  }
+
+  .restaurant-icon2 {
+    border-top: 1px solid $GREY_BORDER_LINE;
+    border-right: 1px solid $GREY_BORDER_LINE;
+    padding-top: 0.7em;
+    padding-bottom: 0em;
+  }
+
+  .restaurant-icon3 {
+    border-top: 1px solid $GREY_BORDER_LINE;
+    border-right: 1px solid $GREY_BORDER_LINE;
+    padding-top: 0.7em;
+    padding-bottom: 0em;
+  }
+
+  .restaurant-icon4 {
+    border-top: 1px solid $GREY_BORDER_LINE;
+    padding-top: 0.7em;
+    padding-bottom: 0em;
+  }
+
+  .res-icon1 {
+    color: $ORANGE_ICON;
+    font-size: 2.6em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .res-icon2 {
+    color: $YELLOW_ICON;
+    font-size: 2.15em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .res-icon3 {
+    color: $GREEN_ICON;
+    font-size: 2em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .res-icon4 {
+    color: $BLUE_ICON;
+    font-size: 2.1em;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  //Skeleton Screen////////////////////////////////////////////////////
+
+  .skeleton {
+    border-radius: 0.2em;
+    background-color: $GREY_SKELETON;
+    @include animated-background();
+  }
+
+  .skeleton-title {
+    margin-top: 0.3em;
+    margin-left: 0.3em;
+    margin-bottom: 0.3em;
+    height: 1.3em;
+    max-width: 12em;
+  }
+
+  .skeleton-rating {
+    margin-left: 0.3em;
+    height: 1.2em;
+    max-width: 6em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+
+  .skeleton-icon {
+    position: relative;
+    left: 30%;
+    height: 2.5em;
+    max-width: 2.5em;
+  }
+}
