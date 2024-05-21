@@ -1,4 +1,4 @@
-# All-in-One F&B Platform
+# Vouchy - All-in-One F&B Platform
 
 Welcome to my all-in-one F&B platform repository! This project brings together vouchers, table reservations, and food ordering functionalities into a single, seamless platform.
 
